@@ -3,25 +3,25 @@ class LineChart extends Component {
   getMinX() {
       const {data} = this.props
       const only_x = data.map(obj => obj.x)
-      const min_x = Math.min.apply(null, only_x)
+      const min_x = Math.min.apply(null, only_x)/1.05
       return min_x
   }
   getMinY() {
       const { data } = this.props
       const  only_y = data.map(obj => obj.y)
-      const min_y = Math.min.apply(null, only_y)
+      const min_y = Math.min.apply(null, only_y)/1.05
       return min_y
   }
   getMaxX() {
       const {data} = this.props
       const  only_x = data.map(obj => obj.x)
-      const max_x = Math.max.apply(null, only_x)
+      const max_x = Math.max.apply(null, only_x)*1.05
       return max_x
   }
   getMaxY() {
       const { data } = this.props
       const  only_y = data.map(obj => obj.y)
-      const max_y = Math.max.apply(null, only_y)
+      const max_y = Math.max.apply(null, only_y)*1.05
       return max_y
   }
   getSvgX(x) {
@@ -40,7 +40,7 @@ class LineChart extends Component {
       pathD += data.map((point, i) => {
         return ` L ${this.getSvgX(point.x)} ${this.getSvgY(point.y)}`
       })
-      return <path fill='none' strokeWidth='1px' stroke='#000' d={`${pathD}`} />
+      return <path fill='none' strokeWidth='1px' stroke={color} d={`${pathD}`} />
     }
   makeAxis() {
       const minX = this.getMinX()
