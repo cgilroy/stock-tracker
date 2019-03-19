@@ -7,9 +7,11 @@
     "deploy": "next build && next export -o docs"
   },
   "dependencies": {
+    "isomorphic-unfetch": "^3.0.0",
     "next": "^8.0.3",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "styled-jsx": "^3.2.1"
   },
   "devDependencies": {
     "babel-plugin-inline-react-svg": "^1.0.1"
