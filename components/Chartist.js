@@ -11,11 +11,11 @@ const another = (props) => {
   };
 
   var options = {
-    // axisX: {
-    //   labelInterpolationFnc: function(value, index) {
-    //     return index % 2 === 0 ? value : null;
-    //   }
-    // }
+    axisX: {
+      labelInterpolationFnc: function(value, index) {
+        return index % 10 === 0 ? value : null;
+      }
+    }
   };
   var seq = 0,
   delays = 0,
