@@ -1,5 +1,9 @@
-
+import { useState,useEffect } from 'react'
+import Chartist from './Chartist.js'
 const MyStocks = () => {
+  const [priceHistoyArray, setPriceHistoryArray] = useState()
+  const [stockCharts, setStockCharts] = useState()
+  const [summaryChart, setSummaryChart] = useState()
   const purchasesArray = {
     "HMMJ.TO": [{
       buyDate: '2017-11-14',
@@ -37,28 +41,56 @@ const MyStocks = () => {
       totalValue: 3996
     }]
   };
+  useEffect(
+    () => {
+      var priceDataPromises = []
+      for (var stock in purchasesArray) {
+        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=demo'
+        priceDataPromises.push(
+          fetch(apiString).then(results => results.json()).then(json => {
+            var entries = Object.entries(json["Time Series (Daily)"]);
+            entries.reverse()
+            return entries
+
+          })
+        )
+      }
+      Promise.all(priceDataPromises).then(data => {
+        var charts = data.map(stockEntries => {
+          console.log('stockEntries',stockEntries)
+          return (<Chartist data={stockEntries} />)
+        })
+        setStockCharts(charts)
+      })
+    },
+    []
+  )
 
   console.log(purchasesArray)
 
-  return <StocksTables purchases={purchasesArray} />
+  return (
+    <div>
+      <StocksTables purchases={purchasesArray} />
+      <h1>Stock Charts</h1>
+      {stockCharts}
+    </div>
+  )
 
 }
 
 const StocksTables = (props) => {
-  console.log(props.purchases)
+  console.log('stockstables',props.purchases)
   var allTransactions = []
   var groupTotalTransactions = []
   var totaledDataRows = []
   var transactionDataRows = []
   for (let i in props.purchases) {
-    console.log(i,'i')
     var totals = {
       totQty: 0,
       totFees: 0,
       totalValue: 0
     }
     for (let j of props.purchases[i]) {
-      console.log(j,'j')
       let transRow = (
         <tr key={j.buyDate}>
           <td>{i}</td>
@@ -69,6 +101,7 @@ const StocksTables = (props) => {
           <td>{j.totalValue}</td>
         </tr>
       )
+      console.log(j.totalValue,'totalval')
       transactionDataRows.push(transRow)
       totals.totQty+=j.buyQty
       totals.totFees+=j.buyFee
@@ -79,58 +112,52 @@ const StocksTables = (props) => {
         <td>{i}</td>
         <td>{totals.totQty}</td>
         <td>{totals.totFees}</td>
-        <td>{totals.totalValue}</td>
+        <td>{totals.totalValue.toFixed(2)}</td>
       </tr>
     )
     totaledDataRows.push(totalRow)
   }
-  // for (let i in props.purchases) {
-  //   console.log(i,'i')
-  //   var tableDataRow = []
-  //   for (let j of props.purchases[i]) {
-  //     console.log(j,'j')
-  //     let row = (
-  //       <tr key={j.buyDate}>
-  //         <td>{j.buyDate}</td>
-  //         <td>{j.buyPrice}</td>
-  //         <td>{j.buyQty}</td>
-  //         <td>{j.buyFee}</td>
-  //         <td>{j.totalValue}</td>
-  //       </tr>
-  //     )
-  //     tableDataRows.push(row)
-  //   }
-  // }
+
+  const transactionsTable = (
+    <table>
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Date</th>
+          <th>Buy Price</th>
+          <th>Qty</th>
+          <th>Fee</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {transactionDataRows}
+      </tbody>
+    </table>
+  )
+
+  const summaryTable = (
+    <table>
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Total Qty</th>
+          <th>Total Fees</th>
+          <th>Total Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {totaledDataRows}
+      </tbody>
+    </table>
+  )
+
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>Date</th>
-            <th>Buy Price</th>
-            <th>Qty</th>
-            <th>Fee</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactionDataRows}
-        </tbody>
-      </table>
-      <table>
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>Total Qty</th>
-            <th>Total Fees</th>
-            <th>Total Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          {totaledDataRows}
-        </tbody>
-      </table>
+      <h1>Stock Summary</h1>
+      {summaryTable}
+      <h1>All Transactions</h1>
+      {transactionsTable}
     </div>
   )
 }

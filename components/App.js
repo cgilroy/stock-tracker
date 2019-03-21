@@ -1,5 +1,6 @@
 import StockChart from './StockChart.js'
+import MyStocks from './MyStocks'
 export default () => {
   const symbol = "HMMJ.TO"
-  return(<div><StockChart symbol={symbol} /></div>)
+  return(<div><MyStocks /></div>)
 }

@@ -44,7 +44,6 @@ const StockChart = (props) => {
   return(
     <div>
       <MyStocks />
-      {lineChart}
     </div>
   )
 }

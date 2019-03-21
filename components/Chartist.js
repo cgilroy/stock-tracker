@@ -2,11 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ChartistGraph from 'react-chartist';
 import './chartist.scss'
-const another = (props) => {
+const Chart = (props) => {
+  var tempCoordinates = []
+  var xData = []
+  var yData = []
+  var xIter = 1;
+  for (let dayData of props.data) {
+    tempCoordinates.push(
+      {x:xIter,y:parseFloat(dayData[1]["4. close"])}
+    )
+    let xLabel = dayData[0]
+    // console.log(xLabel,'xlabel')
+    xData.push(xLabel)
+    yData.push(parseFloat(dayData[1]["4. close"]))
+    xIter++;
+  }
   var data = {
-    labels: props.x,
+    labels: xData,
     series: [
-      props.y
+      yData
     ]
   };
 
@@ -53,4 +67,4 @@ const another = (props) => {
   )
 }
 
-export default another
+export default Chart
