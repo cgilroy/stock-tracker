@@ -3,6 +3,8 @@ import {useState, useEffect} from 'react'
 import LineChart from './LineChart.js'
 import Chartist from './Chartist.js'
 import Moment from 'react-moment'
+import MyStocks from './MyStocks.js'
+
 const StockChart = (props) => {
   const [allData, setAllData] = useState()
   const [coordinates, setCoordinates] = useState()
@@ -13,7 +15,7 @@ const StockChart = (props) => {
   useEffect(() => {
       fetch(apiString).then(results => results.json()).then(json => {
         var entries = Object.entries(json["Time Series (Daily)"]);
-        console.log(Object.entries(entries))
+        // console.log(Object.entries(entries))
         setAllData(entries)
         entries.reverse()
         var tempCoordinates = []
@@ -24,8 +26,8 @@ const StockChart = (props) => {
           tempCoordinates.push(
             {x:xIter,y:parseFloat(dayData[1]["4. close"])}
           )
-          let xLabel = <Moment format="dddd, MMM D, h:mm A">{dayData[0]}</Moment>
-          console.log(xLabel,'xlabel')
+          let xLabel = dayData[0]
+          // console.log(xLabel,'xlabel')
           xData.push(xLabel)
           yData.push(parseFloat(dayData[1]["4. close"]))
           xIter++;
@@ -41,6 +43,7 @@ const StockChart = (props) => {
 
   return(
     <div>
+      <MyStocks />
       {lineChart}
     </div>
   )
