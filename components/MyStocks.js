@@ -1,9 +1,10 @@
 import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
+import ChartAndTransactions from './ChartAndTransactions.js'
 const MyStocks = () => {
   const [priceHistoyArray, setPriceHistoryArray] = useState()
-  const [stockCharts, setStockCharts] = useState()
-  const [summaryChart, setSummaryChart] = useState()
+  const [stockSections, setStockSections] = useState()
+  const [summarySection, setSummarySection] = useState()
   const purchasesArray = {
     "HMMJ.TO": [{
       buyDate: '2017-11-14',
@@ -44,35 +45,35 @@ const MyStocks = () => {
   useEffect(
     () => {
       var priceDataPromises = []
-      for (var stock in purchasesArray) {
+      for (let stock in purchasesArray) {
+        console.log(stock,'stock')
         let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=demo'
         priceDataPromises.push(
           fetch(apiString).then(results => results.json()).then(json => {
             var entries = Object.entries(json["Time Series (Daily)"]);
             entries.reverse()
-            return entries
+            console.log('stock',stock)
+            return {stock: stock, transactions: purchasesArray[stock], data: entries}
 
           })
         )
       }
       Promise.all(priceDataPromises).then(data => {
-        var charts = data.map(stockEntries => {
-          console.log('stockEntries',stockEntries)
-          return (<Chartist data={stockEntries} />)
+        var stockChartsAndTransactions = data.map(stockData => {
+          console.log('stockEntries',stockData.data)
+          console.log('stockData',stockData)
+          return (<ChartAndTransactions stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
         })
-        setStockCharts(charts)
+        setStockSections(stockChartsAndTransactions)
       })
     },
     []
   )
 
-  console.log(purchasesArray)
-
   return (
     <div>
-      <StocksTables purchases={purchasesArray} />
-      <h1>Stock Charts</h1>
-      {stockCharts}
+      <h1>Holdings</h1>
+      {stockSections}
     </div>
   )
 
