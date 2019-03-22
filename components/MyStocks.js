@@ -6,7 +6,7 @@ const MyStocks = () => {
   const [stockSections, setStockSections] = useState()
   const [summarySection, setSummarySection] = useState()
   const purchasesArray = {
-    "HMMJ.TO": [{
+    "MSFT": [{
       buyDate: '2017-11-14',
       buyPrice: 12.7801,
       buyQty: 101,
@@ -19,40 +19,19 @@ const MyStocks = () => {
       buyQty: 1,
       buyFee: 0,
       totalValue: 19.88
-    }],
-    "LOLA.TO": [{
-      buyDate: '2018-11-07',
-      buyPrice: 13,
-      buyQty: 34,
-      buyFee: 5,
-      totalValue: 447
-    },
-    {
-      buyDate: '2019-01-09',
-      buyPrice: 50,
-      buyQty: 10,
-      buyFee: 3.50,
-      totalValue: 503.50
-    },
-    {
-      buyDate: '2018-02-22',
-      buyPrice: 1000,
-      buyQty: 4,
-      buyFee: 4,
-      totalValue: 3996
     }]
   };
+  const API_KEY = process.env.REACT_APP_ALPHAVANTAGE_API_KEY;
   useEffect(
     () => {
       var priceDataPromises = []
       for (let stock in purchasesArray) {
-        console.log(stock,'stock')
-        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=MSFT&apikey=demo'
+        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&outputsize=full&apikey=demo'
+        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&outputsize=full&apikey='+API_KEY
         priceDataPromises.push(
           fetch(apiString).then(results => results.json()).then(json => {
             var entries = Object.entries(json["Time Series (Daily)"]);
             entries.reverse()
-            console.log('stock',stock)
             return {stock: stock, transactions: purchasesArray[stock], data: entries}
 
           })
@@ -60,8 +39,6 @@ const MyStocks = () => {
       }
       Promise.all(priceDataPromises).then(data => {
         var stockChartsAndTransactions = data.map(stockData => {
-          console.log('stockEntries',stockData.data)
-          console.log('stockData',stockData)
           return (<ChartAndTransactions stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
         })
         setStockSections(stockChartsAndTransactions)
@@ -80,7 +57,6 @@ const MyStocks = () => {
 }
 
 const StocksTables = (props) => {
-  console.log('stockstables',props.purchases)
   var allTransactions = []
   var groupTotalTransactions = []
   var totaledDataRows = []

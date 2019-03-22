@@ -6,7 +6,8 @@ const Chart = (props) => {
   var tempCoordinates = []
   var xData = []
   var yData = []
-  var xIter = 1;
+  var xIter = 1
+  var Chartist = require('chartist')
   for (let dayData of props.data) {
     tempCoordinates.push(
       {x:xIter,y:parseFloat(dayData[1]["4. close"])}
@@ -29,7 +30,8 @@ const Chart = (props) => {
       labelInterpolationFnc: function(value, index) {
         return index % 10 === 0 ? value : null;
       }
-    }
+    },
+    lineSmooth: Chartist.Interpolation.none()
   };
   var seq = 0,
   delays = 0,
