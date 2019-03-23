@@ -1,16 +1,50 @@
 import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
-const ChartAndTransactions = (props) => {
-
+const SummaryChart = (props) => {
+  console.log('portdata',getPortfolioData(props.data))
   return (
     <div>
-      <h2>{props.stock}</h2>
-      <Chart data={props.data} />
-      <StocksTable data={props.data} stock={props.stock} transactions={props.transactions} />
+      <h2>SUMMARY</h2>
+      <Chart data={getPortfolioData(props.data)} />
     </div>
   )
 
 }
+
+const getPortfolioData = (allData) => {
+  // allData = props.data
+  var allHoldingsData = []
+  for (let holding of allData) {
+    var totVals = []
+    for (let entry of holding["data"]) {
+      // let totQty = 0
+      var totValForEntry = 0
+      for (let txn of holding["transactions"]) {
+        // totQty+=txn.buyQty
+        if (txn.buyDate <= entry[0]) {
+          // shares owned before or on date
+          totValForEntry+=(txn.buyQty*entry[1]["4. close"])
+        }
+      }
+      totVals.push({date: entry[0], holdingValue: totValForEntry})
+    }
+    allHoldingsData.push(totVals)
+  }
+  var cumulativeHoldingsData = []
+  for (let i = 0;i<=allHoldingsData[0].length-1;i++) {
+    var dayTotal = 0
+    var date=allHoldingsData[0][i].date
+    for (let stock of allHoldingsData) {
+      dayTotal+=stock[i].holdingValue
+    }
+    cumulativeHoldingsData.push({date: date,totalHoldings:dayTotal})
+  }
+  console.log(allHoldingsData,'allHoldingsData')
+  console.log(cumulativeHoldingsData,'cumulative')
+  return totVals
+}
+
+
 
 const StocksTable = (props) => {
   var allTransactions = []
@@ -27,35 +61,32 @@ const StocksTable = (props) => {
   // const currentPrice = props.data[props.data.length-1][1]['4. close']
   const currentPrice = 23.4
 
-  for (let txn of props.transactions) {
-    let transRow = (
-      <tr key={txn.buyDate}>
-        <td>{txn.buyDate}</td>
-        <td>{txn.buyPrice}</td>
-        <td>{txn.buyQty}</td>
-        <td>{txn.buyFee}</td>
-        <td>{txn.totalValue}</td>
-      </tr>
-    )
-    transactionDataRows.push(transRow)
-    totals.totQty+=txn.buyQty
-    totals.totFees+=txn.buyFee
-    totals.totalValue+=txn.totalValue
-  }
+  // for (let txn of props.transactions) {
+  //   let transRow = (
+  //     <tr key={txn.buyDate}>
+  //       <td>{txn.buyDate}</td>
+  //       <td>{txn.buyPrice}</td>
+  //       <td>{txn.buyQty}</td>
+  //       <td>{txn.buyFee}</td>
+  //       <td>{txn.totalValue}</td>
+  //     </tr>
+  //   )
+  //   transactionDataRows.push(transRow)
+  //   totals.totQty+=txn.buyQty
+  //   totals.totFees+=txn.buyFee
+  //   totals.totalValue+=txn.totalValue
+  // }
 
-  var totDiv = 0
-  for (let entry of props.data) {
-    if (entry[1]["7. dividend amount"] !== "0.0000") {
-      console.log('notzero')
-      let totQty = 0
-      let divQty = 0 //number of shares included in div calc
-      for (let txn of props.transactions) {
-        totQty+=txn.buyQty
-        if (txn.buyDate <= entry[0]) {
-          divQty+=txn.buyQty
-          // shares owned before or on date of dividend payment
-          totDiv+=(txn.buyQty*entry[1]["7. dividend amount"])
-        }
+  var totVal = 0
+  for (let entry of props.data[0]["data"]) {
+    let totQty = 0
+    let incQty = 0 //number of shares included in value calc
+    for (let txn of props.data[0]["transactions"]) {
+      totQty+=txn.buyQty
+      if (txn.buyDate <= entry[0]) {
+        incQty+=txn.buyQty
+        // shares owned before or on date
+        totVal+=(txn.buyQty*entry[1]["4. close"])
       }
     }
   }
@@ -85,28 +116,9 @@ const StocksTable = (props) => {
     </table>
   )
 
-  const transactionsTable = (
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Buy Price</th>
-          <th>Qty</th>
-          <th>Fee</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        {transactionDataRows}
-      </tbody>
-    </table>
-  )
-
   return (
     <div>
       {summaryTable}
-      <h2>Trades</h2>
-      {transactionsTable}
     </div>
   )
 }
@@ -129,7 +141,7 @@ const Chart = (props) => {
     // console.log(allData,'alldata')
 
     for (let day of reverseData) {
-      if (day[0] < targetDay) {
+      if (day.date < targetDay) {
         // console.log(dayIndex,'dayIndex')
         setDataRange(dayIndex)
         return
@@ -148,7 +160,7 @@ const Chart = (props) => {
         <div className={`chart-buttons__button ${activeChartRange === 'THIRTYDAYS' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['THIRTYDAYS']);setActiveChartRange('THIRTYDAYS')}}>30 DAYS</div>
         <div className={`chart-buttons__button ${activeChartRange === 'YEAR' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['YEAR']);setActiveChartRange('YEAR')}}>YEAR</div>
       </div>
-      <Chartist activeRange={activeChartRange} data={props.data.slice(-dataRange)} chartType='stock' />
+      <Chartist activeRange={activeChartRange} data={props.data.slice(-dataRange)} chartType='summary' />
       <style jsx>{`
         .chart-buttons{
           display: flex;
@@ -166,4 +178,4 @@ const Chart = (props) => {
   )
 }
 
-export default ChartAndTransactions
+export default SummaryChart

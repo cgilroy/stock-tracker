@@ -1,6 +1,7 @@
 import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
 import ChartAndTransactions from './ChartAndTransactions.js'
+import SummaryChart from './SummaryChart.js'
 const MyStocks = () => {
   const [priceHistoyArray, setPriceHistoryArray] = useState()
   const [stockSections, setStockSections] = useState()
@@ -19,6 +20,27 @@ const MyStocks = () => {
       buyQty: 1,
       buyFee: 0,
       totalValue: 19.88
+    }],
+    "BLEH": [{
+      buyDate: '2017-11-14',
+      buyPrice: 12.7801,
+      buyQty: 101,
+      buyFee: 0.35,
+      totalValue: 1291.14
+    },
+    {
+      buyDate: '2019-01-05',
+      buyPrice: 19.88,
+      buyQty: 1,
+      buyFee: 0,
+      totalValue: 19.88
+    },
+    {
+      buyDate: '2018-11-25',
+      buyPrice: 14.88,
+      buyQty: 105,
+      buyFee: 0,
+      totalValue: 1562.40
     }]
   };
   const API_KEY = process.env.REACT_APP_ALPHAVANTAGE_API_KEY;
@@ -26,7 +48,7 @@ const MyStocks = () => {
     () => {
       var priceDataPromises = []
       for (let stock in purchasesArray) {
-        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&outputsize=full&apikey=demo'
+        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
         // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&outputsize=full&apikey='+API_KEY
         priceDataPromises.push(
           fetch(apiString).then(results => results.json()).then(json => {
@@ -41,6 +63,9 @@ const MyStocks = () => {
         var stockChartsAndTransactions = data.map(stockData => {
           return (<ChartAndTransactions stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
         })
+        var summaryChart = (<SummaryChart data={data} />)
+        console.log(data,'datahere')
+        setSummarySection(summaryChart)
         setStockSections(stockChartsAndTransactions)
       })
     },
@@ -49,6 +74,7 @@ const MyStocks = () => {
 
   return (
     <div>
+      {summarySection}
       <h1>Holdings</h1>
       {stockSections}
     </div>
