@@ -39,8 +39,8 @@ const getPortfolioData = (allData) => {
     }
     cumulativeHoldingsData.push({date: date,totalHoldings:dayTotal})
   }
-  console.log(allHoldingsData,'allHoldingsData')
-  console.log(cumulativeHoldingsData,'cumulative')
+  // console.log(allHoldingsData,'allHoldingsData')
+  // console.log(cumulativeHoldingsData,'cumulative')
   return totVals
 }
 
@@ -152,7 +152,7 @@ const Chart = (props) => {
       }
     }
   }
-  console.log(activeChartRange,'activeChartRange')
+  // console.log(activeChartRange,'activeChartRange')
   return(
     <div className="">
       <div className="chart-buttons">

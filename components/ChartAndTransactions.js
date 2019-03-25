@@ -6,7 +6,7 @@ const ChartAndTransactions = (props) => {
     <div>
       <h2>{props.stock}</h2>
       <Chart data={props.data} />
-      <StocksTable data={props.data} stock={props.stock} transactions={props.transactions} />
+      <StocksTable data={props.data} stock={props.stock} deleteStock={props.deleteStock} transactions={props.transactions} />
     </div>
   )
 
@@ -17,6 +17,7 @@ const StocksTable = (props) => {
   var groupTotalTransactions = []
   var totaledDataRows = []
   var transactionDataRows = []
+  const uuidv1 = require('uuid/v1')
   var totals = {
     totQty: 0,
     totFees: 0,
@@ -24,8 +25,8 @@ const StocksTable = (props) => {
     totDividends: 0
   }
 
-  // const currentPrice = props.data[props.data.length-1][1]['4. close']
-  const currentPrice = 23.4
+  const currentPrice = props.data[props.data.length-1][1]['4. close']
+  // const currentPrice = 23.4
 
   for (let txn of props.transactions) {
     let transRow = (
@@ -35,6 +36,7 @@ const StocksTable = (props) => {
         <td>{txn.buyQty}</td>
         <td>{txn.buyFee}</td>
         <td>{txn.totalValue}</td>
+        <td onClick={() => props.deleteStock(txn.id)}/>
       </tr>
     )
     transactionDataRows.push(transRow)
@@ -46,7 +48,7 @@ const StocksTable = (props) => {
   var totDiv = 0
   for (let entry of props.data) {
     if (entry[1]["7. dividend amount"] !== "0.0000") {
-      console.log('notzero')
+      // console.log('notzero')
       let totQty = 0
       let divQty = 0 //number of shares included in div calc
       for (let txn of props.transactions) {
@@ -94,6 +96,7 @@ const StocksTable = (props) => {
           <th>Qty</th>
           <th>Fee</th>
           <th>Value</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -140,7 +143,7 @@ const Chart = (props) => {
       }
     }
   }
-  console.log(activeChartRange,'activeChartRange')
+  // console.log(activeChartRange,'activeChartRange')
   return(
     <div className="">
       <div className="chart-buttons">

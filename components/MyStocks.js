@@ -2,47 +2,71 @@ import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
 import ChartAndTransactions from './ChartAndTransactions.js'
 import SummaryChart from './SummaryChart.js'
-const MyStocks = () => {
+import {groupBy} from 'lodash'
+const MyStocks = (props) => {
   const [priceHistoyArray, setPriceHistoryArray] = useState()
   const [stockSections, setStockSections] = useState()
   const [summarySection, setSummarySection] = useState()
-  const purchasesArray = {
-    "MSFT": [{
-      buyDate: '2017-11-14',
-      buyPrice: 12.7801,
-      buyQty: 101,
-      buyFee: 0.35,
-      totalValue: 1291.14
-    },
-    {
-      buyDate: '2019-01-05',
-      buyPrice: 19.88,
-      buyQty: 1,
-      buyFee: 0,
-      totalValue: 19.88
-    }],
-    "BLEH": [{
-      buyDate: '2017-11-14',
-      buyPrice: 12.7801,
-      buyQty: 101,
-      buyFee: 0.35,
-      totalValue: 1291.14
-    },
-    {
-      buyDate: '2019-01-05',
-      buyPrice: 19.88,
-      buyQty: 1,
-      buyFee: 0,
-      totalValue: 19.88
-    },
-    {
-      buyDate: '2018-11-25',
-      buyPrice: 14.88,
-      buyQty: 105,
-      buyFee: 0,
-      totalValue: 1562.40
-    }]
-  };
+  // const purchasesArray = {
+  //   "HMMJ.TO": [{
+  //     buyDate: '2017-11-14',
+  //     buyPrice: 12.7801,
+  //     buyQty: 101,
+  //     buyFee: 0.35,
+  //     totalValue: 1291.14
+  //   },
+  //   {
+  //     buyDate: '2019-01-05',
+  //     buyPrice: 19.88,
+  //     buyQty: 1,
+  //     buyFee: 0,
+  //     totalValue: 19.88
+  //   }],
+  //   "XAW.TO": [{
+  //     buyDate: '2017-11-14',
+  //     buyPrice: 12.7801,
+  //     buyQty: 101,
+  //     buyFee: 0.35,
+  //     totalValue: 1291.14
+  //   },
+  //   {
+  //     buyDate: '2019-01-05',
+  //     buyPrice: 19.88,
+  //     buyQty: 1,
+  //     buyFee: 0,
+  //     totalValue: 19.88
+  //   },
+  //   {
+  //     buyDate: '2018-11-25',
+  //     buyPrice: 14.88,
+  //     buyQty: 105,
+  //     buyFee: 0,
+  //     totalValue: 1562.40
+  //   }],
+  //   "VCN.TO": [{
+  //     buyDate: '2017-11-14',
+  //     buyPrice: 12.7801,
+  //     buyQty: 101,
+  //     buyFee: 0.35,
+  //     totalValue: 1291.14
+  //   },
+  //   {
+  //     buyDate: '2019-01-05',
+  //     buyPrice: 19.88,
+  //     buyQty: 1,
+  //     buyFee: 0,
+  //     totalValue: 19.88
+  //   },
+  //   {
+  //     buyDate: '2018-11-25',
+  //     buyPrice: 14.88,
+  //     buyQty: 105,
+  //     buyFee: 0,
+  //     totalValue: 1562.40
+  //   }]
+  // };
+  const purchasesArray = groupBy(props.transactions,"tickerSymbol")
+  // console.log('checkthis',purchasesArray)
   const API_KEY = process.env.REACT_APP_ALPHAVANTAGE_API_KEY;
   useEffect(
     () => {
@@ -61,7 +85,7 @@ const MyStocks = () => {
       }
       Promise.all(priceDataPromises).then(data => {
         var stockChartsAndTransactions = data.map(stockData => {
-          return (<ChartAndTransactions stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
+          return (<ChartAndTransactions deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
         })
         var summaryChart = (<SummaryChart data={data} />)
         console.log(data,'datahere')
@@ -69,9 +93,9 @@ const MyStocks = () => {
         setStockSections(stockChartsAndTransactions)
       })
     },
-    []
+    [props.transactions]
   )
-
+  console.log('rerender mystocks')
   return (
     <div>
       {summarySection}
@@ -104,7 +128,7 @@ const StocksTables = (props) => {
           <td>{j.totalValue}</td>
         </tr>
       )
-      console.log(j.totalValue,'totalval')
+      // console.log(j.totalValue,'totalval')
       transactionDataRows.push(transRow)
       totals.totQty+=j.buyQty
       totals.totFees+=j.buyFee
@@ -154,7 +178,7 @@ const StocksTables = (props) => {
       </tbody>
     </table>
   )
-
+  console.log(transactionsTable,'mystocksrender')
   return (
     <div>
       <h1>Stock Summary</h1>

@@ -49,7 +49,7 @@ const Chart = (props) => {
   }
 
   const getLabelDivisor = () => {
-    console.log('length',props.data.length)
+    // console.log('length',props.data.length)
     switch(props.activeRange) {
       case 'WEEK':
         //WEEK

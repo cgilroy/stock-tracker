@@ -1,0 +1,81 @@
+{
+  "user": [
+    {
+      "name": "jeff"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "tickerSymbol": "HMMJ.TO",
+      "buyDate": "2017-11-14",
+      "buyPrice": 12.7801,
+      "buyQty": 101,
+      "buyFee": 0.35,
+      "totalValue": 1291.14
+    },
+    {
+      "id": 2,
+      "tickerSymbol": "HMMJ.TO",
+      "buyDate": "2019-01-05",
+      "buyPrice": 19.88,
+      "buyQty": 1,
+      "buyFee": 0,
+      "totalValue": 19.88
+    },
+    {
+      "id": 3,
+      "tickerSymbol": "XAW.TO",
+      "buyDate": "2017-11-14",
+      "buyPrice": 12.7801,
+      "buyQty": 101,
+      "buyFee": 0.35,
+      "totalValue": 1291.14
+    },
+    {
+      "id": 4,
+      "tickerSymbol": "XAW.TO",
+      "buyDate": "2019-01-05",
+      "buyPrice": 19.88,
+      "buyQty": 1,
+      "buyFee": 0,
+      "totalValue": 19.88
+    },
+    {
+      "id": 5,
+      "tickerSymbol": "XAW.TO",
+      "buyDate": "2018-11-25",
+      "buyPrice": 14.88,
+      "buyQty": 105,
+      "buyFee": 0,
+      "totalValue": 1562.4
+    },
+    {
+      "id": 6,
+      "tickerSymbol": "VCN.TO",
+      "buyDate": "2017-11-14",
+      "buyPrice": 12.7801,
+      "buyQty": 101,
+      "buyFee": 0.35,
+      "totalValue": 1291.14
+    },
+    {
+      "id": 7,
+      "tickerSymbol": "VCN.TO",
+      "buyDate": "2019-01-05",
+      "buyPrice": 19.88,
+      "buyQty": 1,
+      "buyFee": 0,
+      "totalValue": 19.88
+    },
+    {
+      "id": 8,
+      "tickerSymbol": "VCN.TO",
+      "buyDate": "2018-11-25",
+      "buyPrice": 14.88,
+      "buyQty": 105,
+      "buyFee": 0,
+      "totalValue": 1562.4
+    }
+  ]
+}

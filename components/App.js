@@ -1,6 +1,7 @@
 import StockChart from './StockChart.js'
 import MyStocks from './MyStocks'
-export default () => {
+export default (props) => {
   const symbol = "HMMJ.TO"
-  return(<div><MyStocks /></div>)
+  console.log('app props',props)
+  return(<div><MyStocks transactions={props.transactions} deleteStock={props.deleteStock}/></div>)
 }
