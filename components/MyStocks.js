@@ -85,7 +85,7 @@ const MyStocks = (props) => {
       }
       Promise.all(priceDataPromises).then(data => {
         var stockChartsAndTransactions = data.map(stockData => {
-          return (<ChartAndTransactions deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
+          return (<ChartAndTransactions showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
         })
         var summaryChart = (<SummaryChart data={data} />)
         console.log(data,'datahere')

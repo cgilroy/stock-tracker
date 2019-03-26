@@ -6,6 +6,7 @@ const ChartAndTransactions = (props) => {
     <div>
       <h2>{props.stock}</h2>
       <Chart data={props.data} />
+      <div onClick={() => props.showAddTransForm()}>ADDtrans</div>
       <StocksTable data={props.data} stock={props.stock} deleteStock={props.deleteStock} transactions={props.transactions} />
     </div>
   )
@@ -101,6 +102,7 @@ const StocksTable = (props) => {
       </thead>
       <tbody>
         {transactionDataRows}
+        <tr><td>ADD ONE</td></tr>
       </tbody>
     </table>
   )
@@ -113,21 +115,7 @@ const StocksTable = (props) => {
     </div>
   )
 }
-const AddTransactionModal = (props) => {
-  const [showModal, setShowModal] = useState(false)
-  const [userInput, setUserInput] = useState()
-  const handleSubmit = (event) => {
 
-  }
-
-  return (
-    <div className="add-trans-modal">
-      <form onSubmit={handleSubmit} accept-charset="UTF-8">
-        <
-      </form>
-    </div>
-  )
-}
 const Chart = (props) => {
   const [activeChartRange, setActiveChartRange] = useState("THIRTYDAYS")
   const [dataRange, setDataRange] = useState(30)
