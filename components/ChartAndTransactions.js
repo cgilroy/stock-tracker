@@ -3,11 +3,30 @@ import Chartist from './Chartist.js'
 const ChartAndTransactions = (props) => {
 
   return (
-    <div>
-      <h2>{props.stock}</h2>
-      <Chart data={props.data} />
-      <div onClick={() => props.showAddTransForm()}>ADDtrans</div>
-      <StocksTable data={props.data} stock={props.stock} deleteStock={props.deleteStock} transactions={props.transactions} />
+    <div className="stock-wrapper">
+      <div className="stock-div">
+        <h2>{props.stock}</h2>
+        <Chart data={props.data} />
+        <div onClick={() => props.showAddTransForm()}>ADDtrans</div>
+        <StocksTable data={props.data} stock={props.stock} deleteStock={props.deleteStock} transactions={props.transactions} />
+      </div>
+      <style jsx>{`
+        .stock-div {
+          width: 100%;
+          padding: 10px;
+          box-sizing: border-box;
+          border-radius: 8px;
+          height: 500px;
+          overflow-y: scroll;
+          border: 1px solid #dfe1e5;
+        }
+        .stock-wrapper {
+          width: 50%;
+          padding: 10px;
+          box-sizing: border-box;
+          background: white;
+        }
+      `}</style>
     </div>
   )
 
@@ -102,7 +121,6 @@ const StocksTable = (props) => {
       </thead>
       <tbody>
         {transactionDataRows}
-        <tr><td>ADD ONE</td></tr>
       </tbody>
     </table>
   )
@@ -148,7 +166,7 @@ const Chart = (props) => {
   }
   // console.log(activeChartRange,'activeChartRange')
   return(
-    <div className="">
+    <div className="chart">
       <div className="chart-buttons">
         <div className={`chart-buttons__button ${activeChartRange === 'WEEK' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['WEEK']);setActiveChartRange('WEEK')}}>WEEK</div>
         <div className={`chart-buttons__button ${activeChartRange === 'THIRTYDAYS' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['THIRTYDAYS']);setActiveChartRange('THIRTYDAYS')}}>30 DAYS</div>

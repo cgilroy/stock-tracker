@@ -88,7 +88,7 @@ const MyStocks = (props) => {
           return (<ChartAndTransactions showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
         })
         var summaryChart = (<SummaryChart data={data} />)
-        console.log(data,'datahere')
+        // console.log(data,'datahere')
         setSummarySection(summaryChart)
         setStockSections(stockChartsAndTransactions)
       })
@@ -99,8 +99,20 @@ const MyStocks = (props) => {
   return (
     <div>
       {summarySection}
-      <h1>Holdings</h1>
-      {stockSections}
+      <h2>MY HOLDINGS</h2>
+      <div className="stock-sections">
+        {stockSections}
+      </div>
+      <style jsx>{`
+        .stock-sections {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+        }
+        h2 {
+          color: #262626;
+        }
+      `}</style>
     </div>
   )
 
@@ -178,7 +190,7 @@ const StocksTables = (props) => {
       </tbody>
     </table>
   )
-  console.log(transactionsTable,'mystocksrender')
+  // console.log(transactionsTable,'mystocksrender')
   return (
     <div>
       <h1>Stock Summary</h1>

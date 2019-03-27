@@ -60,15 +60,6 @@
       "totalValue": 1291.14
     },
     {
-      "id": 7,
-      "tickerSymbol": "VCN.TO",
-      "buyDate": "2019-01-05",
-      "buyPrice": 19.88,
-      "buyQty": 1,
-      "buyFee": 0,
-      "totalValue": 19.88
-    },
-    {
       "id": 8,
       "tickerSymbol": "VCN.TO",
       "buyDate": "2018-11-25",
@@ -76,6 +67,15 @@
       "buyQty": 105,
       "buyFee": 0,
       "totalValue": 1562.4
+    },
+    {
+      "id": "928e7c80-502e-11e9-817c-d790151f8c90",
+      "tickerSymbol": "HD",
+      "buyDate": "2019-03-01",
+      "buyPrice": 123,
+      "buyQty": 25,
+      "buyFee": 2,
+      "totalValue": 3073
     }
   ]
 }

@@ -1,11 +1,16 @@
 import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
 const SummaryChart = (props) => {
-  console.log('portdata',getPortfolioData(props.data))
+  // console.log('portdata',getPortfolioData(props.data))
   return (
-    <div>
+    <div className="summary-section">
       <h2>SUMMARY</h2>
       <Chart data={getPortfolioData(props.data)} />
+      <style jsx>{`
+        .summary-section {
+          color: #262626;
+        }
+      `}</style>
     </div>
   )
 
@@ -154,7 +159,7 @@ const Chart = (props) => {
   }
   // console.log(activeChartRange,'activeChartRange')
   return(
-    <div className="">
+    <div className="summary-chart">
       <div className="chart-buttons">
         <div className={`chart-buttons__button ${activeChartRange === 'WEEK' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['WEEK']);setActiveChartRange('WEEK')}}>WEEK</div>
         <div className={`chart-buttons__button ${activeChartRange === 'THIRTYDAYS' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['THIRTYDAYS']);setActiveChartRange('THIRTYDAYS')}}>30 DAYS</div>
@@ -162,12 +167,14 @@ const Chart = (props) => {
       </div>
       <Chartist activeRange={activeChartRange} data={props.data.slice(-dataRange)} chartType='summary' />
       <style jsx>{`
-        .chart-buttons{
+        .chart-buttons {
           display: flex;
           align-items: center;
+          border-bottom: 1px solid #dfe1e5;
         }
         .chart-buttons__button {
           padding: 5px;
+          border-radius: 3px;
           margin: 5px;
         }
         .chart-buttons__button-active{
