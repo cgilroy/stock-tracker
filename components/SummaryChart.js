@@ -21,6 +21,7 @@ const getPortfolioData = (allData) => {
   var allHoldingsData = []
   for (let holding of allData) {
     var totVals = []
+    // console.log(holding,'holding')
     for (let entry of holding["data"]) {
       // let totQty = 0
       var totValForEntry = 0
@@ -28,7 +29,10 @@ const getPortfolioData = (allData) => {
         // totQty+=txn.buyQty
         if (txn.buyDate <= entry[0]) {
           // shares owned before or on date
+
+          // console.log(entry[0],'entrydata')
           totValForEntry+=(txn.buyQty*entry[1]["4. close"])
+          // console.log(totValForEntry,'totValForEntry')
         }
       }
       totVals.push({date: entry[0], holdingValue: totValForEntry})
@@ -44,9 +48,9 @@ const getPortfolioData = (allData) => {
     }
     cumulativeHoldingsData.push({date: date,totalHoldings:dayTotal})
   }
-  // console.log(allHoldingsData,'allHoldingsData')
-  // console.log(cumulativeHoldingsData,'cumulative')
-  return totVals
+  console.log(allHoldingsData,'allHoldingsData')
+  console.log(cumulativeHoldingsData,'cumulative')
+  return cumulativeHoldingsData
 }
 
 
@@ -63,8 +67,8 @@ const StocksTable = (props) => {
     totDividends: 0
   }
 
-  // const currentPrice = props.data[props.data.length-1][1]['4. close']
-  const currentPrice = 23.4
+  const currentPrice = props.data[props.data.length-1][1]['4. close']
+  // const currentPrice = 23.4
 
   // for (let txn of props.transactions) {
   //   let transRow = (
@@ -136,18 +140,19 @@ const Chart = (props) => {
     THIRTYDAYS: 30,
     YEAR: 365
   }
+  console.log('summarycharthere',props)
 
   const getDateArrayLength = (days) => {
     // console.log('days',days)
     const targetDay = moment().subtract(days, 'days').format("YYYY-MM-DD")
-    // console.log(targetDay,'targetDay')
+    console.log(targetDay,'targetDay')
     var dayIndex = 0
     const reverseData = props.data.slice().reverse()
     // console.log(allData,'alldata')
 
     for (let day of reverseData) {
       if (day.date < targetDay) {
-        // console.log(dayIndex,'dayIndex')
+        console.log(dayIndex,'dayIndex')
         setDataRange(dayIndex)
         return
       } else if (dayIndex >= reverseData.length-1) {
@@ -157,7 +162,8 @@ const Chart = (props) => {
       }
     }
   }
-  // console.log(activeChartRange,'activeChartRange')
+  console.log(-dataRange,'dataRange')
+  console.log(props.data.slice(-dataRange),'activeChartRange')
   return(
     <div className="summary-chart">
       <div className="chart-buttons">

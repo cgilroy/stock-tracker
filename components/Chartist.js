@@ -28,16 +28,17 @@ const Chart = (props) => {
       ]
     };
   } else if (props.chartType === 'summary') {
+    console.log('making summary',props.data)
     var tempCoordinates = []
     var xData = []
     var yData = []
     var xIter = 1
     for (let dayData of props.data) {
       tempCoordinates.push(
-        {x:xIter,y:parseFloat(dayData.holdingValue)}
+        {x:xIter,y:parseFloat(dayData.totalHoldings)}
       )
       xData.push(dayData.date)
-      yData.push(parseFloat(dayData.holdingValue))
+      yData.push(parseFloat(dayData.totalHoldings))
       xIter++;
     }
     var data = {
