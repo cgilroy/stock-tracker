@@ -73,9 +73,10 @@ const MyStocks = (props) => {
       var priceDataPromises = []
       for (let stock in purchasesArray) {
         let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
-        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&outputsize=full&apikey='+API_KEY
+        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
         priceDataPromises.push(
           fetch(apiString).then(results => results.json()).then(json => {
+            console.log(json,'entries')
             var entries = Object.entries(json["Time Series (Daily)"]);
             entries.reverse()
             return {stock: stock, transactions: purchasesArray[stock], data: entries}

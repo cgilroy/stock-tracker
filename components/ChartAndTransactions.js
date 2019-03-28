@@ -1,11 +1,12 @@
 import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
 const ChartAndTransactions = (props) => {
-
+  const currentPrice = props.data[props.data.length-1][1]['4. close']
   return (
     <div className="stock-wrapper">
       <div className="stock-div">
         <h2>{props.stock}</h2>
+        <h3>{currentPrice}</h3>
         <Chart data={props.data} />
         <div onClick={() => props.showAddTransForm()}>ADDtrans</div>
         <StocksTable data={props.data} stock={props.stock} deleteStock={props.deleteStock} transactions={props.transactions} />
@@ -135,8 +136,8 @@ const StocksTable = (props) => {
 }
 
 const Chart = (props) => {
-  const [activeChartRange, setActiveChartRange] = useState("THIRTYDAYS")
-  const [dataRange, setDataRange] = useState(30)
+  const [activeChartRange, setActiveChartRange] = useState("YEAR")
+  const [dataRange, setDataRange] = useState(200)
   var moment = require('moment')
   const dateRanges = {
     WEEK: 7,
