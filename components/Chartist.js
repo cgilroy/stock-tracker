@@ -5,6 +5,7 @@ import './chartist.scss'
 const Chart = (props) => {
 
   var Chartist = require('chartist')
+  var tooltip = require('chartist-plugin-tooltip')
 
   if (props.chartType === 'stock') {
     var tempCoordinates = []
@@ -69,13 +70,38 @@ const Chart = (props) => {
     }
   }
 
+  const getToolHoverWidth = () => {
+    // console.log('length',props.data.length)
+    switch(props.activeRange) {
+      case 'WEEK':
+        //WEEK
+        return 1
+        break
+      case 'THIRTYDAYS':
+        //30days
+        return 6
+        break
+      case 'YEAR':
+        //year
+        return 11
+        break
+      default:
+        return 8
+    }
+  }
+
   var options = {
     axisX: {
       labelInterpolationFnc: function(value, index) {
         return index % (getLabelDivisor()) === 0 ? value : null;
       }
     },
-    lineSmooth: Chartist.Interpolation.none()
+    lineSmooth: Chartist.Interpolation.none(),
+    plugins: [ tooltip({
+      valueTransform: function (value) {
+                    return '$' + (value/1).toFixed(2);
+                }
+    }) ]
   };
   var seq = 0,
   delays = 0,
@@ -88,6 +114,8 @@ const Chart = (props) => {
     },
     draw: (data) => {
       seq++;
+      console.log('datathing',data)
+      var boxHeight = 0
       if (data.type === 'line') {
         // If the drawn element is a line we do a simple opacity fade in. This could also be achieved using CSS3 animations.
         data.element.animate({
@@ -102,6 +130,27 @@ const Chart = (props) => {
             to: 1
           }
         });
+        console.log('height',data.group.height())
+        const tooltipHoverWidth = 100/(data.path.pathElements.length-1) + '%'
+
+        for (let point of data.path.pathElements) {
+          data.group.append(
+            new Chartist.Svg('rect', {
+              x: point.x,
+              y: 0,
+              width: 100/(data.path.pathElements.length-1) + '%',
+              height: '0%'
+            }, 'ct-custom-element')
+          )
+        }
+      }
+
+      if (data.type === 'grid') {
+        if (data.y1 !== data.y2) {
+
+          boxHeight = data.group.height();
+          console.log('boxHeight',boxHeight)
+        }
       }
     }
   }
