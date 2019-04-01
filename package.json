@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
     "export": "next export",
     "start": "next start",
@@ -15,7 +15,8 @@
     "isomorphic-unfetch": "^3.0.0",
     "jquery": "^3.3.1",
     "moment": "^2.24.0",
-    "mongoose": "^5.4.19",
+    "mongodb": "^3.2.2",
+    "mongoose": "^5.4.20",
     "next": "^8.0.3",
     "node-sass": "^4.11.0",
     "react": "^16.8.4",
