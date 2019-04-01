@@ -4,8 +4,9 @@ const SummaryChart = (props) => {
   // console.log('portdata',getPortfolioData(props.data))
   return (
     <div className="summary-section">
-      <h2>SUMMARY</h2>
-      <Chart data={getPortfolioData(props.data)} />
+      <h2>PORTFOLIO SUMMARY</h2>
+      <Chart data={getPortfolioData(props.data).cumulative} />
+      <StocksTable data={getPortfolioData(props.data)} />
       <style jsx>{`
         .summary-section {
           color: #262626;
@@ -19,6 +20,7 @@ const SummaryChart = (props) => {
 const getPortfolioData = (allData) => {
   // allData = props.data
   var allHoldingsData = []
+
   for (let holding of allData) {
     var totVals = []
     // console.log(holding,'holding')
@@ -39,6 +41,15 @@ const getPortfolioData = (allData) => {
     }
     allHoldingsData.push(totVals)
   }
+  var totalSpent = 0
+  for (let holding of allData) {
+    // console.log(holding,'holding')
+      for (let txn of holding["transactions"]) {
+        // totQty+=txn.buyQty
+        totalSpent+=parseFloat(txn.totalValue)
+    }
+  }
+
   var cumulativeHoldingsData = []
   for (let i = 0;i<=allHoldingsData[0].length-1;i++) {
     var dayTotal = 0
@@ -50,75 +61,31 @@ const getPortfolioData = (allData) => {
   }
   console.log(allHoldingsData,'allHoldingsData')
   console.log(cumulativeHoldingsData,'cumulative')
-  return cumulativeHoldingsData
+  return {cumulative: cumulativeHoldingsData, totalSpent: totalSpent}
 }
 
 
 
 const StocksTable = (props) => {
-  var allTransactions = []
-  var groupTotalTransactions = []
-  var totaledDataRows = []
-  var transactionDataRows = []
-  var totals = {
-    totQty: 0,
-    totFees: 0,
-    totalValue: 0,
-    totDividends: 0
-  }
-
-  const currentPrice = props.data[props.data.length-1][1]['4. close']
-  // const currentPrice = 23.4
-
-  // for (let txn of props.transactions) {
-  //   let transRow = (
-  //     <tr key={txn.buyDate}>
-  //       <td>{txn.buyDate}</td>
-  //       <td>{txn.buyPrice}</td>
-  //       <td>{txn.buyQty}</td>
-  //       <td>{txn.buyFee}</td>
-  //       <td>{txn.totalValue}</td>
-  //     </tr>
-  //   )
-  //   transactionDataRows.push(transRow)
-  //   totals.totQty+=txn.buyQty
-  //   totals.totFees+=txn.buyFee
-  //   totals.totalValue+=txn.totalValue
-  // }
-
-  var totVal = 0
-  for (let entry of props.data[0]["data"]) {
-    let totQty = 0
-    let incQty = 0 //number of shares included in value calc
-    for (let txn of props.data[0]["transactions"]) {
-      totQty+=txn.buyQty
-      if (txn.buyDate <= entry[0]) {
-        incQty+=txn.buyQty
-        // shares owned before or on date
-        totVal+=(txn.buyQty*entry[1]["4. close"])
-      }
-    }
-  }
+  console.log('summary we in',props)
+  const currentPortfolioValue = props.data.cumulative[props.data.cumulative.length-1].totalHoldings
 
   const summaryData = {
-    capitalGain: (currentPrice*totals.totQty - totals.totalValue),
-    totalDividends: totDiv,
-    totalReturn: currentPrice*totals.totQty - totals.totalValue + totDiv
+    currentValue: currentPortfolioValue,
+    totalReturn: currentPortfolioValue - props.data.totalSpent
   }
 
   const summaryTable = (
     <table>
       <thead>
         <tr>
+          <th>Portfolio Value</th>
           <th>Capital Gain</th>
-          <th>Dividends</th>
-          <th>Total Return</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>{summaryData.capitalGain.toFixed(2)}</td>
-          <td>{summaryData.totalDividends.toFixed(2)}</td>
+          <td>{summaryData.currentValue.toFixed(2)}</td>
           <td>{summaryData.totalReturn.toFixed(2)}</td>
         </tr>
       </tbody>
