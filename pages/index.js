@@ -11,7 +11,7 @@ const Page = (serverTransactions) => {
     newTransactions = newTransactions.filter(( obj ) => (obj.id !== id))
     console.log('deletetrans',newTransactions)
     setTransactions(newTransactions)
-    fetch(`http://localhost:4000/transactions/${id}`, {
+    fetch(`http://localhost:3000/transactions/${id}`, {
         method: 'DELETE',
         body: newTransactions
       })
@@ -24,7 +24,7 @@ const Page = (serverTransactions) => {
     newTransactions.push(stockData)
     console.log('addtrans2',newTransactions)
     setTransactions(newTransactions)
-    fetch(`http://localhost:4000/transactions/`, {
+    fetch(`http://localhost:3000/transactions/`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -94,7 +94,7 @@ const Page = (serverTransactions) => {
 }
 
 Page.getInitialProps = async ({ req }) => {
-  const res = await fetch('http://localhost:4000/transactions')
+  const res = await fetch('http://localhost:3000/api/transactions')
   const json = await res.json()
   return { transactions: json }
 }
