@@ -11,7 +11,7 @@ const Page = (serverTransactions) => {
     newTransactions = newTransactions.filter(( obj ) => (obj.id !== id))
     console.log('deletetrans',newTransactions)
     setTransactions(newTransactions)
-    fetch(`http://localhost:3000/transactions/${id}`, {
+    fetch(`http://localhost:3000/transaction/${id}`, {
         method: 'DELETE',
         body: newTransactions
       })
@@ -24,7 +24,7 @@ const Page = (serverTransactions) => {
     newTransactions.push(stockData)
     console.log('addtrans2',newTransactions)
     setTransactions(newTransactions)
-    fetch(`http://localhost:3000/transactions/`, {
+    fetch(`http://localhost:3000/api/transaction/`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -95,8 +95,92 @@ const Page = (serverTransactions) => {
 
 Page.getInitialProps = async ({ req }) => {
   const res = await fetch('http://localhost:3000/api/transactions')
+  console.log(res,'res')
   const json = await res.json()
   return { transactions: json }
+  // return (
+  //   {
+  //     "user": [
+  //       {
+  //         "name": "jeff"
+  //       }
+  //     ],
+  //     "transactions": [
+  //       {
+  //         "id": 1,
+  //         "tickerSymbol": "HMMJ.TO",
+  //         "buyDate": "2017-11-14",
+  //         "buyPrice": 12.7801,
+  //         "buyQty": 101,
+  //         "buyFee": 0.35,
+  //         "totalValue": 1291.14
+  //       },
+  //       {
+  //         "id": 2,
+  //         "tickerSymbol": "HMMJ.TO",
+  //         "buyDate": "2019-01-05",
+  //         "buyPrice": 19.88,
+  //         "buyQty": 1,
+  //         "buyFee": 0,
+  //         "totalValue": 19.88
+  //       },
+  //       {
+  //         "id": 3,
+  //         "tickerSymbol": "XAW.TO",
+  //         "buyDate": "2017-11-14",
+  //         "buyPrice": 12.7801,
+  //         "buyQty": 101,
+  //         "buyFee": 0.35,
+  //         "totalValue": 1291.14
+  //       },
+  //       {
+  //         "id": 4,
+  //         "tickerSymbol": "XAW.TO",
+  //         "buyDate": "2019-01-05",
+  //         "buyPrice": 19.88,
+  //         "buyQty": 1,
+  //         "buyFee": 0,
+  //         "totalValue": 19.88
+  //       },
+  //       {
+  //         "id": 5,
+  //         "tickerSymbol": "XAW.TO",
+  //         "buyDate": "2018-11-25",
+  //         "buyPrice": 14.88,
+  //         "buyQty": 105,
+  //         "buyFee": 0,
+  //         "totalValue": 1562.4
+  //       },
+  //       {
+  //         "id": 6,
+  //         "tickerSymbol": "VCN.TO",
+  //         "buyDate": "2017-11-14",
+  //         "buyPrice": 12.7801,
+  //         "buyQty": 101,
+  //         "buyFee": 0.35,
+  //         "totalValue": 1291.14
+  //       },
+  //       {
+  //         "id": 8,
+  //         "tickerSymbol": "VCN.TO",
+  //         "buyDate": "2018-11-25",
+  //         "buyPrice": 14.88,
+  //         "buyQty": 105,
+  //         "buyFee": 0,
+  //         "totalValue": 1562.4
+  //       },
+  //       {
+  //         "id": "928e7c80-502e-11e9-817c-d790151f8c90",
+  //         "tickerSymbol": "HD",
+  //         "buyDate": "2019-03-01",
+  //         "buyPrice": 123,
+  //         "buyQty": 25,
+  //         "buyFee": 2,
+  //         "totalValue": 3073
+  //       }
+  //     ]
+  //   }
+  // )
 }
 
 const AddTransactionModal = ({handleClose, handleSubmit}) => {
