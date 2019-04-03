@@ -12,10 +12,7 @@ const handle = app.getRequestHandler()
 
 const CONNECTION_URL = "mongodb+srv://cgilroy:6h5YMc@wO!6XY7hp@stock-tracker-2h3lj.mongodb.net/test?retryWrites=true";
 // const CONNECTION_URL = process.env.CONNECTION_URL
-// const another = process.env.REACT_APP_ALPHAVANTAGE_API_KEY
 const DATABASE_NAME = "stocksDB";
-// console.log(CONNECTION_URL,'connectionurl')
-console.log('then here',dev)
 app.prepare()
 .then(() => {
   const server = Express();
@@ -43,7 +40,6 @@ app.prepare()
                 if(error) {
                     return response.status(500).send(error);
                 }
-                console.log(result,'result')
                 response.send(result);
             });
           });

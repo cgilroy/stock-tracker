@@ -7,64 +7,7 @@ const MyStocks = (props) => {
   const [priceHistoyArray, setPriceHistoryArray] = useState()
   const [stockSections, setStockSections] = useState()
   const [summarySection, setSummarySection] = useState()
-  // const purchasesArray = {
-  //   "HMMJ.TO": [{
-  //     buyDate: '2017-11-14',
-  //     buyPrice: 12.7801,
-  //     buyQty: 101,
-  //     buyFee: 0.35,
-  //     totalValue: 1291.14
-  //   },
-  //   {
-  //     buyDate: '2019-01-05',
-  //     buyPrice: 19.88,
-  //     buyQty: 1,
-  //     buyFee: 0,
-  //     totalValue: 19.88
-  //   }],
-  //   "XAW.TO": [{
-  //     buyDate: '2017-11-14',
-  //     buyPrice: 12.7801,
-  //     buyQty: 101,
-  //     buyFee: 0.35,
-  //     totalValue: 1291.14
-  //   },
-  //   {
-  //     buyDate: '2019-01-05',
-  //     buyPrice: 19.88,
-  //     buyQty: 1,
-  //     buyFee: 0,
-  //     totalValue: 19.88
-  //   },
-  //   {
-  //     buyDate: '2018-11-25',
-  //     buyPrice: 14.88,
-  //     buyQty: 105,
-  //     buyFee: 0,
-  //     totalValue: 1562.40
-  //   }],
-  //   "VCN.TO": [{
-  //     buyDate: '2017-11-14',
-  //     buyPrice: 12.7801,
-  //     buyQty: 101,
-  //     buyFee: 0.35,
-  //     totalValue: 1291.14
-  //   },
-  //   {
-  //     buyDate: '2019-01-05',
-  //     buyPrice: 19.88,
-  //     buyQty: 1,
-  //     buyFee: 0,
-  //     totalValue: 19.88
-  //   },
-  //   {
-  //     buyDate: '2018-11-25',
-  //     buyPrice: 14.88,
-  //     buyQty: 105,
-  //     buyFee: 0,
-  //     totalValue: 1562.40
-  //   }]
-  // };
+
   const purchasesArray = groupBy(props.transactions,"tickerSymbol")
   // console.log('checkthis',purchasesArray)
   const API_KEY = process.env.REACT_APP_ALPHAVANTAGE_API_KEY;
