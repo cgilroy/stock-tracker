@@ -6,6 +6,7 @@ const Page = (serverTransactions) => {
   // console.log(serverTransactions,'serverTransactions')
   const [showModal, setShowModal] = useState(false)
   const [transactions, setTransactions] = useState(serverTransactions.transactions)
+  const [transModal, setTransModal] = useState()
   const deleteStock = (id) => {
     var newTransactions = transactions.slice()
     newTransactions = newTransactions.filter(( obj ) => (obj.id !== id))
@@ -35,6 +36,11 @@ const Page = (serverTransactions) => {
 
   }
 
+  const handleShowModalClick = (stock,price) => {
+    setTransModal(<AddTransactionModal handleSubmit={addStock} handleClose={() => setShowModal(false)} stock={stock} price={price}/>)
+    setShowModal(true)
+  }
+
   console.log(transactions,'yeahrender')
   return (
     <div className={`modal-${showModal}`}>
@@ -43,8 +49,8 @@ const Page = (serverTransactions) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
       </Head>
-      {showModal && <AddTransactionModal handleSubmit={addStock} handleClose={() => setShowModal(false)} />}
-      <App transactions={transactions} showAddTransForm={() => setShowModal(true)} deleteStock={deleteStock} />
+      {showModal && transModal}
+      <App transactions={transactions} showAddTransForm={handleShowModalClick} deleteStock={deleteStock} />
       <style jsx global>{`
         * {
           font-family: sans-serif;
@@ -183,13 +189,17 @@ Page.getInitialProps = async ({ req }) => {
   // )
 }
 
-const AddTransactionModal = ({handleClose, handleSubmit}) => {
-  const [stockName, setStockName] = useState()
+const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
+  stock = stock || ''
+  price = price || 0.00
+  const [stockName, setStockName] = useState(stock)
   const [buyDate, setBuyDate] = useState()
-  const [buyQty, setBuyQty] = useState()
-  const [buyFee, setBuyFee] = useState()
-  const [buyPrice, setBuyPrice] = useState()
+  const [buyQty, setBuyQty] = useState(0)
+  const [buyFee, setBuyFee] = useState(0.00)
+  const [buyPrice, setBuyPrice] = useState(price)
   const id = require('uuid/v1')
+
+
 
   const handleSubmitClick = (event) => {
     // console.log(stockName,buyDate,buyPrice,buyFee,'testsubmit')

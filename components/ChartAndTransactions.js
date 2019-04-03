@@ -8,7 +8,7 @@ const ChartAndTransactions = (props) => {
         <h2>{props.stock}</h2>
         <h3>{currentPrice.toFixed(2)}</h3>
         <Chart data={props.data} />
-        <div onClick={() => props.showAddTransForm()}>ADDtrans</div>
+        <div onClick={() => props.showAddTransForm(props.stock,currentPrice.toFixed(2))}>ADDtrans</div>
         <StocksTable data={props.data} stock={props.stock} deleteStock={props.deleteStock} transactions={props.transactions} />
       </div>
       <style jsx>{`
