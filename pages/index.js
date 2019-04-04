@@ -191,11 +191,11 @@ Page.getInitialProps = async ({ req }) => {
 
 const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
   stock = stock || ''
-  price = price || 0.00
+  price = price || ''
   const [stockName, setStockName] = useState(stock)
   const [buyDate, setBuyDate] = useState()
-  const [buyQty, setBuyQty] = useState(0)
-  const [buyFee, setBuyFee] = useState(0.00)
+  const [buyQty, setBuyQty] = useState()
+  const [buyFee, setBuyFee] = useState()
   const [buyPrice, setBuyPrice] = useState(price)
   const id = require('uuid/v1')
 
@@ -237,55 +237,148 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
   }
 
   return (
-    <div className="add-trans-modal">
-      <span className="exit-button" onClick={() => handleClose()}>X</span>
-      <form onSubmit={handleSubmitClick} accept-charset="UTF-8">
-        <label>
-          Stock:
-          <input type="text" value={stockName} onChange={(e) => setStockName(e.target.value.toUpperCase())} />
-        </label>
-        <label>
-          Date:
-          <input type="date" value={buyDate} onChange={(e) => setBuyDate(e.target.value)} />
-        </label>
-        <label>
-          Qty:
-          <input type="number" min="0" value={buyQty} onChange={(e) => setBuyQty(parseFloat(e.target.value))} />
-        </label>
-        <label>
-          Price:
-          <input type="number" min="0" step=".01" value={buyPrice} onChange={(e) => setBuyPrice(parseFloat(e.target.value))} />
-        </label>
-        <label>
-          Fees:
-          <input type="number" min="0" step=".01" value={buyFee} onChange={(e) => setBuyFee(parseFloat(e.target.value))} />
-        </label>
-        <label>
-          Total Price:
-          {totalPrice()}
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+    <div className="modal-wrapper">
+      <div className="modal-body">
+        <div className="modal-body__header">
+          <span className="modal-wrapper__title">Add New Transaction</span>
+          <span className="exit-button" onClick={() => handleClose()}>&times;</span>
+        </div>
+        <div className="modal-body__form">
+          <form onSubmit={handleSubmitClick} accept-charset="UTF-8">
+            <div className="horizontal-entries">
+              <label className="modal-input">
+                <span style={{marginRight:'5px'}}>Stock</span>
+                <input type="text" value={stockName} onChange={(e) => setStockName(e.target.value.toUpperCase())} required/>
+              </label>
+              <label>
+                <span style={{marginRight:'5px'}}>Date</span>
+                <input type="date" value={buyDate} onChange={(e) => setBuyDate(e.target.value)} required/>
+              </label>
+            </div>
+            <div className="horizontal-entries" style={{marginTop:"15px"}}>
+              <label className="modal-input">
+                Quantity
+                <input type="number" min="0" placeholder="0" value={buyQty} onChange={(e) => setBuyQty(parseFloat(e.target.value))} required/>
+              </label>
+              <span style={{verticalAlign:'middle',display:'table-cell',color:'#7c899c',padding:'0 5px'}}>&times;</span>
+              <label className="modal-input">
+                Price
+                <input type="number" min="0" step=".01" placeholder="0.00" value={buyPrice} onChange={(e) => setBuyPrice(parseFloat(e.target.value))} required/>
+              </label>
+              <span style={{verticalAlign:'middle',display:'table-cell',color:'#7c899c',padding:'0 5px'}}>&#43;</span>
+              <label className="modal-input">
+                Fees
+                <input type="number" min="0" step=".01" placeholder="0.00" value={buyFee} onChange={(e) => setBuyFee(parseFloat(e.target.value))} required/>
+              </label>
+              <span style={{verticalAlign:'middle',display:'table-cell',color:'#7c899c',padding:'0 5px'}}>&#61;</span>
+              <label className="modal-input">
+                Total
+                <span className="modal-input__finalPrice">{totalPrice()}</span>
+              </label>
+            </div>
+            <input id="submit-button" type="submit" value="Submit" />
+          </form>
+        </div>
+      </div>
       <style jsx>{`
-        .add-trans-modal {
-          width: 50%;
-          height: 100%;
+        .modal-body {
           max-height: 300px;
           background: white;
-          border: 1px solid #eee;
+          border-radius 8px;
           overflow-y: auto;
           position: fixed;
           top: 50%;
           left: 50%;
           transform: translateX(-50%) translateY(-50%);
           box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-          z-index: 999999;
+        }
+        .modal-body__header {
+          display: flex;
+          width: 100%;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          background: #449bf7;
+          color: white;
+          padding: 10px;
+          box-sizing: border-box;
+        }
+        .modal-body__form {
+          padding: 15px;
         }
         .exit-button {
           position: absolute;
           right: 0;
+          color: white;
+          transition: color 0.1s linear;
+          cursor: pointer;
+          padding: 5px;
+          font-size: 25px;
+          height: 20px;
+          width: 20px;
+          line-height: 20px;
+          text-align: center;
+        }
+        .exit-button:hover {
+          color: #357ebd;
+        }
+        .modal-wrapper {
+          position: fixed;
           top: 0;
-          color: red;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #00000050;
+          z-index: 999999;
+        }
+        .modal-input {
+          display: table-cell;
+          text-align: center;
+        }
+        .entry-label {
+         width: 100%;
+        }
+        .horizontal-entries {
+          width: 100%;
+          display: table;
+        }
+        .modal-body input {
+          color: #7c899c;
+          border: 1px solid #ccc;
+          box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+          padding: 10px 16px;
+          height: 40px;
+          font-size: 16px;
+          border-radius: 6px;
+          box-sizing: border-box;
+        }
+        .modal-input__finalPrice {
+          padding: 10px 16px;
+          height: 40px;
+          font-size: 16px;
+          box-sizing: border-box;
+          display: inline-block;
+        }
+        #submit-button {
+          width: 150px;
+          background-color: #62cc83;
+          border-radius: 5px;
+          align-items:center;
+          display: flex;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 16px;
+          color: white;
+          text-align: center;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+          margin-top: 40px;
+
+        }
+
+        #submit-button:hover {
+          background-color: #5cbf7b;
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         }
       `}</style>
     </div>
