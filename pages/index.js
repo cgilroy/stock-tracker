@@ -2,6 +2,7 @@ import App from '../components/App.js'
 import Head from 'next/head'
 import fetch from 'isomorphic-unfetch'
 import { useState, useEffect } from 'react'
+import DatePicker from 'react-datepicker'
 const Page = (serverTransactions) => {
   // console.log(serverTransactions,'serverTransactions')
   const [showModal, setShowModal] = useState(false)
@@ -252,7 +253,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
               </label>
               <label>
                 <span style={{marginRight:'5px'}}>Date</span>
-                <input type="date" value={buyDate} onChange={(e) => setBuyDate(e.target.value)} required/>
+                <DatePicker />
               </label>
             </div>
             <div className="horizontal-entries" style={{marginTop:"15px"}}>
