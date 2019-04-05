@@ -7,6 +7,7 @@
     "deploy": "next build && next export -o docs"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "body-parser": "^1.18.3",
     "chartist": "^0.11.0",

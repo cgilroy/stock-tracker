@@ -3,6 +3,7 @@ import Head from 'next/head'
 import fetch from 'isomorphic-unfetch'
 import { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
+import dateCss from 'react-datepicker/dist/react-datepicker.css'
 const Page = (serverTransactions) => {
   // console.log(serverTransactions,'serverTransactions')
   const [showModal, setShowModal] = useState(false)
@@ -194,7 +195,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
   stock = stock || ''
   price = price || ''
   const [stockName, setStockName] = useState(stock)
-  const [buyDate, setBuyDate] = useState()
+  const [buyDate, setBuyDate] = useState(new Date())
   const [buyQty, setBuyQty] = useState()
   const [buyFee, setBuyFee] = useState()
   const [buyPrice, setBuyPrice] = useState(price)
@@ -253,7 +254,12 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
               </label>
               <label>
                 <span style={{marginRight:'5px'}}>Date</span>
-                <DatePicker />
+                <DatePicker
+                    selected={buyDate}
+                    onChange={(date) => setBuyDate(date)}
+                    maxDate={new Date()}
+                    className='date-input'
+                />
               </label>
             </div>
             <div className="horizontal-entries" style={{marginTop:"15px"}}>
@@ -283,7 +289,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
       </div>
       <style jsx>{`
         .modal-body {
-          max-height: 300px;
+          height: 380px;
           background: white;
           border-radius 8px;
           overflow-y: auto;
@@ -376,11 +382,11 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
           margin-top: 40px;
 
         }
-
         #submit-button:hover {
           background-color: #5cbf7b;
           box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         }
+
       `}</style>
     </div>
   )
