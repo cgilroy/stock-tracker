@@ -4,6 +4,7 @@ import fetch from 'isomorphic-unfetch'
 import { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import dateCss from 'react-datepicker/dist/react-datepicker.css'
+import extraDateCss from '../components/datepicker.css'
 const Page = (serverTransactions) => {
   // console.log(serverTransactions,'serverTransactions')
   const [showModal, setShowModal] = useState(false)
@@ -191,17 +192,27 @@ Page.getInitialProps = async ({ req }) => {
   // )
 }
 
+const formatMoney = (n, c, d, t) => {
+  var c = isNaN(c = Math.abs(c)) ? 2 : c,
+    d = d == undefined ? "." : d,
+    t = t == undefined ? "," : t,
+    s = n < 0 ? "-" : "",
+    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+    j = (j = i.length) > 3 ? j % 3 : 0;
+
+  return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+}
+
 const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
   stock = stock || ''
   price = price || ''
+  var moment = require('moment')
   const [stockName, setStockName] = useState(stock)
-  const [buyDate, setBuyDate] = useState(new Date())
+  const [buyDate, setBuyDate] = useState(moment().format("YYYY-MM-DD"))
   const [buyQty, setBuyQty] = useState()
   const [buyFee, setBuyFee] = useState()
   const [buyPrice, setBuyPrice] = useState(price)
   const id = require('uuid/v1')
-
-
 
   const handleSubmitClick = (event) => {
     // console.log(stockName,buyDate,buyPrice,buyFee,'testsubmit')
@@ -209,7 +220,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
     let newTrans = {
       "id": id(),
       "tickerSymbol": stockName,
-      "buyDate": buyDate,
+      "buyDate": moment(buyDate).format("YYYY-MM-DD"),
       "buyPrice": buyPrice,
       "buyQty": buyQty,
       "buyFee": buyFee,
@@ -231,8 +242,13 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
 
   var totalPrice = () => {
     // console.log([buyPrice, buyQty],"buyPrice")
-    if (buyQty && buyPrice && buyFee !== undefined) {
-      return ((parseFloat(buyQty)*parseFloat(buyPrice))+parseFloat(buyFee)).toFixed(2)
+    if (buyQty && buyPrice !== undefined) {
+
+      const val = buyFee !== undefined ?
+      formatMoney((parseFloat(buyQty)*parseFloat(buyPrice))+parseFloat(buyFee)) :
+      formatMoney((parseFloat(buyQty)*parseFloat(buyPrice)));
+      console.log('returningval',val)
+      return val
     } else {
       return (0.00).toFixed(2)
     }
@@ -280,7 +296,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
               <span style={{verticalAlign:'middle',display:'table-cell',color:'#7c899c',padding:'0 5px'}}>&#61;</span>
               <label className="modal-input">
                 Total
-                <span className="modal-input__finalPrice">{totalPrice()}</span>
+                <span className="modal-input__finalPrice">${totalPrice()}</span>
               </label>
             </div>
             <input id="submit-button" type="submit" value="Submit" />
@@ -289,10 +305,8 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
       </div>
       <style jsx>{`
         .modal-body {
-          height: 380px;
+          height: 260px;
           background: white;
-          border-radius 8px;
-          overflow-y: auto;
           position: fixed;
           top: 50%;
           left: 50%;
@@ -369,6 +383,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
         #submit-button {
           width: 150px;
           background-color: #62cc83;
+          border: none;
           border-radius: 5px;
           align-items:center;
           display: flex;
