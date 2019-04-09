@@ -61,6 +61,7 @@ const StocksTable = (props) => {
         <td onClick={() => props.deleteStock(txn.id)}/>
       </tr>
     )
+
     transactionDataRows.push(transRow)
     totals.totQty+=txn.buyQty
     totals.totFees+=txn.buyFee
@@ -110,7 +111,7 @@ const StocksTable = (props) => {
   )
 
   const transactionsTable = (
-    <table>
+    <table className="transactions-table">
       <thead>
         <tr>
           <th>Date</th>
@@ -131,11 +132,12 @@ const StocksTable = (props) => {
     <div>
       {summaryTable}
       <div style={{display:'flex',alignItems:'center'}}>
-        <h2>Trades</h2>
+        <h3 style={{fontWeight:'lighter'}}>TRADES</h3>
         <div className='add-button' onClick={props.showAddTransForm}><span>+ Add New Trade</span></div>
       </div>
       {transactionsTable}
       <style jsx>{`
+
         .add-button {
           width: 150px;
           height: 30px;
@@ -152,9 +154,7 @@ const StocksTable = (props) => {
            margin-left: 10px;
            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-
         }
-
         .add-button:hover {
           background-color: #4081fb;
            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);

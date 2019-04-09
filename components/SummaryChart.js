@@ -4,7 +4,6 @@ const SummaryChart = (props) => {
   // console.log('portdata',getPortfolioData(props.data))
   return (
     <div className="summary-section">
-      <h2>PORTFOLIO SUMMARY</h2>
       <Chart data={getPortfolioData(props.data).cumulative} />
       <StocksTable data={getPortfolioData(props.data)} />
       <style jsx>{`

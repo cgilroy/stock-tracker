@@ -114,7 +114,6 @@ const Chart = (props) => {
     },
     draw: (data) => {
       seq++;
-      console.log('datathing',data)
       var boxHeight = 0
       if (data.type === 'line') {
         // If the drawn element is a line we do a simple opacity fade in. This could also be achieved using CSS3 animations.
@@ -130,7 +129,7 @@ const Chart = (props) => {
             to: 1
           }
         });
-        console.log('height',data.group.height())
+        // console.log('height',data.group.height())
         const tooltipHoverWidth = 100/(data.path.pathElements.length-1) + '%'
 
         for (let point of data.path.pathElements) {

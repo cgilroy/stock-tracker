@@ -15,8 +15,8 @@ const MyStocks = (props) => {
     () => {
       var priceDataPromises = []
       for (let stock in purchasesArray) {
-        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
-        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
+        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
+        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
         priceDataPromises.push(
           fetch(apiString).then(results => results.json()).then(json => {
             // console.log(json,'entries')
@@ -42,8 +42,9 @@ const MyStocks = (props) => {
   // console.log('rerender mystocks')
   return (
     <div>
+      <h2 className="section-header">PORTFOLIO SUMMARY</h2>
       {summarySection}
-      <h2>MY HOLDINGS</h2>
+      <h2 className="section-header">MY HOLDINGS</h2>
       <div className="stock-sections">
         {stockSections}
       </div>
@@ -52,9 +53,6 @@ const MyStocks = (props) => {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-evenly;
-        }
-        h2 {
-          color: #262626;
         }
       `}</style>
     </div>
@@ -102,7 +100,7 @@ const StocksTables = (props) => {
   }
 
   const transactionsTable = (
-    <table>
+    <table className="transactions-table">
       <thead>
         <tr>
           <th>Symbol</th>

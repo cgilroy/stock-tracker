@@ -60,6 +60,38 @@ const Page = (serverTransactions) => {
         }
         body {
         }
+        .section-header {
+          background: #3c4a51;
+          color: white;
+          border-bottom: 2px solid #7fc6a4;
+          font-weight: lighter;
+          padding: 5px;
+        }
+        table.transactions-table {
+          background-color: #EEEEEE;
+          width: 100%;
+          text-align: left;
+          border-collapse: collapse;
+        }
+        table.transactions-table td, table.transactions-table th {
+          padding: 3px 2px;
+        }
+        table.transactions-table tbody td {
+          font-size: 13px;
+          border-bottom: 1px solid #AAAAAA;
+        }
+        table.transactions-table tr:nth-child(even) {
+          background: #F5F5F5;
+        }
+        table.transactions-table thead {
+          background: #7FC6A4;
+        }
+        table.transactions-table thead th {
+          font-size: 15px;
+          font-weight: bold;
+          color: #444444;
+          text-align: left;
+        }
         .ct-chart {
             position: relative;
         }
