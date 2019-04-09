@@ -50,9 +50,9 @@ const StocksTable = (props) => {
   const currentPrice = props.data[props.data.length-1][1]['4. close']
   // const currentPrice = 23.4
 
-  for (let txn of props.transactions) {
+  for (const [index, txn] of props.transactions.entries()) {
     let transRow = (
-      <tr key={txn.buyDate}>
+      <tr key={index}>
         <td>{txn.buyDate}</td>
         <td>{txn.buyPrice}</td>
         <td>{txn.buyQty}</td>

@@ -15,8 +15,8 @@ const MyStocks = (props) => {
     () => {
       var priceDataPromises = []
       for (let stock in purchasesArray) {
-        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
-        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
+        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
+        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
         priceDataPromises.push(
           fetch(apiString).then(results => results.json()).then(json => {
             // console.log(json,'entries')
@@ -28,8 +28,8 @@ const MyStocks = (props) => {
         )
       }
       Promise.all(priceDataPromises).then(data => {
-        var stockChartsAndTransactions = data.map(stockData => {
-          return (<ChartAndTransactions showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
+        var stockChartsAndTransactions = data.map((stockData,index) => {
+          return (<ChartAndTransactions key={index} showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
         })
         var summaryChart = (<SummaryChart data={data} />)
         // console.log(data,'datahere')
