@@ -1,11 +1,12 @@
 import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
+import { formatMoney } from './helpers.js'
 const SummaryChart = (props) => {
   // console.log('portdata',getPortfolioData(props.data))
   return (
     <div className="summary-section">
-      <Chart data={getPortfolioData(props.data).cumulative} />
       <StocksTable data={getPortfolioData(props.data)} />
+      <Chart data={getPortfolioData(props.data).cumulative} />
       <style jsx>{`
         .summary-section {
           color: #262626;
@@ -84,16 +85,36 @@ const StocksTable = (props) => {
       </thead>
       <tbody>
         <tr>
-          <td>{summaryData.currentValue.toFixed(2)}</td>
-          <td>{summaryData.totalReturn.toFixed(2)}</td>
+          <td>${formatMoney(summaryData.currentValue)}</td>
+          <td>${formatMoney(summaryData.totalReturn)}</td>
         </tr>
       </tbody>
     </table>
   )
 
   return (
-    <div>
-      {summaryTable}
+    <div style={{display:'flex',alignItems:'baseline'}}>
+      <div className="summaryValue">
+        <h2>${formatMoney(summaryData.currentValue)}</h2>
+        <span>CURRENT VALUE</span>
+      </div>
+      <div className="summaryValue">
+        <h2>${formatMoney(summaryData.totalReturn)}</h2>
+        <span>TOTAL RETURN</span>
+      </div>
+      <style jsx>{`
+        .summaryValue {
+          display: block;
+          margin-bottom: 15px;
+          padding-right: 8px;
+        }
+        h2 {
+          margin: 0;
+        }
+        span {
+          color: #262626;
+        }
+      `}</style>
     </div>
   )
 }

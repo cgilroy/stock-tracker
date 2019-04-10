@@ -1,5 +1,6 @@
 import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
+import { formatMoney } from './helpers.js'
 const ChartAndTransactions = (props) => {
   const currentPrice = parseFloat(props.data[props.data.length-1][1]['4. close'])
   return (
@@ -7,7 +8,7 @@ const ChartAndTransactions = (props) => {
       <div className="stock-div">
         <div style={{display:'flex',alignItems:'center'}}>
           <h2 style={{fontWeight:'lighter'}}>{props.stock}</h2>
-          <h2 style={{marginLeft:'10px'}}>${currentPrice.toFixed(2)}</h2>
+          <h2 style={{marginLeft:'10px'}}>${formatMoney(currentPrice)}</h2>
         </div>
         <Chart data={props.data} />
         <StocksTable data={props.data} showAddTransForm={() => props.showAddTransForm(props.stock,currentPrice.toFixed(2))} stock={props.stock} deleteStock={props.deleteStock} transactions={props.transactions} />
@@ -54,10 +55,10 @@ const StocksTable = (props) => {
     let transRow = (
       <tr key={index}>
         <td>{txn.buyDate}</td>
-        <td>{txn.buyPrice}</td>
+        <td>${formatMoney(txn.buyPrice)}</td>
         <td>{txn.buyQty}</td>
-        <td>{txn.buyFee}</td>
-        <td>{txn.totalValue}</td>
+        <td>${formatMoney(txn.buyFee)}</td>
+        <td>${formatMoney(txn.totalValue)}</td>
         <td onClick={() => props.deleteStock(txn.id)}/>
       </tr>
     )
@@ -102,9 +103,9 @@ const StocksTable = (props) => {
       </thead>
       <tbody>
         <tr>
-          <td>{summaryData.capitalGain.toFixed(2)}</td>
-          <td>{summaryData.totalDividends.toFixed(2)}</td>
-          <td>{summaryData.totalReturn.toFixed(2)}</td>
+          <td>${formatMoney(summaryData.capitalGain)}</td>
+          <td>${formatMoney(summaryData.totalDividends)}</td>
+          <td>${formatMoney(summaryData.totalReturn)}</td>
         </tr>
       </tbody>
     </table>

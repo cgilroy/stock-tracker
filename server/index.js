@@ -3,15 +3,14 @@ const BodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
 const ObjectId = require("mongodb").ObjectID;
 const next = require('next')
+require('dotenv').config()
 const dev = process.env.NODE_ENV !== 'production'
 console.log('got here',dev)
 const app = next({dev})
 
 const handle = app.getRequestHandler()
 
-
-const CONNECTION_URL = "mongodb+srv://cgilroy:6h5YMc@wO!6XY7hp@stock-tracker-2h3lj.mongodb.net/test?retryWrites=true";
-// const CONNECTION_URL = process.env.CONNECTION_URL
+const CONNECTION_URL = process.env.CONNECTION_URL
 const DATABASE_NAME = "stocksDB";
 app.prepare()
 .then(() => {

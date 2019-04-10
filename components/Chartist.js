@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ChartistGraph from 'react-chartist';
 import './chartist.scss'
+import { formatMoney } from './helpers.js'
 const Chart = (props) => {
 
   var Chartist = require('chartist')
@@ -99,7 +100,7 @@ const Chart = (props) => {
     lineSmooth: Chartist.Interpolation.none(),
     plugins: [ tooltip({
       valueTransform: function (value) {
-                    return '$' + (value/1).toFixed(2);
+                    return '$' + formatMoney(value/1);
                 }
     }) ]
   };
@@ -129,19 +130,19 @@ const Chart = (props) => {
             to: 1
           }
         });
-        // console.log('height',data.group.height())
+        console.log('datacheck',data)
         const tooltipHoverWidth = 100/(data.path.pathElements.length-1) + '%'
 
-        for (let point of data.path.pathElements) {
-          data.group.append(
-            new Chartist.Svg('rect', {
-              x: point.x,
-              y: 0,
-              width: 100/(data.path.pathElements.length-1) + '%',
-              height: '0%'
-            }, 'ct-custom-element')
-          )
-        }
+        // for (let point of data.path.pathElements) {
+        //   data.group.append(
+        //     new Chartist.Svg('rect', {
+        //       x: point.x,
+        //       y: 0,
+        //       width: 100/(data.path.pathElements.length-1) + '%',
+        //       height: '100%'
+        //     }, 'ct-custom-element')
+        //   )
+        // }
       }
 
       if (data.type === 'grid') {
