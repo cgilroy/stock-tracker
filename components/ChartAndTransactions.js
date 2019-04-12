@@ -138,27 +138,25 @@ const StocksTable = (props) => {
       </div>
       {transactionsTable}
       <style jsx>{`
-
         .add-button {
           width: 150px;
           height: 30px;
           background-color: #449bf7;
-
-           border-radius: 5px;
-           align-items:center;
-           display: flex;
-           justify-content: center;
-           cursor: pointer;
-           font-size: 16px;
-           color: white;
-           text-align: center;
-           margin-left: 10px;
-           box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-           transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+          border-radius: 5px;
+          align-items:center;
+          display: flex;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 16px;
+          color: white;
+          text-align: center;
+          margin-left: 10px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
         }
         .add-button:hover {
           background-color: #4081fb;
-           box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         }
       `}</style>
     </div>

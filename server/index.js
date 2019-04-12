@@ -7,6 +7,7 @@ require('dotenv').config()
 const dev = process.env.NODE_ENV !== 'production'
 console.log('got here',dev)
 const app = next({dev})
+const port = process.env.PORT || 3000;
 
 const handle = app.getRequestHandler()
 
@@ -26,7 +27,7 @@ app.prepare()
   var database, collection;
 
 
-  server.listen(3000, () => {
+  server.listen(port, () => {
       MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
           if(error) {
               throw error;

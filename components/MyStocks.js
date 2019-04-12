@@ -15,8 +15,8 @@ const MyStocks = (props) => {
     () => {
       var priceDataPromises = []
       for (let stock in purchasesArray) {
-        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
-        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
+        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
+        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
         priceDataPromises.push(
           fetch(apiString).then(results => results.json()).then(json => {
             // console.log(json,'entries')
@@ -28,13 +28,46 @@ const MyStocks = (props) => {
         )
       }
       Promise.all(priceDataPromises).then(data => {
-        var stockChartsAndTransactions = data.map((stockData,index) => {
-          return (<ChartAndTransactions key={index} showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
-        })
-        var summaryChart = (<SummaryChart data={data} />)
-        // console.log(data,'datahere')
-        setSummarySection(summaryChart)
-        setStockSections(stockChartsAndTransactions)
+        var stockChartsAndTransactions = (data.length !== 0) ? (
+          data.map((stockData,index) => {
+            return (<ChartAndTransactions key={index} showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
+          })
+        ) : (
+          <div className='add-button' onClick={() => {props.showAddTransForm('',0)}}>
+            <span>Add a Trade</span>
+            <style jsx>{`
+              .add-button {
+                width: 150px;
+                height: 30px;
+                background-color: #449bf7;
+                align-items:center;
+                display: flex;
+                justify-content: center;
+                cursor: pointer;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                margin-left: 10px;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+                transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+              }
+              .add-button:hover {
+                background-color: #4081fb;
+                box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+              }
+            `}</style>
+          </div>
+        );
+        var summaryChart = (data.length !== 0) ? (
+          <SummaryChart data={data} />
+        ) : (
+          <div style={{height:'200px',width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>
+            <h2 style={{color:'#ccc',fontWeight:'lighter',border:'1px solid #ccc',padding:'10px'}}>No Data Available</h2>
+          </div>
+        )
+          // console.log(data,'datahere')
+          setSummarySection(summaryChart)
+          setStockSections(stockChartsAndTransactions)
       })
     },
     [props.transactions]

@@ -40,6 +40,7 @@ const Page = (serverTransactions) => {
   }
 
   const handleShowModalClick = (stock,price) => {
+    console.log('stockagain',stock)
     setTransModal(<AddTransactionModal handleSubmit={addStock} handleClose={() => setShowModal(false)} stock={stock} price={price}/>)
     setShowModal(true)
   }
@@ -236,6 +237,7 @@ const formatMoney = (n, c, d, t) => {
 }
 
 const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
+  console.log(stock,'stock')
   stock = stock || ''
   price = price || ''
   var moment = require('moment')
@@ -256,7 +258,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
       "buyPrice": buyPrice,
       "buyQty": buyQty,
       "buyFee": buyFee,
-      "totalValue": parseFloat(((buyQty*buyPrice)-buyFee).toFixed(2))
+      "totalValue": parseFloat(((buyQty*buyPrice)+buyFee).toFixed(2))
     }
 
     const optimized = JSON.stringify(newTrans)
