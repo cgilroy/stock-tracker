@@ -1,1 +1,2018 @@
-[{"date":"2018-04-11","close":172.44,"volume":22431640,"change":0,"changePercent":0,"changeOverTime":0},{"date":"2018-04-12","close":174.14,"volume":22889285,"change":1.7,"changePercent":0.9859,"changeOverTime":0.009859},{"date":"2018-04-13","close":174.73,"volume":25124255,"change":0.59,"changePercent":0.3388,"changeOverTime":0.01328},{"date":"2018-04-16","close":175.82,"volume":21578420,"change":1.09,"changePercent":0.6238,"changeOverTime":0.019601},{"date":"2018-04-17","close":178.24,"volume":26605442,"change":2.42,"changePercent":1.3764,"changeOverTime":0.033635},{"date":"2018-04-18","close":177.84,"volume":20754538,"change":-0.4,"changePercent":-0.2244,"changeOverTime":0.031315},{"date":"2018-04-19","close":172.8,"volume":34808800,"change":-5.04,"changePercent":-2.834,"changeOverTime":0.002088},{"date":"2018-04-20","close":165.72,"volume":65491140,"change":-7.08,"changePercent":-4.0972,"changeOverTime":-0.03897},{"date":"2018-04-23","close":165.24,"volume":36515477,"change":-0.48,"changePercent":-0.2896,"changeOverTime":-0.041754},{"date":"2018-04-24","close":162.94,"volume":33692017,"change":-2.3,"changePercent":-1.3919,"changeOverTime":-0.055092},{"date":"2018-04-25","close":163.65,"volume":28382084,"change":0.71,"changePercent":0.4357,"changeOverTime":-0.050974},{"date":"2018-04-26","close":164.22,"volume":27963014,"change":0.57,"changePercent":0.3483,"changeOverTime":-0.047669},{"date":"2018-04-27","close":162.32,"volume":35655839,"change":-1.9,"changePercent":-1.157,"changeOverTime":-0.058687},{"date":"2018-04-30","close":165.26,"volume":42427424,"change":2.94,"changePercent":1.8112,"changeOverTime":-0.041638},{"date":"2018-05-01","close":169.1,"volume":53569376,"change":3.84,"changePercent":2.3236,"changeOverTime":-0.019369},{"date":"2018-05-02","close":176.57,"volume":66539371,"change":7.47,"changePercent":4.4175,"changeOverTime":0.02395},{"date":"2018-05-03","close":176.89,"volume":34068180,"change":0.32,"changePercent":0.1812,"changeOverTime":0.025806},{"date":"2018-05-04","close":183.83,"volume":56201317,"change":6.94,"changePercent":3.9233,"changeOverTime":0.066052},{"date":"2018-05-07","close":185.16,"volume":42451423,"change":1.33,"changePercent":0.7235,"changeOverTime":0.073765},{"date":"2018-05-08","close":186.05,"volume":28402777,"change":0.89,"changePercent":0.4807,"changeOverTime":0.078926},{"date":"2018-05-09","close":187.36,"volume":23211241,"change":1.31,"changePercent":0.7041,"changeOverTime":0.086523},{"date":"2018-05-10","close":190.04,"volume":27989289,"change":2.68,"changePercent":1.4304,"changeOverTime":0.102064},{"date":"2018-05-11","close":188.59,"volume":26212221,"change":-1.45,"changePercent":-0.763,"changeOverTime":0.093656},{"date":"2018-05-14","close":188.15,"volume":20778772,"change":-0.44,"changePercent":-0.2333,"changeOverTime":0.091104},{"date":"2018-05-15","close":186.44,"volume":23695159,"change":-1.71,"changePercent":-0.9088,"changeOverTime":0.081188},{"date":"2018-05-16","close":188.18,"volume":19183064,"change":1.74,"changePercent":0.9333,"changeOverTime":0.091278},{"date":"2018-05-17","close":186.99,"volume":17294029,"change":-1.19,"changePercent":-0.6324,"changeOverTime":0.084377},{"date":"2018-05-18","close":186.31,"volume":18297728,"change":-0.68,"changePercent":-0.3637,"changeOverTime":0.080434},{"date":"2018-05-21","close":187.63,"volume":18400787,"change":1.32,"changePercent":0.7085,"changeOverTime":0.088089},{"date":"2018-05-22","close":187.16,"volume":15240704,"change":-0.47,"changePercent":-0.2505,"changeOverTime":0.085363},{"date":"2018-05-23","close":188.36,"volume":20058415,"change":1.2,"changePercent":0.6412,"changeOverTime":0.092322},{"date":"2018-05-24","close":188.15,"volume":23233975,"change":-0.21,"changePercent":-0.1115,"changeOverTime":0.091104},{"date":"2018-05-25","close":188.58,"volume":17460963,"change":0.43,"changePercent":0.2285,"changeOverTime":0.093598},{"date":"2018-05-29","close":187.9,"volume":22514075,"change":-0.68,"changePercent":-0.3606,"changeOverTime":0.089654},{"date":"2018-05-30","close":187.5,"volume":18690547,"change":-0.4,"changePercent":-0.2129,"changeOverTime":0.087335},{"date":"2018-05-31","close":186.87,"volume":27482793,"change":-0.63,"changePercent":-0.336,"changeOverTime":0.083681},{"date":"2018-06-01","close":190.24,"volume":23442510,"change":3.37,"changePercent":1.8034,"changeOverTime":0.103224},{"date":"2018-06-04","close":191.83,"volume":26266174,"change":1.59,"changePercent":0.8358,"changeOverTime":0.112445},{"date":"2018-06-05","close":193.31,"volume":21565963,"change":1.48,"changePercent":0.7715,"changeOverTime":0.121028},{"date":"2018-06-06","close":193.98,"volume":20933619,"change":0.67,"changePercent":0.3466,"changeOverTime":0.124913},{"date":"2018-06-07","close":193.46,"volume":21347180,"change":-0.52,"changePercent":-0.2681,"changeOverTime":0.121897},{"date":"2018-06-08","close":191.7,"volume":26656799,"change":-1.76,"changePercent":-0.9097,"changeOverTime":0.111691},{"date":"2018-06-11","close":191.23,"volume":18308460,"change":-0.47,"changePercent":-0.2452,"changeOverTime":0.108965},{"date":"2018-06-12","close":192.28,"volume":16911141,"change":1.05,"changePercent":0.5491,"changeOverTime":0.115055},{"date":"2018-06-13","close":190.7,"volume":21638393,"change":-1.58,"changePercent":-0.8217,"changeOverTime":0.105892},{"date":"2018-06-14","close":190.8,"volume":21610074,"change":0.1,"changePercent":0.0524,"changeOverTime":0.106472},{"date":"2018-06-15","close":188.84,"volume":61719160,"change":-1.96,"changePercent":-1.0273,"changeOverTime":0.095106},{"date":"2018-06-18","close":188.74,"volume":18484865,"change":-0.1,"changePercent":-0.053,"changeOverTime":0.094526},{"date":"2018-06-19","close":185.69,"volume":33578455,"change":-3.05,"changePercent":-1.616,"changeOverTime":0.076838},{"date":"2018-06-20","close":186.5,"volume":20628701,"change":0.81,"changePercent":0.4362,"changeOverTime":0.081536},{"date":"2018-06-21","close":185.46,"volume":25711898,"change":-1.04,"changePercent":-0.5576,"changeOverTime":0.075505},{"date":"2018-06-22","close":184.92,"volume":27200447,"change":-0.54,"changePercent":-0.2912,"changeOverTime":0.072373},{"date":"2018-06-25","close":182.17,"volume":31663096,"change":-2.75,"changePercent":-1.4871,"changeOverTime":0.056425},{"date":"2018-06-26","close":184.43,"volume":24569201,"change":2.26,"changePercent":1.2406,"changeOverTime":0.069531},{"date":"2018-06-27","close":184.16,"volume":25285328,"change":-0.27,"changePercent":-0.1464,"changeOverTime":0.067966},{"date":"2018-06-28","close":185.5,"volume":17365235,"change":1.34,"changePercent":0.7276,"changeOverTime":0.075736},{"date":"2018-06-29","close":185.11,"volume":22737666,"change":-0.39,"changePercent":-0.2102,"changeOverTime":0.073475},{"date":"2018-07-02","close":187.18,"volume":17731343,"change":2.07,"changePercent":1.1183,"changeOverTime":0.085479},{"date":"2018-07-03","close":183.92,"volume":13954806,"change":-3.26,"changePercent":-1.7416,"changeOverTime":0.066574},{"date":"2018-07-05","close":185.4,"volume":16604248,"change":1.48,"changePercent":0.8047,"changeOverTime":0.075157},{"date":"2018-07-06","close":187.97,"volume":17485245,"change":2.57,"changePercent":1.3862,"changeOverTime":0.09006},{"date":"2018-07-09","close":190.58,"volume":19756634,"change":2.61,"changePercent":1.3885,"changeOverTime":0.105196},{"date":"2018-07-10","close":190.35,"volume":15939149,"change":-0.23,"changePercent":-0.1207,"changeOverTime":0.103862},{"date":"2018-07-11","close":187.88,"volume":18831470,"change":-2.47,"changePercent":-1.2976,"changeOverTime":0.089538},{"date":"2018-07-12","close":191.03,"volume":18041131,"change":3.15,"changePercent":1.6766,"changeOverTime":0.107806},{"date":"2018-07-13","close":191.33,"volume":12519792,"change":0.3,"changePercent":0.157,"changeOverTime":0.109545},{"date":"2018-07-16","close":190.91,"volume":15043110,"change":-0.42,"changePercent":-0.2195,"changeOverTime":0.10711},{"date":"2018-07-17","close":191.45,"volume":15534523,"change":0.54,"changePercent":0.2829,"changeOverTime":0.110241},{"date":"2018-07-18","close":190.4,"volume":16393381,"change":-1.05,"changePercent":-0.5484,"changeOverTime":0.104152},{"date":"2018-07-19","close":191.88,"volume":20286752,"change":1.48,"changePercent":0.7773,"changeOverTime":0.112735},{"date":"2018-07-20","close":191.44,"volume":20706042,"change":-0.44,"changePercent":-0.2293,"changeOverTime":0.110183},{"date":"2018-07-23","close":191.61,"volume":15989365,"change":0.17,"changePercent":0.0888,"changeOverTime":0.111169},{"date":"2018-07-24","close":193,"volume":18697898,"change":1.39,"changePercent":0.7254,"changeOverTime":0.11923},{"date":"2018-07-25","close":194.82,"volume":16826483,"change":1.82,"changePercent":0.943,"changeOverTime":0.129784},{"date":"2018-07-26","close":194.21,"volume":19075964,"change":-0.61,"changePercent":-0.3131,"changeOverTime":0.126247},{"date":"2018-07-27","close":190.98,"volume":24023972,"change":-3.23,"changePercent":-1.6631,"changeOverTime":0.107516},{"date":"2018-07-30","close":189.91,"volume":21029535,"change":-1.07,"changePercent":-0.5603,"changeOverTime":0.101311},{"date":"2018-07-31","close":190.29,"volume":39373038,"change":0.38,"changePercent":0.2001,"changeOverTime":0.103514},{"date":"2018-08-01","close":201.5,"volume":67935716,"change":11.21,"changePercent":5.891,"changeOverTime":0.168522},{"date":"2018-08-02","close":207.39,"volume":62404012,"change":5.89,"changePercent":2.9231,"changeOverTime":0.202679},{"date":"2018-08-03","close":207.99,"volume":33447396,"change":0.6,"changePercent":0.2893,"changeOverTime":0.206159},{"date":"2018-08-06","close":209.07,"volume":25425387,"change":1.08,"changePercent":0.5193,"changeOverTime":0.212422},{"date":"2018-08-07","close":207.11,"volume":25587387,"change":-1.96,"changePercent":-0.9375,"changeOverTime":0.201055},{"date":"2018-08-08","close":207.25,"volume":22525487,"change":0.14,"changePercent":0.0676,"changeOverTime":0.201867},{"date":"2018-08-09","close":208.88,"volume":23492626,"change":1.63,"changePercent":0.7865,"changeOverTime":0.21132},{"date":"2018-08-10","close":207.53,"volume":24611202,"change":-1.35,"changePercent":-0.6463,"changeOverTime":0.203491},{"date":"2018-08-13","close":208.87,"volume":25890880,"change":1.34,"changePercent":0.6457,"changeOverTime":0.211262},{"date":"2018-08-14","close":209.75,"volume":20748010,"change":0.88,"changePercent":0.4213,"changeOverTime":0.216365},{"date":"2018-08-15","close":210.24,"volume":28807564,"change":0.49,"changePercent":0.2336,"changeOverTime":0.219207},{"date":"2018-08-16","close":213.32,"volume":28500367,"change":3.08,"changePercent":1.465,"changeOverTime":0.237068},{"date":"2018-08-17","close":217.58,"volume":35426997,"change":4.26,"changePercent":1.997,"changeOverTime":0.261772},{"date":"2018-08-20","close":215.46,"volume":30287695,"change":-2.12,"changePercent":-0.9744,"changeOverTime":0.249478},{"date":"2018-08-21","close":215.04,"volume":26159755,"change":-0.42,"changePercent":-0.1949,"changeOverTime":0.247042},{"date":"2018-08-22","close":215.05,"volume":19018131,"change":0.01,"changePercent":0.0047,"changeOverTime":0.2471},{"date":"2018-08-23","close":215.49,"volume":18883224,"change":0.44,"changePercent":0.2046,"changeOverTime":0.249652},{"date":"2018-08-24","close":216.16,"volume":18476356,"change":0.67,"changePercent":0.3109,"changeOverTime":0.253537},{"date":"2018-08-27","close":217.94,"volume":20525117,"change":1.78,"changePercent":0.8235,"changeOverTime":0.26386},{"date":"2018-08-28","close":219.7,"volume":22776766,"change":1.76,"changePercent":0.8076,"changeOverTime":0.274066},{"date":"2018-08-29","close":222.98,"volume":27254804,"change":3.28,"changePercent":1.4929,"changeOverTime":0.293087},{"date":"2018-08-30","close":225.03,"volume":48793824,"change":2.05,"changePercent":0.9194,"changeOverTime":0.304976},{"date":"2018-08-31","close":227.63,"volume":43340134,"change":2.6,"changePercent":1.1554,"changeOverTime":0.320053},{"date":"2018-09-04","close":228.36,"volume":27390132,"change":0.73,"changePercent":0.3207,"changeOverTime":0.324287},{"date":"2018-09-05","close":226.87,"volume":33332960,"change":-1.49,"changePercent":-0.6525,"changeOverTime":0.315646},{"date":"2018-09-06","close":223.1,"volume":34289976,"change":-3.77,"changePercent":-1.6617,"changeOverTime":0.293783},{"date":"2018-09-07","close":221.3,"volume":37619810,"change":-1.8,"changePercent":-0.8068,"changeOverTime":0.283345},{"date":"2018-09-10","close":218.33,"volume":39516453,"change":-2.97,"changePercent":-1.3421,"changeOverTime":0.266122},{"date":"2018-09-11","close":223.85,"volume":35749049,"change":5.52,"changePercent":2.5283,"changeOverTime":0.298133},{"date":"2018-09-12","close":221.07,"volume":49278740,"change":-2.78,"changePercent":-1.2419,"changeOverTime":0.282011},{"date":"2018-09-13","close":226.41,"volume":41706377,"change":5.34,"changePercent":2.4155,"changeOverTime":0.312978},{"date":"2018-09-14","close":223.84,"volume":31999289,"change":-2.57,"changePercent":-1.1351,"changeOverTime":0.298075},{"date":"2018-09-17","close":217.88,"volume":37195133,"change":-5.96,"changePercent":-2.6626,"changeOverTime":0.263512},{"date":"2018-09-18","close":218.24,"volume":31571712,"change":0.36,"changePercent":0.1652,"changeOverTime":0.2656},{"date":"2018-09-19","close":218.37,"volume":27123833,"change":0.13,"changePercent":0.0596,"changeOverTime":0.266354},{"date":"2018-09-20","close":220.03,"volume":26608794,"change":1.66,"changePercent":0.7602,"changeOverTime":0.27598},{"date":"2018-09-21","close":217.66,"volume":96246748,"change":-2.37,"changePercent":-1.0771,"changeOverTime":0.262236},{"date":"2018-09-24","close":220.79,"volume":27693358,"change":3.13,"changePercent":1.438,"changeOverTime":0.280387},{"date":"2018-09-25","close":222.19,"volume":24554379,"change":1.4,"changePercent":0.6341,"changeOverTime":0.288506},{"date":"2018-09-26","close":220.42,"volume":23984706,"change":-1.77,"changePercent":-0.7966,"changeOverTime":0.278242},{"date":"2018-09-27","close":224.95,"volume":30181227,"change":4.53,"changePercent":2.0552,"changeOverTime":0.304512},{"date":"2018-09-28","close":225.74,"volume":22929364,"change":0.79,"changePercent":0.3512,"changeOverTime":0.309093},{"date":"2018-10-01","close":227.26,"volume":23600802,"change":1.52,"changePercent":0.6733,"changeOverTime":0.317908},{"date":"2018-10-02","close":229.28,"volume":24788170,"change":2.02,"changePercent":0.8888,"changeOverTime":0.329622},{"date":"2018-10-03","close":232.07,"volume":28654799,"change":2.79,"changePercent":1.2169,"changeOverTime":0.345801},{"date":"2018-10-04","close":227.99,"volume":32042000,"change":-4.08,"changePercent":-1.7581,"changeOverTime":0.322141},{"date":"2018-10-05","close":224.29,"volume":33580463,"change":-3.7,"changePercent":-1.6229,"changeOverTime":0.300684},{"date":"2018-10-08","close":223.77,"volume":29663923,"change":-0.52,"changePercent":-0.2318,"changeOverTime":0.297669},{"date":"2018-10-09","close":226.87,"volume":26891029,"change":3.1,"changePercent":1.3854,"changeOverTime":0.315646},{"date":"2018-10-10","close":216.36,"volume":41990554,"change":-10.51,"changePercent":-4.6326,"changeOverTime":0.254697},{"date":"2018-10-11","close":214.45,"volume":53124392,"change":-1.91,"changePercent":-0.8828,"changeOverTime":0.243621},{"date":"2018-10-12","close":222.11,"volume":40337851,"change":7.66,"changePercent":3.5719,"changeOverTime":0.288042},{"date":"2018-10-15","close":217.36,"volume":30791007,"change":-4.75,"changePercent":-2.1386,"changeOverTime":0.260496},{"date":"2018-10-16","close":222.15,"volume":29183963,"change":4.79,"changePercent":2.2037,"changeOverTime":0.288274},{"date":"2018-10-17","close":221.19,"volume":22885397,"change":-0.96,"changePercent":-0.4321,"changeOverTime":0.282707},{"date":"2018-10-18","close":216.02,"volume":32581315,"change":-5.17,"changePercent":-2.3374,"changeOverTime":0.252726},{"date":"2018-10-19","close":219.31,"volume":33078726,"change":3.29,"changePercent":1.523,"changeOverTime":0.271805},{"date":"2018-10-22","close":220.65,"volume":28792082,"change":1.34,"changePercent":0.611,"changeOverTime":0.279576},{"date":"2018-10-23","close":222.73,"volume":38767846,"change":2.08,"changePercent":0.9427,"changeOverTime":0.291638},{"date":"2018-10-24","close":215.09,"volume":40925163,"change":-7.64,"changePercent":-3.4302,"changeOverTime":0.247332},{"date":"2018-10-25","close":219.8,"volume":29855768,"change":4.71,"changePercent":2.1898,"changeOverTime":0.274646},{"date":"2018-10-26","close":216.3,"volume":47258375,"change":-3.5,"changePercent":-1.5924,"changeOverTime":0.254349},{"date":"2018-10-29","close":212.24,"volume":45935520,"change":-4.06,"changePercent":-1.877,"changeOverTime":0.230805},{"date":"2018-10-30","close":213.3,"volume":36659990,"change":1.06,"changePercent":0.4994,"changeOverTime":0.236952},{"date":"2018-10-31","close":218.86,"volume":38358933,"change":5.56,"changePercent":2.6067,"changeOverTime":0.269195},{"date":"2018-11-01","close":222.22,"volume":58323180,"change":3.36,"changePercent":1.5352,"changeOverTime":0.28868},{"date":"2018-11-02","close":207.48,"volume":91328654,"change":-14.74,"changePercent":-6.6331,"changeOverTime":0.203201},{"date":"2018-11-05","close":201.59,"volume":66163669,"change":-5.89,"changePercent":-2.8388,"changeOverTime":0.169044},{"date":"2018-11-06","close":203.77,"volume":31882881,"change":2.18,"changePercent":1.0814,"changeOverTime":0.181686},{"date":"2018-11-07","close":209.95,"volume":33424434,"change":6.18,"changePercent":3.0328,"changeOverTime":0.217525},{"date":"2018-11-08","close":208.49,"volume":25362636,"change":-1.46,"changePercent":-0.6954,"changeOverTime":0.209058},{"date":"2018-11-09","close":204.47,"volume":34365750,"change":-4.02,"changePercent":-1.9282,"changeOverTime":0.185746},{"date":"2018-11-12","close":194.17,"volume":51135518,"change":-10.3,"changePercent":-5.0374,"changeOverTime":0.126015},{"date":"2018-11-13","close":192.23,"volume":46882936,"change":-1.94,"changePercent":-0.9991,"changeOverTime":0.114765},{"date":"2018-11-14","close":186.8,"volume":60800957,"change":-5.43,"changePercent":-2.8247,"changeOverTime":0.083275},{"date":"2018-11-15","close":191.41,"volume":46478801,"change":4.61,"changePercent":2.4679,"changeOverTime":0.110009},{"date":"2018-11-16","close":193.53,"volume":36928253,"change":2.12,"changePercent":1.1076,"changeOverTime":0.122303},{"date":"2018-11-19","close":185.86,"volume":41920872,"change":-7.67,"changePercent":-3.9632,"changeOverTime":0.077824},{"date":"2018-11-20","close":176.98,"volume":67825247,"change":-8.88,"changePercent":-4.7778,"changeOverTime":0.026328},{"date":"2018-11-21","close":176.78,"volume":31124210,"change":-0.2,"changePercent":-0.113,"changeOverTime":0.025168},{"date":"2018-11-23","close":172.29,"volume":23623972,"change":-4.49,"changePercent":-2.5399,"changeOverTime":-0.00087},{"date":"2018-11-26","close":174.62,"volume":44998520,"change":2.33,"changePercent":1.3524,"changeOverTime":0.012642},{"date":"2018-11-27","close":174.24,"volume":41387377,"change":-0.38,"changePercent":-0.2176,"changeOverTime":0.010438},{"date":"2018-11-28","close":180.94,"volume":46062539,"change":6.7,"changePercent":3.8453,"changeOverTime":0.049293},{"date":"2018-11-29","close":179.55,"volume":41769992,"change":-1.39,"changePercent":-0.7682,"changeOverTime":0.041232},{"date":"2018-11-30","close":178.58,"volume":39531549,"change":-0.97,"changePercent":-0.5402,"changeOverTime":0.035607},{"date":"2018-12-03","close":184.82,"volume":40798002,"change":6.24,"changePercent":3.4942,"changeOverTime":0.071793},{"date":"2018-12-04","close":176.69,"volume":41344282,"change":-8.13,"changePercent":-4.3989,"changeOverTime":0.024646},{"date":"2018-12-06","close":174.72,"volume":43098410,"change":-1.97,"changePercent":-1.1149,"changeOverTime":0.013222},{"date":"2018-12-07","close":168.49,"volume":42281631,"change":-6.23,"changePercent":-3.5657,"changeOverTime":-0.022907},{"date":"2018-12-10","close":169.6,"volume":62025994,"change":1.11,"changePercent":0.6588,"changeOverTime":-0.016469},{"date":"2018-12-11","close":168.63,"volume":47281665,"change":-0.97,"changePercent":-0.5719,"changeOverTime":-0.022095},{"date":"2018-12-12","close":169.1,"volume":35627674,"change":0.47,"changePercent":0.2787,"changeOverTime":-0.019369},{"date":"2018-12-13","close":170.95,"volume":31897827,"change":1.85,"changePercent":1.094,"changeOverTime":-0.008641},{"date":"2018-12-14","close":165.48,"volume":40703710,"change":-5.47,"changePercent":-3.1998,"changeOverTime":-0.040362},{"date":"2018-12-17","close":163.94,"volume":44287922,"change":-1.54,"changePercent":-0.9306,"changeOverTime":-0.049293},{"date":"2018-12-18","close":166.07,"volume":33841518,"change":2.13,"changePercent":1.2993,"changeOverTime":-0.03694},{"date":"2018-12-19","close":160.89,"volume":49047297,"change":-5.18,"changePercent":-3.1192,"changeOverTime":-0.06698},{"date":"2018-12-20","close":156.83,"volume":64772960,"change":-4.06,"changePercent":-2.5235,"changeOverTime":-0.090524},{"date":"2018-12-21","close":150.73,"volume":95744384,"change":-6.1,"changePercent":-3.8896,"changeOverTime":-0.125899},{"date":"2018-12-24","close":146.83,"volume":37169232,"change":-3.9,"changePercent":-2.5874,"changeOverTime":-0.148515},{"date":"2018-12-26","close":157.17,"volume":58582544,"change":10.34,"changePercent":7.0422,"changeOverTime":-0.088553},{"date":"2018-12-27","close":156.15,"volume":53117065,"change":-1.02,"changePercent":-0.649,"changeOverTime":-0.094468},{"date":"2018-12-28","close":156.23,"volume":42291424,"change":0.08,"changePercent":0.0512,"changeOverTime":-0.094004},{"date":"2018-12-31","close":157.74,"volume":35003466,"change":1.51,"changePercent":0.9665,"changeOverTime":-0.085247},{"date":"2019-01-02","close":157.92,"volume":37039737,"change":0.18,"changePercent":0.1141,"changeOverTime":-0.084203},{"date":"2019-01-03","close":142.19,"volume":91312195,"change":-15.73,"changePercent":-9.9607,"changeOverTime":-0.175423},{"date":"2019-01-04","close":148.26,"volume":58607070,"change":6.07,"changePercent":4.2689,"changeOverTime":-0.140223},{"date":"2019-01-07","close":147.93,"volume":54777764,"change":-0.33,"changePercent":-0.2226,"changeOverTime":-0.142136},{"date":"2019-01-08","close":150.75,"volume":41025314,"change":2.82,"changePercent":1.9063,"changeOverTime":-0.125783},{"date":"2019-01-09","close":153.31,"volume":45099081,"change":2.56,"changePercent":1.6982,"changeOverTime":-0.110937},{"date":"2019-01-10","close":153.8,"volume":35780670,"change":0.49,"changePercent":0.3196,"changeOverTime":-0.108096},{"date":"2019-01-11","close":152.29,"volume":27023241,"change":-1.51,"changePercent":-0.9818,"changeOverTime":-0.116852},{"date":"2019-01-14","close":150,"volume":32439186,"change":-2.29,"changePercent":-1.5037,"changeOverTime":-0.130132},{"date":"2019-01-15","close":153.07,"volume":28710324,"change":3.07,"changePercent":2.0467,"changeOverTime":-0.112329},{"date":"2019-01-16","close":154.94,"volume":30569706,"change":1.87,"changePercent":1.2217,"changeOverTime":-0.101485},{"date":"2019-01-17","close":155.86,"volume":29821160,"change":0.92,"changePercent":0.5938,"changeOverTime":-0.096149},{"date":"2019-01-18","close":156.82,"volume":33751023,"change":0.96,"changePercent":0.6159,"changeOverTime":-0.090582},{"date":"2019-01-22","close":153.3,"volume":30393970,"change":-3.52,"changePercent":-2.2446,"changeOverTime":-0.110995},{"date":"2019-01-23","close":153.92,"volume":23130570,"change":0.62,"changePercent":0.4044,"changeOverTime":-0.1074},{"date":"2019-01-24","close":152.7,"volume":25441549,"change":-1.22,"changePercent":-0.7926,"changeOverTime":-0.114475},{"date":"2019-01-25","close":157.76,"volume":33547893,"change":5.06,"changePercent":3.3137,"changeOverTime":-0.085131},{"date":"2019-01-28","close":156.3,"volume":26192058,"change":-1.46,"changePercent":-0.9255,"changeOverTime":-0.093598},{"date":"2019-01-29","close":154.68,"volume":41587239,"change":-1.62,"changePercent":-1.0365,"changeOverTime":-0.102992},{"date":"2019-01-30","close":165.25,"volume":61109780,"change":10.57,"changePercent":6.8335,"changeOverTime":-0.041696},{"date":"2019-01-31","close":166.44,"volume":40739649,"change":1.19,"changePercent":0.7201,"changeOverTime":-0.034795},{"date":"2019-02-01","close":166.52,"volume":32668138,"change":0.08,"changePercent":0.0481,"changeOverTime":-0.034331},{"date":"2019-02-04","close":171.25,"volume":31495582,"change":4.73,"changePercent":2.8405,"changeOverTime":-0.006901},{"date":"2019-02-05","close":174.18,"volume":36101628,"change":2.93,"changePercent":1.7109,"changeOverTime":0.01009},{"date":"2019-02-06","close":174.24,"volume":28239591,"change":0.06,"changePercent":0.0344,"changeOverTime":0.010438},{"date":"2019-02-07","close":170.94,"volume":31741690,"change":-3.3,"changePercent":-1.8939,"changeOverTime":-0.008699},{"date":"2019-02-08","close":170.41,"volume":23819966,"change":-0.53,"changePercent":-0.3101,"changeOverTime":-0.011772},{"date":"2019-02-11","close":169.43,"volume":20993425,"change":-0.98,"changePercent":-0.5751,"changeOverTime":-0.017455},{"date":"2019-02-12","close":170.89,"volume":22283523,"change":1.46,"changePercent":0.8617,"changeOverTime":-0.008989},{"date":"2019-02-13","close":170.18,"volume":22490233,"change":-0.71,"changePercent":-0.4155,"changeOverTime":-0.013106},{"date":"2019-02-14","close":170.8,"volume":21835747,"change":0.62,"changePercent":0.3643,"changeOverTime":-0.009511},{"date":"2019-02-15","close":170.42,"volume":24626814,"change":-0.38,"changePercent":-0.2225,"changeOverTime":-0.011714},{"date":"2019-02-19","close":170.93,"volume":18972826,"change":0.51,"changePercent":0.2993,"changeOverTime":-0.008757},{"date":"2019-02-20","close":172.03,"volume":26114362,"change":1.1,"changePercent":0.6435,"changeOverTime":-0.002378},{"date":"2019-02-21","close":171.06,"volume":17249670,"change":-0.97,"changePercent":-0.5639,"changeOverTime":-0.008003},{"date":"2019-02-22","close":172.97,"volume":18913154,"change":1.91,"changePercent":1.1166,"changeOverTime":0.003074},{"date":"2019-02-25","close":174.23,"volume":21873358,"change":1.26,"changePercent":0.7285,"changeOverTime":0.01038},{"date":"2019-02-26","close":174.33,"volume":17070211,"change":0.1,"changePercent":0.0574,"changeOverTime":0.01096},{"date":"2019-02-27","close":174.87,"volume":27835389,"change":0.54,"changePercent":0.3098,"changeOverTime":0.014092},{"date":"2019-02-28","close":173.15,"volume":28215416,"change":-1.72,"changePercent":-0.9836,"changeOverTime":0.004117},{"date":"2019-03-01","close":174.97,"volume":25886167,"change":1.82,"changePercent":1.0511,"changeOverTime":0.014672},{"date":"2019-03-04","close":175.85,"volume":27436203,"change":0.88,"changePercent":0.5029,"changeOverTime":0.019775},{"date":"2019-03-05","close":175.53,"volume":19737419,"change":-0.32,"changePercent":-0.182,"changeOverTime":0.017919},{"date":"2019-03-06","close":174.52,"volume":20810384,"change":-1.01,"changePercent":-0.5754,"changeOverTime":0.012062},{"date":"2019-03-07","close":172.5,"volume":24796374,"change":-2.02,"changePercent":-1.1575,"changeOverTime":0.000348},{"date":"2019-03-08","close":172.91,"volume":23999358,"change":0.41,"changePercent":0.2377,"changeOverTime":0.002726},{"date":"2019-03-11","close":178.9,"volume":32011034,"change":5.99,"changePercent":3.4642,"changeOverTime":0.037462},{"date":"2019-03-12","close":180.91,"volume":32467584,"change":2.01,"changePercent":1.1235,"changeOverTime":0.049119},{"date":"2019-03-13","close":181.71,"volume":31032524,"change":0.8,"changePercent":0.4422,"changeOverTime":0.053758},{"date":"2019-03-14","close":183.73,"volume":23579508,"change":2.02,"changePercent":1.1117,"changeOverTime":0.065472},{"date":"2019-03-15","close":186.12,"volume":39042912,"change":2.39,"changePercent":1.3008,"changeOverTime":0.079332},{"date":"2019-03-18","close":188.02,"volume":26219832,"change":1.9,"changePercent":1.0208,"changeOverTime":0.09035},{"date":"2019-03-19","close":186.53,"volume":31646369,"change":-1.49,"changePercent":-0.7925,"changeOverTime":0.08171},{"date":"2019-03-20","close":188.16,"volume":31035231,"change":1.63,"changePercent":0.8739,"changeOverTime":0.091162},{"date":"2019-03-21","close":195.09,"volume":51034237,"change":6.93,"changePercent":3.683,"changeOverTime":0.13135},{"date":"2019-03-22","close":191.05,"volume":42407666,"change":-4.04,"changePercent":-2.0708,"changeOverTime":0.107922},{"date":"2019-03-25","close":188.74,"volume":43845293,"change":-2.31,"changePercent":-1.2091,"changeOverTime":0.094526},{"date":"2019-03-26","close":186.79,"volume":49800538,"change":-1.95,"changePercent":-1.0332,"changeOverTime":0.083217},{"date":"2019-03-27","close":188.47,"volume":29848427,"change":1.68,"changePercent":0.8994,"changeOverTime":0.09296},{"date":"2019-03-28","close":188.72,"volume":20780363,"change":0.25,"changePercent":0.1326,"changeOverTime":0.09441},{"date":"2019-03-29","close":189.95,"volume":23563961,"change":1.23,"changePercent":0.6518,"changeOverTime":0.101543},{"date":"2019-04-01","close":191.24,"volume":27861964,"change":1.29,"changePercent":0.6791,"changeOverTime":0.109023},{"date":"2019-04-02","close":194.02,"volume":22765732,"change":2.78,"changePercent":1.4537,"changeOverTime":0.125145},{"date":"2019-04-03","close":195.35,"volume":23271830,"change":1.33,"changePercent":0.6855,"changeOverTime":0.132858},{"date":"2019-04-04","close":195.69,"volume":19114275,"change":0.34,"changePercent":0.174,"changeOverTime":0.13483},{"date":"2019-04-05","close":197,"volume":18526644,"change":1.31,"changePercent":0.6694,"changeOverTime":0.142426},{"date":"2019-04-08","close":200.1,"volume":25881697,"change":3.1,"changePercent":1.5736,"changeOverTime":0.160404},{"date":"2019-04-09","close":199.5,"volume":35768237,"change":-0.6,"changePercent":-0.2999,"changeOverTime":0.156924},{"date":"2019-04-10","close":200.62,"volume":21695288,"change":1.12,"changePercent":0.5614,"changeOverTime":0.163419}]
+[
+  {
+    "date": "2018-04-11",
+    "close": 172.44,
+    "volume": 22431640,
+    "change": 0,
+    "changePercent": 0,
+    "changeOverTime": 0
+  },
+  {
+    "date": "2018-04-12",
+    "close": 174.14,
+    "volume": 22889285,
+    "change": 1.7,
+    "changePercent": 0.9859,
+    "changeOverTime": 0.009859
+  },
+  {
+    "date": "2018-04-13",
+    "close": 174.73,
+    "volume": 25124255,
+    "change": 0.59,
+    "changePercent": 0.3388,
+    "changeOverTime": 0.01328
+  },
+  {
+    "date": "2018-04-16",
+    "close": 175.82,
+    "volume": 21578420,
+    "change": 1.09,
+    "changePercent": 0.6238,
+    "changeOverTime": 0.019601
+  },
+  {
+    "date": "2018-04-17",
+    "close": 178.24,
+    "volume": 26605442,
+    "change": 2.42,
+    "changePercent": 1.3764,
+    "changeOverTime": 0.033635
+  },
+  {
+    "date": "2018-04-18",
+    "close": 177.84,
+    "volume": 20754538,
+    "change": -0.4,
+    "changePercent": -0.2244,
+    "changeOverTime": 0.031315
+  },
+  {
+    "date": "2018-04-19",
+    "close": 172.8,
+    "volume": 34808800,
+    "change": -5.04,
+    "changePercent": -2.834,
+    "changeOverTime": 0.002088
+  },
+  {
+    "date": "2018-04-20",
+    "close": 165.72,
+    "volume": 65491140,
+    "change": -7.08,
+    "changePercent": -4.0972,
+    "changeOverTime": -0.03897
+  },
+  {
+    "date": "2018-04-23",
+    "close": 165.24,
+    "volume": 36515477,
+    "change": -0.48,
+    "changePercent": -0.2896,
+    "changeOverTime": -0.041754
+  },
+  {
+    "date": "2018-04-24",
+    "close": 162.94,
+    "volume": 33692017,
+    "change": -2.3,
+    "changePercent": -1.3919,
+    "changeOverTime": -0.055092
+  },
+  {
+    "date": "2018-04-25",
+    "close": 163.65,
+    "volume": 28382084,
+    "change": 0.71,
+    "changePercent": 0.4357,
+    "changeOverTime": -0.050974
+  },
+  {
+    "date": "2018-04-26",
+    "close": 164.22,
+    "volume": 27963014,
+    "change": 0.57,
+    "changePercent": 0.3483,
+    "changeOverTime": -0.047669
+  },
+  {
+    "date": "2018-04-27",
+    "close": 162.32,
+    "volume": 35655839,
+    "change": -1.9,
+    "changePercent": -1.157,
+    "changeOverTime": -0.058687
+  },
+  {
+    "date": "2018-04-30",
+    "close": 165.26,
+    "volume": 42427424,
+    "change": 2.94,
+    "changePercent": 1.8112,
+    "changeOverTime": -0.041638
+  },
+  {
+    "date": "2018-05-01",
+    "close": 169.1,
+    "volume": 53569376,
+    "change": 3.84,
+    "changePercent": 2.3236,
+    "changeOverTime": -0.019369
+  },
+  {
+    "date": "2018-05-02",
+    "close": 176.57,
+    "volume": 66539371,
+    "change": 7.47,
+    "changePercent": 4.4175,
+    "changeOverTime": 0.02395
+  },
+  {
+    "date": "2018-05-03",
+    "close": 176.89,
+    "volume": 34068180,
+    "change": 0.32,
+    "changePercent": 0.1812,
+    "changeOverTime": 0.025806
+  },
+  {
+    "date": "2018-05-04",
+    "close": 183.83,
+    "volume": 56201317,
+    "change": 6.94,
+    "changePercent": 3.9233,
+    "changeOverTime": 0.066052
+  },
+  {
+    "date": "2018-05-07",
+    "close": 185.16,
+    "volume": 42451423,
+    "change": 1.33,
+    "changePercent": 0.7235,
+    "changeOverTime": 0.073765
+  },
+  {
+    "date": "2018-05-08",
+    "close": 186.05,
+    "volume": 28402777,
+    "change": 0.89,
+    "changePercent": 0.4807,
+    "changeOverTime": 0.078926
+  },
+  {
+    "date": "2018-05-09",
+    "close": 187.36,
+    "volume": 23211241,
+    "change": 1.31,
+    "changePercent": 0.7041,
+    "changeOverTime": 0.086523
+  },
+  {
+    "date": "2018-05-10",
+    "close": 190.04,
+    "volume": 27989289,
+    "change": 2.68,
+    "changePercent": 1.4304,
+    "changeOverTime": 0.102064
+  },
+  {
+    "date": "2018-05-11",
+    "close": 188.59,
+    "volume": 26212221,
+    "change": -1.45,
+    "changePercent": -0.763,
+    "changeOverTime": 0.093656
+  },
+  {
+    "date": "2018-05-14",
+    "close": 188.15,
+    "volume": 20778772,
+    "change": -0.44,
+    "changePercent": -0.2333,
+    "changeOverTime": 0.091104
+  },
+  {
+    "date": "2018-05-15",
+    "close": 186.44,
+    "volume": 23695159,
+    "change": -1.71,
+    "changePercent": -0.9088,
+    "changeOverTime": 0.081188
+  },
+  {
+    "date": "2018-05-16",
+    "close": 188.18,
+    "volume": 19183064,
+    "change": 1.74,
+    "changePercent": 0.9333,
+    "changeOverTime": 0.091278
+  },
+  {
+    "date": "2018-05-17",
+    "close": 186.99,
+    "volume": 17294029,
+    "change": -1.19,
+    "changePercent": -0.6324,
+    "changeOverTime": 0.084377
+  },
+  {
+    "date": "2018-05-18",
+    "close": 186.31,
+    "volume": 18297728,
+    "change": -0.68,
+    "changePercent": -0.3637,
+    "changeOverTime": 0.080434
+  },
+  {
+    "date": "2018-05-21",
+    "close": 187.63,
+    "volume": 18400787,
+    "change": 1.32,
+    "changePercent": 0.7085,
+    "changeOverTime": 0.088089
+  },
+  {
+    "date": "2018-05-22",
+    "close": 187.16,
+    "volume": 15240704,
+    "change": -0.47,
+    "changePercent": -0.2505,
+    "changeOverTime": 0.085363
+  },
+  {
+    "date": "2018-05-23",
+    "close": 188.36,
+    "volume": 20058415,
+    "change": 1.2,
+    "changePercent": 0.6412,
+    "changeOverTime": 0.092322
+  },
+  {
+    "date": "2018-05-24",
+    "close": 188.15,
+    "volume": 23233975,
+    "change": -0.21,
+    "changePercent": -0.1115,
+    "changeOverTime": 0.091104
+  },
+  {
+    "date": "2018-05-25",
+    "close": 188.58,
+    "volume": 17460963,
+    "change": 0.43,
+    "changePercent": 0.2285,
+    "changeOverTime": 0.093598
+  },
+  {
+    "date": "2018-05-29",
+    "close": 187.9,
+    "volume": 22514075,
+    "change": -0.68,
+    "changePercent": -0.3606,
+    "changeOverTime": 0.089654
+  },
+  {
+    "date": "2018-05-30",
+    "close": 187.5,
+    "volume": 18690547,
+    "change": -0.4,
+    "changePercent": -0.2129,
+    "changeOverTime": 0.087335
+  },
+  {
+    "date": "2018-05-31",
+    "close": 186.87,
+    "volume": 27482793,
+    "change": -0.63,
+    "changePercent": -0.336,
+    "changeOverTime": 0.083681
+  },
+  {
+    "date": "2018-06-01",
+    "close": 190.24,
+    "volume": 23442510,
+    "change": 3.37,
+    "changePercent": 1.8034,
+    "changeOverTime": 0.103224
+  },
+  {
+    "date": "2018-06-04",
+    "close": 191.83,
+    "volume": 26266174,
+    "change": 1.59,
+    "changePercent": 0.8358,
+    "changeOverTime": 0.112445
+  },
+  {
+    "date": "2018-06-05",
+    "close": 193.31,
+    "volume": 21565963,
+    "change": 1.48,
+    "changePercent": 0.7715,
+    "changeOverTime": 0.121028
+  },
+  {
+    "date": "2018-06-06",
+    "close": 193.98,
+    "volume": 20933619,
+    "change": 0.67,
+    "changePercent": 0.3466,
+    "changeOverTime": 0.124913
+  },
+  {
+    "date": "2018-06-07",
+    "close": 193.46,
+    "volume": 21347180,
+    "change": -0.52,
+    "changePercent": -0.2681,
+    "changeOverTime": 0.121897
+  },
+  {
+    "date": "2018-06-08",
+    "close": 191.7,
+    "volume": 26656799,
+    "change": -1.76,
+    "changePercent": -0.9097,
+    "changeOverTime": 0.111691
+  },
+  {
+    "date": "2018-06-11",
+    "close": 191.23,
+    "volume": 18308460,
+    "change": -0.47,
+    "changePercent": -0.2452,
+    "changeOverTime": 0.108965
+  },
+  {
+    "date": "2018-06-12",
+    "close": 192.28,
+    "volume": 16911141,
+    "change": 1.05,
+    "changePercent": 0.5491,
+    "changeOverTime": 0.115055
+  },
+  {
+    "date": "2018-06-13",
+    "close": 190.7,
+    "volume": 21638393,
+    "change": -1.58,
+    "changePercent": -0.8217,
+    "changeOverTime": 0.105892
+  },
+  {
+    "date": "2018-06-14",
+    "close": 190.8,
+    "volume": 21610074,
+    "change": 0.1,
+    "changePercent": 0.0524,
+    "changeOverTime": 0.106472
+  },
+  {
+    "date": "2018-06-15",
+    "close": 188.84,
+    "volume": 61719160,
+    "change": -1.96,
+    "changePercent": -1.0273,
+    "changeOverTime": 0.095106
+  },
+  {
+    "date": "2018-06-18",
+    "close": 188.74,
+    "volume": 18484865,
+    "change": -0.1,
+    "changePercent": -0.053,
+    "changeOverTime": 0.094526
+  },
+  {
+    "date": "2018-06-19",
+    "close": 185.69,
+    "volume": 33578455,
+    "change": -3.05,
+    "changePercent": -1.616,
+    "changeOverTime": 0.076838
+  },
+  {
+    "date": "2018-06-20",
+    "close": 186.5,
+    "volume": 20628701,
+    "change": 0.81,
+    "changePercent": 0.4362,
+    "changeOverTime": 0.081536
+  },
+  {
+    "date": "2018-06-21",
+    "close": 185.46,
+    "volume": 25711898,
+    "change": -1.04,
+    "changePercent": -0.5576,
+    "changeOverTime": 0.075505
+  },
+  {
+    "date": "2018-06-22",
+    "close": 184.92,
+    "volume": 27200447,
+    "change": -0.54,
+    "changePercent": -0.2912,
+    "changeOverTime": 0.072373
+  },
+  {
+    "date": "2018-06-25",
+    "close": 182.17,
+    "volume": 31663096,
+    "change": -2.75,
+    "changePercent": -1.4871,
+    "changeOverTime": 0.056425
+  },
+  {
+    "date": "2018-06-26",
+    "close": 184.43,
+    "volume": 24569201,
+    "change": 2.26,
+    "changePercent": 1.2406,
+    "changeOverTime": 0.069531
+  },
+  {
+    "date": "2018-06-27",
+    "close": 184.16,
+    "volume": 25285328,
+    "change": -0.27,
+    "changePercent": -0.1464,
+    "changeOverTime": 0.067966
+  },
+  {
+    "date": "2018-06-28",
+    "close": 185.5,
+    "volume": 17365235,
+    "change": 1.34,
+    "changePercent": 0.7276,
+    "changeOverTime": 0.075736
+  },
+  {
+    "date": "2018-06-29",
+    "close": 185.11,
+    "volume": 22737666,
+    "change": -0.39,
+    "changePercent": -0.2102,
+    "changeOverTime": 0.073475
+  },
+  {
+    "date": "2018-07-02",
+    "close": 187.18,
+    "volume": 17731343,
+    "change": 2.07,
+    "changePercent": 1.1183,
+    "changeOverTime": 0.085479
+  },
+  {
+    "date": "2018-07-03",
+    "close": 183.92,
+    "volume": 13954806,
+    "change": -3.26,
+    "changePercent": -1.7416,
+    "changeOverTime": 0.066574
+  },
+  {
+    "date": "2018-07-05",
+    "close": 185.4,
+    "volume": 16604248,
+    "change": 1.48,
+    "changePercent": 0.8047,
+    "changeOverTime": 0.075157
+  },
+  {
+    "date": "2018-07-06",
+    "close": 187.97,
+    "volume": 17485245,
+    "change": 2.57,
+    "changePercent": 1.3862,
+    "changeOverTime": 0.09006
+  },
+  {
+    "date": "2018-07-09",
+    "close": 190.58,
+    "volume": 19756634,
+    "change": 2.61,
+    "changePercent": 1.3885,
+    "changeOverTime": 0.105196
+  },
+  {
+    "date": "2018-07-10",
+    "close": 190.35,
+    "volume": 15939149,
+    "change": -0.23,
+    "changePercent": -0.1207,
+    "changeOverTime": 0.103862
+  },
+  {
+    "date": "2018-07-11",
+    "close": 187.88,
+    "volume": 18831470,
+    "change": -2.47,
+    "changePercent": -1.2976,
+    "changeOverTime": 0.089538
+  },
+  {
+    "date": "2018-07-12",
+    "close": 191.03,
+    "volume": 18041131,
+    "change": 3.15,
+    "changePercent": 1.6766,
+    "changeOverTime": 0.107806
+  },
+  {
+    "date": "2018-07-13",
+    "close": 191.33,
+    "volume": 12519792,
+    "change": 0.3,
+    "changePercent": 0.157,
+    "changeOverTime": 0.109545
+  },
+  {
+    "date": "2018-07-16",
+    "close": 190.91,
+    "volume": 15043110,
+    "change": -0.42,
+    "changePercent": -0.2195,
+    "changeOverTime": 0.10711
+  },
+  {
+    "date": "2018-07-17",
+    "close": 191.45,
+    "volume": 15534523,
+    "change": 0.54,
+    "changePercent": 0.2829,
+    "changeOverTime": 0.110241
+  },
+  {
+    "date": "2018-07-18",
+    "close": 190.4,
+    "volume": 16393381,
+    "change": -1.05,
+    "changePercent": -0.5484,
+    "changeOverTime": 0.104152
+  },
+  {
+    "date": "2018-07-19",
+    "close": 191.88,
+    "volume": 20286752,
+    "change": 1.48,
+    "changePercent": 0.7773,
+    "changeOverTime": 0.112735
+  },
+  {
+    "date": "2018-07-20",
+    "close": 191.44,
+    "volume": 20706042,
+    "change": -0.44,
+    "changePercent": -0.2293,
+    "changeOverTime": 0.110183
+  },
+  {
+    "date": "2018-07-23",
+    "close": 191.61,
+    "volume": 15989365,
+    "change": 0.17,
+    "changePercent": 0.0888,
+    "changeOverTime": 0.111169
+  },
+  {
+    "date": "2018-07-24",
+    "close": 193,
+    "volume": 18697898,
+    "change": 1.39,
+    "changePercent": 0.7254,
+    "changeOverTime": 0.11923
+  },
+  {
+    "date": "2018-07-25",
+    "close": 194.82,
+    "volume": 16826483,
+    "change": 1.82,
+    "changePercent": 0.943,
+    "changeOverTime": 0.129784
+  },
+  {
+    "date": "2018-07-26",
+    "close": 194.21,
+    "volume": 19075964,
+    "change": -0.61,
+    "changePercent": -0.3131,
+    "changeOverTime": 0.126247
+  },
+  {
+    "date": "2018-07-27",
+    "close": 190.98,
+    "volume": 24023972,
+    "change": -3.23,
+    "changePercent": -1.6631,
+    "changeOverTime": 0.107516
+  },
+  {
+    "date": "2018-07-30",
+    "close": 189.91,
+    "volume": 21029535,
+    "change": -1.07,
+    "changePercent": -0.5603,
+    "changeOverTime": 0.101311
+  },
+  {
+    "date": "2018-07-31",
+    "close": 190.29,
+    "volume": 39373038,
+    "change": 0.38,
+    "changePercent": 0.2001,
+    "changeOverTime": 0.103514
+  },
+  {
+    "date": "2018-08-01",
+    "close": 201.5,
+    "volume": 67935716,
+    "change": 11.21,
+    "changePercent": 5.891,
+    "changeOverTime": 0.168522
+  },
+  {
+    "date": "2018-08-02",
+    "close": 207.39,
+    "volume": 62404012,
+    "change": 5.89,
+    "changePercent": 2.9231,
+    "changeOverTime": 0.202679
+  },
+  {
+    "date": "2018-08-03",
+    "close": 207.99,
+    "volume": 33447396,
+    "change": 0.6,
+    "changePercent": 0.2893,
+    "changeOverTime": 0.206159
+  },
+  {
+    "date": "2018-08-06",
+    "close": 209.07,
+    "volume": 25425387,
+    "change": 1.08,
+    "changePercent": 0.5193,
+    "changeOverTime": 0.212422
+  },
+  {
+    "date": "2018-08-07",
+    "close": 207.11,
+    "volume": 25587387,
+    "change": -1.96,
+    "changePercent": -0.9375,
+    "changeOverTime": 0.201055
+  },
+  {
+    "date": "2018-08-08",
+    "close": 207.25,
+    "volume": 22525487,
+    "change": 0.14,
+    "changePercent": 0.0676,
+    "changeOverTime": 0.201867
+  },
+  {
+    "date": "2018-08-09",
+    "close": 208.88,
+    "volume": 23492626,
+    "change": 1.63,
+    "changePercent": 0.7865,
+    "changeOverTime": 0.21132
+  },
+  {
+    "date": "2018-08-10",
+    "close": 207.53,
+    "volume": 24611202,
+    "change": -1.35,
+    "changePercent": -0.6463,
+    "changeOverTime": 0.203491
+  },
+  {
+    "date": "2018-08-13",
+    "close": 208.87,
+    "volume": 25890880,
+    "change": 1.34,
+    "changePercent": 0.6457,
+    "changeOverTime": 0.211262
+  },
+  {
+    "date": "2018-08-14",
+    "close": 209.75,
+    "volume": 20748010,
+    "change": 0.88,
+    "changePercent": 0.4213,
+    "changeOverTime": 0.216365
+  },
+  {
+    "date": "2018-08-15",
+    "close": 210.24,
+    "volume": 28807564,
+    "change": 0.49,
+    "changePercent": 0.2336,
+    "changeOverTime": 0.219207
+  },
+  {
+    "date": "2018-08-16",
+    "close": 213.32,
+    "volume": 28500367,
+    "change": 3.08,
+    "changePercent": 1.465,
+    "changeOverTime": 0.237068
+  },
+  {
+    "date": "2018-08-17",
+    "close": 217.58,
+    "volume": 35426997,
+    "change": 4.26,
+    "changePercent": 1.997,
+    "changeOverTime": 0.261772
+  },
+  {
+    "date": "2018-08-20",
+    "close": 215.46,
+    "volume": 30287695,
+    "change": -2.12,
+    "changePercent": -0.9744,
+    "changeOverTime": 0.249478
+  },
+  {
+    "date": "2018-08-21",
+    "close": 215.04,
+    "volume": 26159755,
+    "change": -0.42,
+    "changePercent": -0.1949,
+    "changeOverTime": 0.247042
+  },
+  {
+    "date": "2018-08-22",
+    "close": 215.05,
+    "volume": 19018131,
+    "change": 0.01,
+    "changePercent": 0.0047,
+    "changeOverTime": 0.2471
+  },
+  {
+    "date": "2018-08-23",
+    "close": 215.49,
+    "volume": 18883224,
+    "change": 0.44,
+    "changePercent": 0.2046,
+    "changeOverTime": 0.249652
+  },
+  {
+    "date": "2018-08-24",
+    "close": 216.16,
+    "volume": 18476356,
+    "change": 0.67,
+    "changePercent": 0.3109,
+    "changeOverTime": 0.253537
+  },
+  {
+    "date": "2018-08-27",
+    "close": 217.94,
+    "volume": 20525117,
+    "change": 1.78,
+    "changePercent": 0.8235,
+    "changeOverTime": 0.26386
+  },
+  {
+    "date": "2018-08-28",
+    "close": 219.7,
+    "volume": 22776766,
+    "change": 1.76,
+    "changePercent": 0.8076,
+    "changeOverTime": 0.274066
+  },
+  {
+    "date": "2018-08-29",
+    "close": 222.98,
+    "volume": 27254804,
+    "change": 3.28,
+    "changePercent": 1.4929,
+    "changeOverTime": 0.293087
+  },
+  {
+    "date": "2018-08-30",
+    "close": 225.03,
+    "volume": 48793824,
+    "change": 2.05,
+    "changePercent": 0.9194,
+    "changeOverTime": 0.304976
+  },
+  {
+    "date": "2018-08-31",
+    "close": 227.63,
+    "volume": 43340134,
+    "change": 2.6,
+    "changePercent": 1.1554,
+    "changeOverTime": 0.320053
+  },
+  {
+    "date": "2018-09-04",
+    "close": 228.36,
+    "volume": 27390132,
+    "change": 0.73,
+    "changePercent": 0.3207,
+    "changeOverTime": 0.324287
+  },
+  {
+    "date": "2018-09-05",
+    "close": 226.87,
+    "volume": 33332960,
+    "change": -1.49,
+    "changePercent": -0.6525,
+    "changeOverTime": 0.315646
+  },
+  {
+    "date": "2018-09-06",
+    "close": 223.1,
+    "volume": 34289976,
+    "change": -3.77,
+    "changePercent": -1.6617,
+    "changeOverTime": 0.293783
+  },
+  {
+    "date": "2018-09-07",
+    "close": 221.3,
+    "volume": 37619810,
+    "change": -1.8,
+    "changePercent": -0.8068,
+    "changeOverTime": 0.283345
+  },
+  {
+    "date": "2018-09-10",
+    "close": 218.33,
+    "volume": 39516453,
+    "change": -2.97,
+    "changePercent": -1.3421,
+    "changeOverTime": 0.266122
+  },
+  {
+    "date": "2018-09-11",
+    "close": 223.85,
+    "volume": 35749049,
+    "change": 5.52,
+    "changePercent": 2.5283,
+    "changeOverTime": 0.298133
+  },
+  {
+    "date": "2018-09-12",
+    "close": 221.07,
+    "volume": 49278740,
+    "change": -2.78,
+    "changePercent": -1.2419,
+    "changeOverTime": 0.282011
+  },
+  {
+    "date": "2018-09-13",
+    "close": 226.41,
+    "volume": 41706377,
+    "change": 5.34,
+    "changePercent": 2.4155,
+    "changeOverTime": 0.312978
+  },
+  {
+    "date": "2018-09-14",
+    "close": 223.84,
+    "volume": 31999289,
+    "change": -2.57,
+    "changePercent": -1.1351,
+    "changeOverTime": 0.298075
+  },
+  {
+    "date": "2018-09-17",
+    "close": 217.88,
+    "volume": 37195133,
+    "change": -5.96,
+    "changePercent": -2.6626,
+    "changeOverTime": 0.263512
+  },
+  {
+    "date": "2018-09-18",
+    "close": 218.24,
+    "volume": 31571712,
+    "change": 0.36,
+    "changePercent": 0.1652,
+    "changeOverTime": 0.2656
+  },
+  {
+    "date": "2018-09-19",
+    "close": 218.37,
+    "volume": 27123833,
+    "change": 0.13,
+    "changePercent": 0.0596,
+    "changeOverTime": 0.266354
+  },
+  {
+    "date": "2018-09-20",
+    "close": 220.03,
+    "volume": 26608794,
+    "change": 1.66,
+    "changePercent": 0.7602,
+    "changeOverTime": 0.27598
+  },
+  {
+    "date": "2018-09-21",
+    "close": 217.66,
+    "volume": 96246748,
+    "change": -2.37,
+    "changePercent": -1.0771,
+    "changeOverTime": 0.262236
+  },
+  {
+    "date": "2018-09-24",
+    "close": 220.79,
+    "volume": 27693358,
+    "change": 3.13,
+    "changePercent": 1.438,
+    "changeOverTime": 0.280387
+  },
+  {
+    "date": "2018-09-25",
+    "close": 222.19,
+    "volume": 24554379,
+    "change": 1.4,
+    "changePercent": 0.6341,
+    "changeOverTime": 0.288506
+  },
+  {
+    "date": "2018-09-26",
+    "close": 220.42,
+    "volume": 23984706,
+    "change": -1.77,
+    "changePercent": -0.7966,
+    "changeOverTime": 0.278242
+  },
+  {
+    "date": "2018-09-27",
+    "close": 224.95,
+    "volume": 30181227,
+    "change": 4.53,
+    "changePercent": 2.0552,
+    "changeOverTime": 0.304512
+  },
+  {
+    "date": "2018-09-28",
+    "close": 225.74,
+    "volume": 22929364,
+    "change": 0.79,
+    "changePercent": 0.3512,
+    "changeOverTime": 0.309093
+  },
+  {
+    "date": "2018-10-01",
+    "close": 227.26,
+    "volume": 23600802,
+    "change": 1.52,
+    "changePercent": 0.6733,
+    "changeOverTime": 0.317908
+  },
+  {
+    "date": "2018-10-02",
+    "close": 229.28,
+    "volume": 24788170,
+    "change": 2.02,
+    "changePercent": 0.8888,
+    "changeOverTime": 0.329622
+  },
+  {
+    "date": "2018-10-03",
+    "close": 232.07,
+    "volume": 28654799,
+    "change": 2.79,
+    "changePercent": 1.2169,
+    "changeOverTime": 0.345801
+  },
+  {
+    "date": "2018-10-04",
+    "close": 227.99,
+    "volume": 32042000,
+    "change": -4.08,
+    "changePercent": -1.7581,
+    "changeOverTime": 0.322141
+  },
+  {
+    "date": "2018-10-05",
+    "close": 224.29,
+    "volume": 33580463,
+    "change": -3.7,
+    "changePercent": -1.6229,
+    "changeOverTime": 0.300684
+  },
+  {
+    "date": "2018-10-08",
+    "close": 223.77,
+    "volume": 29663923,
+    "change": -0.52,
+    "changePercent": -0.2318,
+    "changeOverTime": 0.297669
+  },
+  {
+    "date": "2018-10-09",
+    "close": 226.87,
+    "volume": 26891029,
+    "change": 3.1,
+    "changePercent": 1.3854,
+    "changeOverTime": 0.315646
+  },
+  {
+    "date": "2018-10-10",
+    "close": 216.36,
+    "volume": 41990554,
+    "change": -10.51,
+    "changePercent": -4.6326,
+    "changeOverTime": 0.254697
+  },
+  {
+    "date": "2018-10-11",
+    "close": 214.45,
+    "volume": 53124392,
+    "change": -1.91,
+    "changePercent": -0.8828,
+    "changeOverTime": 0.243621
+  },
+  {
+    "date": "2018-10-12",
+    "close": 222.11,
+    "volume": 40337851,
+    "change": 7.66,
+    "changePercent": 3.5719,
+    "changeOverTime": 0.288042
+  },
+  {
+    "date": "2018-10-15",
+    "close": 217.36,
+    "volume": 30791007,
+    "change": -4.75,
+    "changePercent": -2.1386,
+    "changeOverTime": 0.260496
+  },
+  {
+    "date": "2018-10-16",
+    "close": 222.15,
+    "volume": 29183963,
+    "change": 4.79,
+    "changePercent": 2.2037,
+    "changeOverTime": 0.288274
+  },
+  {
+    "date": "2018-10-17",
+    "close": 221.19,
+    "volume": 22885397,
+    "change": -0.96,
+    "changePercent": -0.4321,
+    "changeOverTime": 0.282707
+  },
+  {
+    "date": "2018-10-18",
+    "close": 216.02,
+    "volume": 32581315,
+    "change": -5.17,
+    "changePercent": -2.3374,
+    "changeOverTime": 0.252726
+  },
+  {
+    "date": "2018-10-19",
+    "close": 219.31,
+    "volume": 33078726,
+    "change": 3.29,
+    "changePercent": 1.523,
+    "changeOverTime": 0.271805
+  },
+  {
+    "date": "2018-10-22",
+    "close": 220.65,
+    "volume": 28792082,
+    "change": 1.34,
+    "changePercent": 0.611,
+    "changeOverTime": 0.279576
+  },
+  {
+    "date": "2018-10-23",
+    "close": 222.73,
+    "volume": 38767846,
+    "change": 2.08,
+    "changePercent": 0.9427,
+    "changeOverTime": 0.291638
+  },
+  {
+    "date": "2018-10-24",
+    "close": 215.09,
+    "volume": 40925163,
+    "change": -7.64,
+    "changePercent": -3.4302,
+    "changeOverTime": 0.247332
+  },
+  {
+    "date": "2018-10-25",
+    "close": 219.8,
+    "volume": 29855768,
+    "change": 4.71,
+    "changePercent": 2.1898,
+    "changeOverTime": 0.274646
+  },
+  {
+    "date": "2018-10-26",
+    "close": 216.3,
+    "volume": 47258375,
+    "change": -3.5,
+    "changePercent": -1.5924,
+    "changeOverTime": 0.254349
+  },
+  {
+    "date": "2018-10-29",
+    "close": 212.24,
+    "volume": 45935520,
+    "change": -4.06,
+    "changePercent": -1.877,
+    "changeOverTime": 0.230805
+  },
+  {
+    "date": "2018-10-30",
+    "close": 213.3,
+    "volume": 36659990,
+    "change": 1.06,
+    "changePercent": 0.4994,
+    "changeOverTime": 0.236952
+  },
+  {
+    "date": "2018-10-31",
+    "close": 218.86,
+    "volume": 38358933,
+    "change": 5.56,
+    "changePercent": 2.6067,
+    "changeOverTime": 0.269195
+  },
+  {
+    "date": "2018-11-01",
+    "close": 222.22,
+    "volume": 58323180,
+    "change": 3.36,
+    "changePercent": 1.5352,
+    "changeOverTime": 0.28868
+  },
+  {
+    "date": "2018-11-02",
+    "close": 207.48,
+    "volume": 91328654,
+    "change": -14.74,
+    "changePercent": -6.6331,
+    "changeOverTime": 0.203201
+  },
+  {
+    "date": "2018-11-05",
+    "close": 201.59,
+    "volume": 66163669,
+    "change": -5.89,
+    "changePercent": -2.8388,
+    "changeOverTime": 0.169044
+  },
+  {
+    "date": "2018-11-06",
+    "close": 203.77,
+    "volume": 31882881,
+    "change": 2.18,
+    "changePercent": 1.0814,
+    "changeOverTime": 0.181686
+  },
+  {
+    "date": "2018-11-07",
+    "close": 209.95,
+    "volume": 33424434,
+    "change": 6.18,
+    "changePercent": 3.0328,
+    "changeOverTime": 0.217525
+  },
+  {
+    "date": "2018-11-08",
+    "close": 208.49,
+    "volume": 25362636,
+    "change": -1.46,
+    "changePercent": -0.6954,
+    "changeOverTime": 0.209058
+  },
+  {
+    "date": "2018-11-09",
+    "close": 204.47,
+    "volume": 34365750,
+    "change": -4.02,
+    "changePercent": -1.9282,
+    "changeOverTime": 0.185746
+  },
+  {
+    "date": "2018-11-12",
+    "close": 194.17,
+    "volume": 51135518,
+    "change": -10.3,
+    "changePercent": -5.0374,
+    "changeOverTime": 0.126015
+  },
+  {
+    "date": "2018-11-13",
+    "close": 192.23,
+    "volume": 46882936,
+    "change": -1.94,
+    "changePercent": -0.9991,
+    "changeOverTime": 0.114765
+  },
+  {
+    "date": "2018-11-14",
+    "close": 186.8,
+    "volume": 60800957,
+    "change": -5.43,
+    "changePercent": -2.8247,
+    "changeOverTime": 0.083275
+  },
+  {
+    "date": "2018-11-15",
+    "close": 191.41,
+    "volume": 46478801,
+    "change": 4.61,
+    "changePercent": 2.4679,
+    "changeOverTime": 0.110009
+  },
+  {
+    "date": "2018-11-16",
+    "close": 193.53,
+    "volume": 36928253,
+    "change": 2.12,
+    "changePercent": 1.1076,
+    "changeOverTime": 0.122303
+  },
+  {
+    "date": "2018-11-19",
+    "close": 185.86,
+    "volume": 41920872,
+    "change": -7.67,
+    "changePercent": -3.9632,
+    "changeOverTime": 0.077824
+  },
+  {
+    "date": "2018-11-20",
+    "close": 176.98,
+    "volume": 67825247,
+    "change": -8.88,
+    "changePercent": -4.7778,
+    "changeOverTime": 0.026328
+  },
+  {
+    "date": "2018-11-21",
+    "close": 176.78,
+    "volume": 31124210,
+    "change": -0.2,
+    "changePercent": -0.113,
+    "changeOverTime": 0.025168
+  },
+  {
+    "date": "2018-11-23",
+    "close": 172.29,
+    "volume": 23623972,
+    "change": -4.49,
+    "changePercent": -2.5399,
+    "changeOverTime": -0.00087
+  },
+  {
+    "date": "2018-11-26",
+    "close": 174.62,
+    "volume": 44998520,
+    "change": 2.33,
+    "changePercent": 1.3524,
+    "changeOverTime": 0.012642
+  },
+  {
+    "date": "2018-11-27",
+    "close": 174.24,
+    "volume": 41387377,
+    "change": -0.38,
+    "changePercent": -0.2176,
+    "changeOverTime": 0.010438
+  },
+  {
+    "date": "2018-11-28",
+    "close": 180.94,
+    "volume": 46062539,
+    "change": 6.7,
+    "changePercent": 3.8453,
+    "changeOverTime": 0.049293
+  },
+  {
+    "date": "2018-11-29",
+    "close": 179.55,
+    "volume": 41769992,
+    "change": -1.39,
+    "changePercent": -0.7682,
+    "changeOverTime": 0.041232
+  },
+  {
+    "date": "2018-11-30",
+    "close": 178.58,
+    "volume": 39531549,
+    "change": -0.97,
+    "changePercent": -0.5402,
+    "changeOverTime": 0.035607
+  },
+  {
+    "date": "2018-12-03",
+    "close": 184.82,
+    "volume": 40798002,
+    "change": 6.24,
+    "changePercent": 3.4942,
+    "changeOverTime": 0.071793
+  },
+  {
+    "date": "2018-12-04",
+    "close": 176.69,
+    "volume": 41344282,
+    "change": -8.13,
+    "changePercent": -4.3989,
+    "changeOverTime": 0.024646
+  },
+  {
+    "date": "2018-12-06",
+    "close": 174.72,
+    "volume": 43098410,
+    "change": -1.97,
+    "changePercent": -1.1149,
+    "changeOverTime": 0.013222
+  },
+  {
+    "date": "2018-12-07",
+    "close": 168.49,
+    "volume": 42281631,
+    "change": -6.23,
+    "changePercent": -3.5657,
+    "changeOverTime": -0.022907
+  },
+  {
+    "date": "2018-12-10",
+    "close": 169.6,
+    "volume": 62025994,
+    "change": 1.11,
+    "changePercent": 0.6588,
+    "changeOverTime": -0.016469
+  },
+  {
+    "date": "2018-12-11",
+    "close": 168.63,
+    "volume": 47281665,
+    "change": -0.97,
+    "changePercent": -0.5719,
+    "changeOverTime": -0.022095
+  },
+  {
+    "date": "2018-12-12",
+    "close": 169.1,
+    "volume": 35627674,
+    "change": 0.47,
+    "changePercent": 0.2787,
+    "changeOverTime": -0.019369
+  },
+  {
+    "date": "2018-12-13",
+    "close": 170.95,
+    "volume": 31897827,
+    "change": 1.85,
+    "changePercent": 1.094,
+    "changeOverTime": -0.008641
+  },
+  {
+    "date": "2018-12-14",
+    "close": 165.48,
+    "volume": 40703710,
+    "change": -5.47,
+    "changePercent": -3.1998,
+    "changeOverTime": -0.040362
+  },
+  {
+    "date": "2018-12-17",
+    "close": 163.94,
+    "volume": 44287922,
+    "change": -1.54,
+    "changePercent": -0.9306,
+    "changeOverTime": -0.049293
+  },
+  {
+    "date": "2018-12-18",
+    "close": 166.07,
+    "volume": 33841518,
+    "change": 2.13,
+    "changePercent": 1.2993,
+    "changeOverTime": -0.03694
+  },
+  {
+    "date": "2018-12-19",
+    "close": 160.89,
+    "volume": 49047297,
+    "change": -5.18,
+    "changePercent": -3.1192,
+    "changeOverTime": -0.06698
+  },
+  {
+    "date": "2018-12-20",
+    "close": 156.83,
+    "volume": 64772960,
+    "change": -4.06,
+    "changePercent": -2.5235,
+    "changeOverTime": -0.090524
+  },
+  {
+    "date": "2018-12-21",
+    "close": 150.73,
+    "volume": 95744384,
+    "change": -6.1,
+    "changePercent": -3.8896,
+    "changeOverTime": -0.125899
+  },
+  {
+    "date": "2018-12-24",
+    "close": 146.83,
+    "volume": 37169232,
+    "change": -3.9,
+    "changePercent": -2.5874,
+    "changeOverTime": -0.148515
+  },
+  {
+    "date": "2018-12-26",
+    "close": 157.17,
+    "volume": 58582544,
+    "change": 10.34,
+    "changePercent": 7.0422,
+    "changeOverTime": -0.088553
+  },
+  {
+    "date": "2018-12-27",
+    "close": 156.15,
+    "volume": 53117065,
+    "change": -1.02,
+    "changePercent": -0.649,
+    "changeOverTime": -0.094468
+  },
+  {
+    "date": "2018-12-28",
+    "close": 156.23,
+    "volume": 42291424,
+    "change": 0.08,
+    "changePercent": 0.0512,
+    "changeOverTime": -0.094004
+  },
+  {
+    "date": "2018-12-31",
+    "close": 157.74,
+    "volume": 35003466,
+    "change": 1.51,
+    "changePercent": 0.9665,
+    "changeOverTime": -0.085247
+  },
+  {
+    "date": "2019-01-02",
+    "close": 157.92,
+    "volume": 37039737,
+    "change": 0.18,
+    "changePercent": 0.1141,
+    "changeOverTime": -0.084203
+  },
+  {
+    "date": "2019-01-03",
+    "close": 142.19,
+    "volume": 91312195,
+    "change": -15.73,
+    "changePercent": -9.9607,
+    "changeOverTime": -0.175423
+  },
+  {
+    "date": "2019-01-04",
+    "close": 148.26,
+    "volume": 58607070,
+    "change": 6.07,
+    "changePercent": 4.2689,
+    "changeOverTime": -0.140223
+  },
+  {
+    "date": "2019-01-07",
+    "close": 147.93,
+    "volume": 54777764,
+    "change": -0.33,
+    "changePercent": -0.2226,
+    "changeOverTime": -0.142136
+  },
+  {
+    "date": "2019-01-08",
+    "close": 150.75,
+    "volume": 41025314,
+    "change": 2.82,
+    "changePercent": 1.9063,
+    "changeOverTime": -0.125783
+  },
+  {
+    "date": "2019-01-09",
+    "close": 153.31,
+    "volume": 45099081,
+    "change": 2.56,
+    "changePercent": 1.6982,
+    "changeOverTime": -0.110937
+  },
+  {
+    "date": "2019-01-10",
+    "close": 153.8,
+    "volume": 35780670,
+    "change": 0.49,
+    "changePercent": 0.3196,
+    "changeOverTime": -0.108096
+  },
+  {
+    "date": "2019-01-11",
+    "close": 152.29,
+    "volume": 27023241,
+    "change": -1.51,
+    "changePercent": -0.9818,
+    "changeOverTime": -0.116852
+  },
+  {
+    "date": "2019-01-14",
+    "close": 150,
+    "volume": 32439186,
+    "change": -2.29,
+    "changePercent": -1.5037,
+    "changeOverTime": -0.130132
+  },
+  {
+    "date": "2019-01-15",
+    "close": 153.07,
+    "volume": 28710324,
+    "change": 3.07,
+    "changePercent": 2.0467,
+    "changeOverTime": -0.112329
+  },
+  {
+    "date": "2019-01-16",
+    "close": 154.94,
+    "volume": 30569706,
+    "change": 1.87,
+    "changePercent": 1.2217,
+    "changeOverTime": -0.101485
+  },
+  {
+    "date": "2019-01-17",
+    "close": 155.86,
+    "volume": 29821160,
+    "change": 0.92,
+    "changePercent": 0.5938,
+    "changeOverTime": -0.096149
+  },
+  {
+    "date": "2019-01-18",
+    "close": 156.82,
+    "volume": 33751023,
+    "change": 0.96,
+    "changePercent": 0.6159,
+    "changeOverTime": -0.090582
+  },
+  {
+    "date": "2019-01-22",
+    "close": 153.3,
+    "volume": 30393970,
+    "change": -3.52,
+    "changePercent": -2.2446,
+    "changeOverTime": -0.110995
+  },
+  {
+    "date": "2019-01-23",
+    "close": 153.92,
+    "volume": 23130570,
+    "change": 0.62,
+    "changePercent": 0.4044,
+    "changeOverTime": -0.1074
+  },
+  {
+    "date": "2019-01-24",
+    "close": 152.7,
+    "volume": 25441549,
+    "change": -1.22,
+    "changePercent": -0.7926,
+    "changeOverTime": -0.114475
+  },
+  {
+    "date": "2019-01-25",
+    "close": 157.76,
+    "volume": 33547893,
+    "change": 5.06,
+    "changePercent": 3.3137,
+    "changeOverTime": -0.085131
+  },
+  {
+    "date": "2019-01-28",
+    "close": 156.3,
+    "volume": 26192058,
+    "change": -1.46,
+    "changePercent": -0.9255,
+    "changeOverTime": -0.093598
+  },
+  {
+    "date": "2019-01-29",
+    "close": 154.68,
+    "volume": 41587239,
+    "change": -1.62,
+    "changePercent": -1.0365,
+    "changeOverTime": -0.102992
+  },
+  {
+    "date": "2019-01-30",
+    "close": 165.25,
+    "volume": 61109780,
+    "change": 10.57,
+    "changePercent": 6.8335,
+    "changeOverTime": -0.041696
+  },
+  {
+    "date": "2019-01-31",
+    "close": 166.44,
+    "volume": 40739649,
+    "change": 1.19,
+    "changePercent": 0.7201,
+    "changeOverTime": -0.034795
+  },
+  {
+    "date": "2019-02-01",
+    "close": 166.52,
+    "volume": 32668138,
+    "change": 0.08,
+    "changePercent": 0.0481,
+    "changeOverTime": -0.034331
+  },
+  {
+    "date": "2019-02-04",
+    "close": 171.25,
+    "volume": 31495582,
+    "change": 4.73,
+    "changePercent": 2.8405,
+    "changeOverTime": -0.006901
+  },
+  {
+    "date": "2019-02-05",
+    "close": 174.18,
+    "volume": 36101628,
+    "change": 2.93,
+    "changePercent": 1.7109,
+    "changeOverTime": 0.01009
+  },
+  {
+    "date": "2019-02-06",
+    "close": 174.24,
+    "volume": 28239591,
+    "change": 0.06,
+    "changePercent": 0.0344,
+    "changeOverTime": 0.010438
+  },
+  {
+    "date": "2019-02-07",
+    "close": 170.94,
+    "volume": 31741690,
+    "change": -3.3,
+    "changePercent": -1.8939,
+    "changeOverTime": -0.008699
+  },
+  {
+    "date": "2019-02-08",
+    "close": 170.41,
+    "volume": 23819966,
+    "change": -0.53,
+    "changePercent": -0.3101,
+    "changeOverTime": -0.011772
+  },
+  {
+    "date": "2019-02-11",
+    "close": 169.43,
+    "volume": 20993425,
+    "change": -0.98,
+    "changePercent": -0.5751,
+    "changeOverTime": -0.017455
+  },
+  {
+    "date": "2019-02-12",
+    "close": 170.89,
+    "volume": 22283523,
+    "change": 1.46,
+    "changePercent": 0.8617,
+    "changeOverTime": -0.008989
+  },
+  {
+    "date": "2019-02-13",
+    "close": 170.18,
+    "volume": 22490233,
+    "change": -0.71,
+    "changePercent": -0.4155,
+    "changeOverTime": -0.013106
+  },
+  {
+    "date": "2019-02-14",
+    "close": 170.8,
+    "volume": 21835747,
+    "change": 0.62,
+    "changePercent": 0.3643,
+    "changeOverTime": -0.009511
+  },
+  {
+    "date": "2019-02-15",
+    "close": 170.42,
+    "volume": 24626814,
+    "change": -0.38,
+    "changePercent": -0.2225,
+    "changeOverTime": -0.011714
+  },
+  {
+    "date": "2019-02-19",
+    "close": 170.93,
+    "volume": 18972826,
+    "change": 0.51,
+    "changePercent": 0.2993,
+    "changeOverTime": -0.008757
+  },
+  {
+    "date": "2019-02-20",
+    "close": 172.03,
+    "volume": 26114362,
+    "change": 1.1,
+    "changePercent": 0.6435,
+    "changeOverTime": -0.002378
+  },
+  {
+    "date": "2019-02-21",
+    "close": 171.06,
+    "volume": 17249670,
+    "change": -0.97,
+    "changePercent": -0.5639,
+    "changeOverTime": -0.008003
+  },
+  {
+    "date": "2019-02-22",
+    "close": 172.97,
+    "volume": 18913154,
+    "change": 1.91,
+    "changePercent": 1.1166,
+    "changeOverTime": 0.003074
+  },
+  {
+    "date": "2019-02-25",
+    "close": 174.23,
+    "volume": 21873358,
+    "change": 1.26,
+    "changePercent": 0.7285,
+    "changeOverTime": 0.01038
+  },
+  {
+    "date": "2019-02-26",
+    "close": 174.33,
+    "volume": 17070211,
+    "change": 0.1,
+    "changePercent": 0.0574,
+    "changeOverTime": 0.01096
+  },
+  {
+    "date": "2019-02-27",
+    "close": 174.87,
+    "volume": 27835389,
+    "change": 0.54,
+    "changePercent": 0.3098,
+    "changeOverTime": 0.014092
+  },
+  {
+    "date": "2019-02-28",
+    "close": 173.15,
+    "volume": 28215416,
+    "change": -1.72,
+    "changePercent": -0.9836,
+    "changeOverTime": 0.004117
+  },
+  {
+    "date": "2019-03-01",
+    "close": 174.97,
+    "volume": 25886167,
+    "change": 1.82,
+    "changePercent": 1.0511,
+    "changeOverTime": 0.014672
+  },
+  {
+    "date": "2019-03-04",
+    "close": 175.85,
+    "volume": 27436203,
+    "change": 0.88,
+    "changePercent": 0.5029,
+    "changeOverTime": 0.019775
+  },
+  {
+    "date": "2019-03-05",
+    "close": 175.53,
+    "volume": 19737419,
+    "change": -0.32,
+    "changePercent": -0.182,
+    "changeOverTime": 0.017919
+  },
+  {
+    "date": "2019-03-06",
+    "close": 174.52,
+    "volume": 20810384,
+    "change": -1.01,
+    "changePercent": -0.5754,
+    "changeOverTime": 0.012062
+  },
+  {
+    "date": "2019-03-07",
+    "close": 172.5,
+    "volume": 24796374,
+    "change": -2.02,
+    "changePercent": -1.1575,
+    "changeOverTime": 0.000348
+  },
+  {
+    "date": "2019-03-08",
+    "close": 172.91,
+    "volume": 23999358,
+    "change": 0.41,
+    "changePercent": 0.2377,
+    "changeOverTime": 0.002726
+  },
+  {
+    "date": "2019-03-11",
+    "close": 178.9,
+    "volume": 32011034,
+    "change": 5.99,
+    "changePercent": 3.4642,
+    "changeOverTime": 0.037462
+  },
+  {
+    "date": "2019-03-12",
+    "close": 180.91,
+    "volume": 32467584,
+    "change": 2.01,
+    "changePercent": 1.1235,
+    "changeOverTime": 0.049119
+  },
+  {
+    "date": "2019-03-13",
+    "close": 181.71,
+    "volume": 31032524,
+    "change": 0.8,
+    "changePercent": 0.4422,
+    "changeOverTime": 0.053758
+  },
+  {
+    "date": "2019-03-14",
+    "close": 183.73,
+    "volume": 23579508,
+    "change": 2.02,
+    "changePercent": 1.1117,
+    "changeOverTime": 0.065472
+  },
+  {
+    "date": "2019-03-15",
+    "close": 186.12,
+    "volume": 39042912,
+    "change": 2.39,
+    "changePercent": 1.3008,
+    "changeOverTime": 0.079332
+  },
+  {
+    "date": "2019-03-18",
+    "close": 188.02,
+    "volume": 26219832,
+    "change": 1.9,
+    "changePercent": 1.0208,
+    "changeOverTime": 0.09035
+  },
+  {
+    "date": "2019-03-19",
+    "close": 186.53,
+    "volume": 31646369,
+    "change": -1.49,
+    "changePercent": -0.7925,
+    "changeOverTime": 0.08171
+  },
+  {
+    "date": "2019-03-20",
+    "close": 188.16,
+    "volume": 31035231,
+    "change": 1.63,
+    "changePercent": 0.8739,
+    "changeOverTime": 0.091162
+  },
+  {
+    "date": "2019-03-21",
+    "close": 195.09,
+    "volume": 51034237,
+    "change": 6.93,
+    "changePercent": 3.683,
+    "changeOverTime": 0.13135
+  },
+  {
+    "date": "2019-03-22",
+    "close": 191.05,
+    "volume": 42407666,
+    "change": -4.04,
+    "changePercent": -2.0708,
+    "changeOverTime": 0.107922
+  },
+  {
+    "date": "2019-03-25",
+    "close": 188.74,
+    "volume": 43845293,
+    "change": -2.31,
+    "changePercent": -1.2091,
+    "changeOverTime": 0.094526
+  },
+  {
+    "date": "2019-03-26",
+    "close": 186.79,
+    "volume": 49800538,
+    "change": -1.95,
+    "changePercent": -1.0332,
+    "changeOverTime": 0.083217
+  },
+  {
+    "date": "2019-03-27",
+    "close": 188.47,
+    "volume": 29848427,
+    "change": 1.68,
+    "changePercent": 0.8994,
+    "changeOverTime": 0.09296
+  },
+  {
+    "date": "2019-03-28",
+    "close": 188.72,
+    "volume": 20780363,
+    "change": 0.25,
+    "changePercent": 0.1326,
+    "changeOverTime": 0.09441
+  },
+  {
+    "date": "2019-03-29",
+    "close": 189.95,
+    "volume": 23563961,
+    "change": 1.23,
+    "changePercent": 0.6518,
+    "changeOverTime": 0.101543
+  },
+  {
+    "date": "2019-04-01",
+    "close": 191.24,
+    "volume": 27861964,
+    "change": 1.29,
+    "changePercent": 0.6791,
+    "changeOverTime": 0.109023
+  },
+  {
+    "date": "2019-04-02",
+    "close": 194.02,
+    "volume": 22765732,
+    "change": 2.78,
+    "changePercent": 1.4537,
+    "changeOverTime": 0.125145
+  },
+  {
+    "date": "2019-04-03",
+    "close": 195.35,
+    "volume": 23271830,
+    "change": 1.33,
+    "changePercent": 0.6855,
+    "changeOverTime": 0.132858
+  },
+  {
+    "date": "2019-04-04",
+    "close": 195.69,
+    "volume": 19114275,
+    "change": 0.34,
+    "changePercent": 0.174,
+    "changeOverTime": 0.13483
+  },
+  {
+    "date": "2019-04-05",
+    "close": 197,
+    "volume": 18526644,
+    "change": 1.31,
+    "changePercent": 0.6694,
+    "changeOverTime": 0.142426
+  },
+  {
+    "date": "2019-04-08",
+    "close": 200.1,
+    "volume": 25881697,
+    "change": 3.1,
+    "changePercent": 1.5736,
+    "changeOverTime": 0.160404
+  },
+  {
+    "date": "2019-04-09",
+    "close": 199.5,
+    "volume": 35768237,
+    "change": -0.6,
+    "changePercent": -0.2999,
+    "changeOverTime": 0.156924
+  },
+  {
+    "date": "2019-04-10",
+    "close": 200.62,
+    "volume": 21695288,
+    "change": 1.12,
+    "changePercent": 0.5614,
+    "changeOverTime": 0.163419
+  }
+]

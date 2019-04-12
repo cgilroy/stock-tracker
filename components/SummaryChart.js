@@ -71,9 +71,19 @@ const StocksTable = (props) => {
   const currentPortfolioValue = props.data.cumulative[props.data.cumulative.length-1].totalHoldings
 
   const summaryData = {
-    currentValue: currentPortfolioValue,
-    totalReturn: currentPortfolioValue - props.data.totalSpent
+    currentValue: formatMoney(currentPortfolioValue),
+    totalReturn: formatMoney(currentPortfolioValue - props.data.totalSpent)
   }
+  console.log(summaryData.totalReturn,'totalReturn')
+  const totalReturnStyle = (parseFloat(summaryData.totalReturn) < 0) ? (
+    {
+      color: '#d23f31'
+    }
+  ) : (
+    {
+      color: '#0f9d58'
+    }
+  )
 
   const summaryTable = (
     <table>
@@ -85,8 +95,8 @@ const StocksTable = (props) => {
       </thead>
       <tbody>
         <tr>
-          <td>${formatMoney(summaryData.currentValue)}</td>
-          <td>${formatMoney(summaryData.totalReturn)}</td>
+          <td>${summaryData.currentValue}</td>
+          <td>${summaryData.totalReturn}</td>
         </tr>
       </tbody>
     </table>
@@ -95,11 +105,11 @@ const StocksTable = (props) => {
   return (
     <div style={{display:'flex',alignItems:'baseline'}}>
       <div className="summaryValue">
-        <h2>${formatMoney(summaryData.currentValue)}</h2>
+        <h2>${summaryData.currentValue}</h2>
         <span>CURRENT VALUE</span>
       </div>
       <div className="summaryValue">
-        <h2>${formatMoney(summaryData.totalReturn)}</h2>
+        <h2 style={totalReturnStyle}>${summaryData.totalReturn}</h2>
         <span>TOTAL RETURN</span>
       </div>
       <style jsx>{`

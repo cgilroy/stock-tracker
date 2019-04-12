@@ -44,7 +44,7 @@ app.prepare()
             });
           });
 
-          server.delete("/transaction/:id", (request, response) => {
+          server.delete("/api/transaction/:id", (request, response) => {
             collection.remove({ "id": request.params.id }, (error, result) => {
                 if(error) {
                     return response.status(500).send(error);

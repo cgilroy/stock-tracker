@@ -7,8 +7,8 @@ const ChartAndTransactions = (props) => {
     <div className="stock-wrapper">
       <div className="stock-div">
         <div style={{display:'flex',alignItems:'center'}}>
-          <h2 style={{fontWeight:'lighter'}}>{props.stock}</h2>
-          <h2 style={{marginLeft:'10px'}}>${formatMoney(currentPrice)}</h2>
+          <h2 style={{fontWeight:'lighter',marginTop:'0'}}>{props.stock}</h2>
+          <h2 style={{marginLeft:'10px',marginTop:'0'}}>${formatMoney(currentPrice)}</h2>
         </div>
         <Chart data={props.data} />
         <StocksTable data={props.data} showAddTransForm={() => props.showAddTransForm(props.stock,currentPrice.toFixed(2))} stock={props.stock} deleteStock={props.deleteStock} transactions={props.transactions} />
@@ -20,7 +20,7 @@ const ChartAndTransactions = (props) => {
           box-sizing: border-box;
           border-radius: 8px;
           height: 500px;
-          overflow-y: scroll;
+          overflow-y: auto;
           border: 1px solid #dfe1e5;
         }
         .stock-wrapper {

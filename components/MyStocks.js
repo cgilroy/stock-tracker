@@ -15,8 +15,8 @@ const MyStocks = (props) => {
     () => {
       var priceDataPromises = []
       for (let stock in purchasesArray) {
-        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
-        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
+        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
+        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
         priceDataPromises.push(
           fetch(apiString).then(results => results.json()).then(json => {
             // console.log(json,'entries')
@@ -30,6 +30,7 @@ const MyStocks = (props) => {
       Promise.all(priceDataPromises).then(data => {
         var stockChartsAndTransactions = (data.length !== 0) ? (
           data.map((stockData,index) => {
+            console.log('lookin',stockData)
             return (<ChartAndTransactions key={index} showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
           })
         ) : (
@@ -85,7 +86,6 @@ const MyStocks = (props) => {
         .stock-sections {
           display: flex;
           flex-wrap: wrap;
-          justify-content: space-evenly;
         }
       `}</style>
     </div>

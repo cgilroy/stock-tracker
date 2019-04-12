@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import dateCss from 'react-datepicker/dist/react-datepicker.css'
 import extraDateCss from '../components/datepicker.css'
+
 const Page = (serverTransactions) => {
   // console.log(serverTransactions,'serverTransactions')
   const [showModal, setShowModal] = useState(false)
@@ -15,7 +16,7 @@ const Page = (serverTransactions) => {
     newTransactions = newTransactions.filter(( obj ) => (obj.id !== id))
     console.log('deletetrans',newTransactions)
     setTransactions(newTransactions)
-    fetch(`http://localhost:3000/transaction/${id}`, {
+    fetch(`http://localhost:3000/api/transaction/${id}`, {
         method: 'DELETE',
         body: newTransactions
       })
@@ -300,7 +301,11 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
             <div className="horizontal-entries">
               <label className="modal-input">
                 <span style={{marginRight:'5px'}}>Stock</span>
-                <input type="text" value={stockName} onChange={(e) => setStockName(e.target.value.toUpperCase())} required/>
+                <select value={stockName} onChange={(e) => setStockName(e.target.value.toUpperCase())} required>
+                  <option value="MSFT">MSFT</option>
+                  <option value="AAPL">AAPL</option>
+                  <option value="NFLX">NFLX</option>
+                </select>
               </label>
               <label>
                 <span style={{marginRight:'5px'}}>Date</span>
@@ -397,7 +402,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
           width: 100%;
           display: table;
         }
-        .modal-body input {
+        .modal-body input, .modal-body select {
           color: #7c899c;
           border: 1px solid #ccc;
           box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
@@ -413,6 +418,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
           font-size: 16px;
           box-sizing: border-box;
           display: inline-block;
+          min-width: 150px;
         }
         #submit-button {
           width: 150px;
