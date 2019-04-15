@@ -11,140 +11,10 @@ const Page = () => {
   // console.log(serverTransactions,'serverTransactions')
   const [showTransModal, setShowTransModal] = useState(false)
   const [showLoginModal, setShowLoginModal] = useState(true)
-  const [transactions, setTransactions] = useState()
+  const [transactions, setTransactions] = useState([])
   const [transModal, setTransModal] = useState()
+  const [loading, setLoading] = useState(false)
 
-  const loginModal = (
-    <div className="login-modal__wrapper">
-      <div className="login-modal__body">
-        <h2 style={{fontWeight:'lighter',textAlign:'center',marginTop:'0'}}>Simple Stock Tracker</h2>
-        <div className='login-button' onClick={() => loginClick()}><span>LOGIN</span></div>
-        <span>A demo app powered by</span>
-        <br/>
-        <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-          {nextLogo} {reactLogo} {mongoDBLogo}
-        </div>
-      </div>
-
-      <span style={{position:'fixed',padding:'10px',bottom:'0',color:'white'}}>Check out the project on <a style={{color:'#7fc6a4'}} href="https://github.com/cgilroy/stock-tracker">Github</a></span>
-      <style jsx>{`
-        .login-modal__wrapper {
-          display: flex;
-          width: 100vw;
-          height: 100vh;
-          color: #3c4a51;
-          position: fixed;
-          background: #3c4a51;
-          top: 0;
-          align-items: center;
-          justify-content: center;
-        }
-        .login-modal__body {
-          padding: 30px;
-
-          background: white;
-        }
-        .login-button {
-          width: 150px;
-          color: white;
-          background:#7fc6a4;
-          align-items:center;
-          display: flex;
-          padding: 10px;
-          justify-content: center;
-          cursor: pointer;
-          font-size: 16px;
-          text-align: center;
-          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-          margin: 0 auto;
-          margin-bottom: 40px;
-        }
-        .login-button:hover {
-          background: #659e83;
-        }
-      `}</style>
-    </div>
-  )
-
-  const loginClick = () => {
-    const exampleTrans = (
-        [
-          {
-            "id": 1,
-            "tickerSymbol": "HMMJ.TO",
-            "buyDate": "2017-11-14",
-            "buyPrice": 12.7801,
-            "buyQty": 101,
-            "buyFee": 0.35,
-            "totalValue": 1291.14
-          },
-          {
-            "id": 2,
-            "tickerSymbol": "HMMJ.TO",
-            "buyDate": "2019-01-05",
-            "buyPrice": 19.88,
-            "buyQty": 1,
-            "buyFee": 0,
-            "totalValue": 19.88
-          },
-          {
-            "id": 3,
-            "tickerSymbol": "XAW.TO",
-            "buyDate": "2017-11-14",
-            "buyPrice": 12.7801,
-            "buyQty": 101,
-            "buyFee": 0.35,
-            "totalValue": 1291.14
-          },
-          {
-            "id": 4,
-            "tickerSymbol": "XAW.TO",
-            "buyDate": "2019-01-05",
-            "buyPrice": 19.88,
-            "buyQty": 1,
-            "buyFee": 0,
-            "totalValue": 19.88
-          },
-          {
-            "id": 5,
-            "tickerSymbol": "XAW.TO",
-            "buyDate": "2018-11-25",
-            "buyPrice": 14.88,
-            "buyQty": 105,
-            "buyFee": 0,
-            "totalValue": 1562.4
-          },
-          {
-            "id": 6,
-            "tickerSymbol": "VCN.TO",
-            "buyDate": "2017-11-14",
-            "buyPrice": 12.7801,
-            "buyQty": 101,
-            "buyFee": 0.35,
-            "totalValue": 1291.14
-          },
-          {
-            "id": 8,
-            "tickerSymbol": "VCN.TO",
-            "buyDate": "2018-11-25",
-            "buyPrice": 14.88,
-            "buyQty": 105,
-            "buyFee": 0,
-            "totalValue": 1562.4
-          },
-          {
-            "id": "928e7c80-502e-11e9-817c-d790151f8c90",
-            "tickerSymbol": "HD",
-            "buyDate": "2019-03-01",
-            "buyPrice": 123,
-            "buyQty": 25,
-            "buyFee": 2,
-            "totalValue": 3073
-          }
-        ]
-    )
-    setShowLoginModal(false)
-  }
   const deleteStock = (id) => {
     var newTransactions = transactions.slice()
     newTransactions = newTransactions.filter(( obj ) => (obj.id !== id))
@@ -173,6 +43,210 @@ const Page = () => {
       }).then(setShowTransModal(false))
 
   }
+
+  const postData = (data) => {
+    let newTransactions = transactions.slice()
+    let promiseArray = []
+    for (let i of data) {
+      newTransactions.push(i)
+      promiseArray.push(fetch(`http://localhost:3000/api/transaction/`, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(i)
+        }))
+    }
+    setTransactions(newTransactions);
+    Promise.all(promiseArray).then(() => {
+      console.log('doneposting')
+      setLoading(false)
+      setShowLoginModal(false)
+    })
+  }
+
+  const loginClick = () => {
+    const exampleTrans = (
+        [
+          {
+            "id": uuid(),
+            "tickerSymbol": "HMMJ.TO",
+            "buyDate": "2017-11-14",
+            "buyPrice": 12.7801,
+            "buyQty": 101,
+            "buyFee": 0.35,
+            "totalValue": 1291.14
+          },
+          {
+            "id": uuid(),
+            "tickerSymbol": "HMMJ.TO",
+            "buyDate": "2019-01-05",
+            "buyPrice": 19.88,
+            "buyQty": 1,
+            "buyFee": 0,
+            "totalValue": 19.88
+          },
+          {
+            "id": uuid(),
+            "tickerSymbol": "XAW.TO",
+            "buyDate": "2017-11-14",
+            "buyPrice": 12.7801,
+            "buyQty": 101,
+            "buyFee": 0.35,
+            "totalValue": 1291.14
+          },
+          {
+            "id": uuid(),
+            "tickerSymbol": "XAW.TO",
+            "buyDate": "2019-01-05",
+            "buyPrice": 19.88,
+            "buyQty": 1,
+            "buyFee": 0,
+            "totalValue": 19.88
+          },
+          {
+            "id": uuid(),
+            "tickerSymbol": "XAW.TO",
+            "buyDate": "2018-11-25",
+            "buyPrice": 14.88,
+            "buyQty": 105,
+            "buyFee": 0,
+            "totalValue": 1562.4
+          },
+          {
+            "id": uuid(),
+            "tickerSymbol": "VCN.TO",
+            "buyDate": "2017-11-14",
+            "buyPrice": 12.7801,
+            "buyQty": 101,
+            "buyFee": 0.35,
+            "totalValue": 1291.14
+          },
+          {
+            "id": uuid(),
+            "tickerSymbol": "VCN.TO",
+            "buyDate": "2018-11-25",
+            "buyPrice": 14.88,
+            "buyQty": 105,
+            "buyFee": 0,
+            "totalValue": 1562.4
+          },
+          {
+            "id": uuid(),
+            "tickerSymbol": "HD",
+            "buyDate": "2019-03-01",
+            "buyPrice": 123,
+            "buyQty": 25,
+            "buyFee": 2,
+            "totalValue": 3073
+          }
+        ]
+    )
+    postData(exampleTrans)
+
+  }
+
+  let modalBody = (!loading) ? (
+    <React.Fragment>
+      <h2 style={{fontWeight:'lighter',textAlign:'center',marginTop:'0'}}>Simple Stock Tracker</h2>
+      <div className='login-button' onClick={() => loginClick()}><span>LOGIN</span></div>
+      <span>A demo app powered by</span>
+      <br/>
+      <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
+        {nextLogo} {reactLogo} {mongoDBLogo}
+      </div>
+      <style jsx>{`
+        .login-button {
+          width: 150px;
+          color: white;
+          background:#7fc6a4;
+          align-items:center;
+          display: flex;
+          padding: 10px;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 16px;
+          text-align: center;
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+          margin: 0 auto;
+          margin-bottom: 40px;
+        }
+        .login-button:hover {
+          background: #659e83;
+        }
+      `}</style>
+    </React.Fragment>
+  ) : (
+    <React.Fragment>
+      <h2 style={{fontWeight:'lighter',textAlign:'center',marginTop:'0'}}>Generating sample data</h2>
+      <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+      <style jsx>{`
+        .lds-ring {
+          position: relative;
+          width: 64px;
+          height: 64px;
+          margin: 0 auto;
+        }
+        .lds-ring div {
+          box-sizing: border-box;
+          display: block;
+          position: absolute;
+          width: 51px;
+          height: 51px;
+          margin: 6px;
+          border: 6px solid #7fc6a4;
+          border-radius: 50%;
+          animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          border-color: #7fc6a4 transparent transparent transparent;
+        }
+        .lds-ring div:nth-child(1) {
+          animation-delay: -0.45s;
+        }
+        .lds-ring div:nth-child(2) {
+          animation-delay: -0.3s;
+        }
+        .lds-ring div:nth-child(3) {
+          animation-delay: -0.15s;
+        }
+        @keyframes lds-ring {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
+    </React.Fragment>
+  )
+
+  const loginModal = (
+    <div className="login-modal__wrapper">
+      <div className="login-modal__body">
+        {modalBody}
+      </div>
+      <span style={{position:'fixed',padding:'10px',bottom:'0',color:'white'}}>Check out the project on <a style={{color:'#7fc6a4'}} href="https://github.com/cgilroy/stock-tracker">Github</a></span>
+      <style jsx>{`
+        .login-modal__wrapper {
+          display: flex;
+          width: 100vw;
+          height: 100vh;
+          color: #3c4a51;
+          position: fixed;
+          background: #3c4a51;
+          top: 0;
+          align-items: center;
+          justify-content: center;
+        }
+        .login-modal__body {
+          padding: 30px;
+
+          background: white;
+        }
+      `}</style>
+    </div>
+  )
 
   const handleShowModalClick = (stock,price) => {
     console.log('stockagain',stock)
