@@ -68,8 +68,7 @@ const Page = () => {
 
   const loginClick = () => {
     const exampleTrans = (
-      {
-        "transactions": [
+        [
           {
             "id": 1,
             "tickerSymbol": "HMMJ.TO",
@@ -143,9 +142,8 @@ const Page = () => {
             "totalValue": 3073
           }
         ]
-      }
     )
-
+    setShowLoginModal(false)
   }
   const deleteStock = (id) => {
     var newTransactions = transactions.slice()
