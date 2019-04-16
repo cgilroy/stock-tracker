@@ -130,7 +130,7 @@ const Chart = (props) => {
             to: 1
           }
         });
-        console.log('datacheck',data)
+        // console.log('datacheck',data)
         const tooltipHoverWidth = 100/(data.path.pathElements.length-1) + '%'
 
         // for (let point of data.path.pathElements) {
@@ -149,7 +149,7 @@ const Chart = (props) => {
         if (data.y1 !== data.y2) {
 
           boxHeight = data.group.height();
-          console.log('boxHeight',boxHeight)
+          // console.log('boxHeight',boxHeight)
         }
       }
     }

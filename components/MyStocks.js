@@ -9,7 +9,7 @@ const MyStocks = (props) => {
   const [summarySection, setSummarySection] = useState()
 
   const purchasesArray = groupBy(props.transactions,"tickerSymbol")
-  // console.log('checkthis',purchasesArray)
+  console.log('checkthis',purchasesArray)
   const API_KEY = process.env.REACT_APP_ALPHAVANTAGE_API_KEY;
   useEffect(
     () => {
@@ -31,6 +31,7 @@ const MyStocks = (props) => {
         var stockChartsAndTransactions = (data.length !== 0) ? (
           data.map((stockData,index) => {
             console.log('lookin',stockData)
+            props.contentLoaded()
             return (<ChartAndTransactions key={index} showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
           })
         ) : (
@@ -66,9 +67,10 @@ const MyStocks = (props) => {
             <h2 style={{color:'#ccc',fontWeight:'lighter',border:'1px solid #ccc',padding:'10px'}}>No Data Available</h2>
           </div>
         )
-          // console.log(data,'datahere')
+          console.log(data,'datahere')
           setSummarySection(summaryChart)
           setStockSections(stockChartsAndTransactions)
+
       })
     },
     [props.transactions]

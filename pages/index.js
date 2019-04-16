@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import dateCss from 'react-datepicker/dist/react-datepicker.css'
 import extraDateCss from '../components/datepicker.css'
+import transitionCSS from '../components/transitions.css'
+import { CSSTransition } from 'react-transition-group'
 const uuid = require('uuid/v1')
 
 const Page = () => {
@@ -44,6 +46,11 @@ const Page = () => {
 
   }
 
+  const contentLoaded = () => {
+    setLoading(false)
+    setShowLoginModal(false)
+  }
+
   const postData = (data) => {
     let newTransactions = transactions.slice()
     let promiseArray = []
@@ -58,11 +65,9 @@ const Page = () => {
           body: JSON.stringify(i)
         }))
     }
-    setTransactions(newTransactions);
+    // setTransactions(newTransactions);
     Promise.all(promiseArray).then(() => {
-      console.log('doneposting')
-      setLoading(false)
-      setShowLoginModal(false)
+      setTransactions(newTransactions)
     })
   }
 
@@ -143,6 +148,7 @@ const Page = () => {
           }
         ]
     )
+    setLoading(true)
     postData(exampleTrans)
 
   }
@@ -222,7 +228,7 @@ const Page = () => {
   )
 
   const loginModal = (
-    <div className="login-modal__wrapper">
+    <div key="login" className="login-modal__wrapper">
       <div className="login-modal__body">
         {modalBody}
       </div>
@@ -263,8 +269,11 @@ const Page = () => {
         <meta charSet="utf-8" />
       </Head>
       {showTransModal && transModal}
-      {showLoginModal && loginModal}
-      <App transactions={transactions} showAddTransForm={handleShowModalClick} deleteStock={deleteStock} />
+      <CSSTransition in={showLoginModal} timeout={800} classNames="login-modal-transition" unmountOnExit>
+        <div>{loginModal}</div>
+      </CSSTransition>
+
+      <App transactions={transactions} showAddTransForm={handleShowModalClick} contentLoaded={contentLoaded} deleteStock={deleteStock} />
       <style jsx global>{`
         * {
           font-family: sans-serif;

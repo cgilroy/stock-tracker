@@ -9,6 +9,7 @@ export default (props) => {
         transactions={props.transactions}
         deleteStock={props.deleteStock}
         showAddTransForm={props.showAddTransForm}
+        contentLoaded={props.contentLoaded}
       />
 
     </div>

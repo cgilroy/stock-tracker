@@ -1,0 +1,16 @@
+.login-modal-transition-enter {
+  /* opacity: 0; */
+}
+.login-modal-transition-enter-active {
+  /* opacity: 0.5; */
+  transition: opacity 800ms;
+}
+.login-modal-transition-exit {
+  /* opacity: 1; */
+  transform: translateY(0px);
+}
+.login-modal-transition-exit-active {
+  /* opacity: 0; */
+  transform: translateY(-1000px);
+  transition: opacity 800ms, transform 800ms;
+}
