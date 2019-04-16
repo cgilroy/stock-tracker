@@ -33,7 +33,7 @@ app.prepare()
               throw error;
           }
           database = client.db(DATABASE_NAME);
-          collection = database.collection("users");
+          collection = database.collection("transactions");
           // console.log(collection,'collection')
           server.get("/api/transactions", (request, response) => {
             collection.find({}).toArray((error, result) => {

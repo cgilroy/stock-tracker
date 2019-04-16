@@ -287,6 +287,12 @@ const Page = () => {
           border-bottom: 2px solid #7fc6a4;
           font-weight: lighter;
           padding: 5px;
+          margin: 0;
+        }
+        .stock-sections {
+          display: flex;
+          flex-wrap: wrap;
+          background: #eee;
         }
         table.transactions-table {
           background-color: #EEEEEE;

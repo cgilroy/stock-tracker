@@ -22,12 +22,13 @@ const ChartAndTransactions = (props) => {
           height: 500px;
           overflow-y: auto;
           border: 1px solid #dfe1e5;
+          background: white;
         }
         .stock-wrapper {
           width: 50%;
           padding: 10px;
           box-sizing: border-box;
-          background: white;
+          background: none;
         }
       `}</style>
     </div>

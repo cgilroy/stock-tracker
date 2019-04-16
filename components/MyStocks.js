@@ -2,7 +2,7 @@ import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
 import ChartAndTransactions from './ChartAndTransactions.js'
 import SummaryChart from './SummaryChart.js'
-import { CSSTransition } from 'react-transition-group'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import transitionCSS from '../components/transitions.css'
 import {groupBy} from 'lodash'
 const MyStocks = (props) => {
@@ -34,7 +34,11 @@ const MyStocks = (props) => {
           data.map((stockData,index) => {
             console.log('lookin',stockData)
             props.contentLoaded()
-            return (<ChartAndTransactions key={index} showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />)
+            return (
+              <CSSTransition in={stockSections} timeout={400} classNames="stock-chart-transition" unmountOnExit>
+                <ChartAndTransactions key={index} showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />
+              </CSSTransition>
+            )
           })
         ) : (
           <div className='add-button' onClick={() => {props.showAddTransForm('',0)}}>
@@ -83,13 +87,14 @@ const MyStocks = (props) => {
       <h2 className="section-header">PORTFOLIO SUMMARY</h2>
       {summarySection}
       <h2 className="section-header">MY HOLDINGS</h2>
-      <CSSTransition in={true} timeout={400} classNames="stock-chart-transition" unmountOnExit>
-        <div className="stock-sections">{stockSections}</div>
-      </CSSTransition>
+      <TransitionGroup className="stock-sections">
+        {stockSections}
+      </TransitionGroup>
       <style jsx>{`
         .stock-sections {
           display: flex;
           flex-wrap: wrap;
+          background: #eee;
         }
       `}</style>
     </div>
