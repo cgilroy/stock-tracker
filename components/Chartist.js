@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ChartistGraph from 'react-chartist';
 import './chartist.scss'
+import './chartist.css'
 import { formatMoney } from './helpers.js'
 const Chart = (props) => {
 
