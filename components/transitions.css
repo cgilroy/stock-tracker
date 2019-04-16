@@ -14,3 +14,17 @@
   transform: translateY(-1000px);
   transition: opacity 800ms, transform 800ms;
 }
+.stock-chart-transition-enter {
+  opacity: 0;
+}
+.stock-chart-transition-enter-active {
+  opacity: 1;
+  transition: opacity 400ms;
+}
+.stock-chart-transition-exit {
+  opacity: 1;
+}
+.stock-chart-transition-exit-active {
+  opacity: 0;
+  transition: opacity 400ms;
+}

@@ -2,6 +2,8 @@ import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
 import ChartAndTransactions from './ChartAndTransactions.js'
 import SummaryChart from './SummaryChart.js'
+import { CSSTransition } from 'react-transition-group'
+import transitionCSS from '../components/transitions.css'
 import {groupBy} from 'lodash'
 const MyStocks = (props) => {
   const [priceHistoyArray, setPriceHistoryArray] = useState()
@@ -81,9 +83,9 @@ const MyStocks = (props) => {
       <h2 className="section-header">PORTFOLIO SUMMARY</h2>
       {summarySection}
       <h2 className="section-header">MY HOLDINGS</h2>
-      <div className="stock-sections">
-        {stockSections}
-      </div>
+      <CSSTransition in={true} timeout={400} classNames="stock-chart-transition" unmountOnExit>
+        <div className="stock-sections">{stockSections}</div>
+      </CSSTransition>
       <style jsx>{`
         .stock-sections {
           display: flex;
