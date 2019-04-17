@@ -103,13 +103,16 @@ const Chart = (props) => {
       valueTransform: function (value) {
                     return '$' + formatMoney(value/1);
                 }
-    }) ]
+    }) ],
+    showGridBackground: true
   };
   var seq = 0,
   delays = 0,
   durations = 500;
 
   var type = 'Line'
+  var tooltipLineAdded = false
+  console.log('outloop')
   var listener = {
     created: () => {
       seq = 0
@@ -117,6 +120,7 @@ const Chart = (props) => {
     draw: (data) => {
       seq++;
       var boxHeight = 0
+
       if (data.type === 'line') {
         // If the drawn element is a line we do a simple opacity fade in. This could also be achieved using CSS3 animations.
         data.element.animate({
@@ -148,11 +152,35 @@ const Chart = (props) => {
 
       if (data.type === 'grid') {
         if (data.y1 !== data.y2) {
-
           boxHeight = data.group.height();
+          if (seq === 1) {
+            data.group.append(
+              new Chartist.Svg('line', {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y1,
+                y2: data.y2,
+                stroke: '#000'
+              }, 'ct-tooltip-line')
+            )
+          }
           // console.log('boxHeight',boxHeight)
         }
       }
+      // if (data.type === 'gridBackground') {
+      //
+      //
+      //         data.group.append(
+      //           new Chartist.Svg('rect', {
+      //             x: data.x,
+      //             y: 0,
+      //             width: "100%",
+      //             height: '100%'
+      //           }, 'ct-custom-element')
+      //         )
+      //     // console.log('boxHeight',boxHeight)
+      //
+      // }
     }
   }
 

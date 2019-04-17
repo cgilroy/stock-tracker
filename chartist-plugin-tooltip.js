@@ -29,7 +29,6 @@
     Chartist.plugins = Chartist.plugins || {};
 
     Chartist.plugins.tooltip = function (options) {
-        console.log(options,'options')
         options = Chartist.extend({}, defaultOptions, options);
 
         return function tooltip(chart) {
@@ -46,7 +45,13 @@
                 .append('<div class="ct-tooltip"></div>')
                 .find('.ct-tooltip')
                 .hide();
-
+            // var $tooltipLine = $chart
+            // .append('<div class="ct-tooltip-line"></div>')
+            // .find('.ct-tooltip-line');
+            // $tooltipLine.css({
+            //   height: '100px',
+            //   width: '30px'
+            // });
             $chart.on('mouseenter', tooltipSelector, function() {
                 var $point = $(this),
                     seriesName = $point.parent().attr('ct:series-name'),
@@ -77,6 +82,28 @@
                     left: (event.offsetX || event.originalEvent.layerX) - $toolTip.width() / 2 - 10,
                     top: (event.offsetY || event.originalEvent.layerY) - $toolTip.height() - 40
                 });
+                // $('.ct-tooltip-line').css({
+                //   left: (event.offsetX+10),
+                //   top: 0
+                // })
+            });
+            $chart.on('mousemove mouseenter mouseleave', '.ct-tooltip-line', function(event) {
+              event.stopPropagation();
+              event.preventDefault();
+
+              // cross browser propagation stopping...
+              return false;
+            });
+
+            $chart.on('mousemove', '.ct-grid-background', function(event) {
+              $chart.find('.ct-tooltip-line').attr('x1', event.offsetX)
+              $chart.find('.ct-tooltip-line').attr('x2', event.offsetX)
+            });
+            $chart.on('mouseenter', '.ct-grid-background', function(event) {
+              $chart.find('.ct-tooltip-line').show()
+            });
+            $chart.on('mouseleave', function(event) {
+              $chart.find('.ct-tooltip-line').hide()
             });
 
         };
