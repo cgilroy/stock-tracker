@@ -10,6 +10,7 @@ const SummaryChart = (props) => {
       <style jsx>{`
         .summary-section {
           color: #262626;
+          padding: 10px;
         }
       `}</style>
     </div>
