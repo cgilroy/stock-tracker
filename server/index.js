@@ -45,6 +45,7 @@ app.prepare()
           });
 
           server.delete("/api/transaction/:id", (request, response) => {
+            console.log('delete')
             collection.remove({ "id": request.params.id }, (error, result) => {
                 if(error) {
                     return response.status(500).send(error);
@@ -53,10 +54,9 @@ app.prepare()
             });
           });
           server.put("/api/transaction/:id", (request, response) => {
-            console.log(request.params.id,'thisID')
             collection.findOneAndUpdate(
-              { id: request.params.id },
-              request.body,
+              {id: request.params.id},
+              {$set: request.body},
               (err, transaction) => {
                 if (err) {
                   response.status(500).send(err);
