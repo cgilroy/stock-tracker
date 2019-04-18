@@ -37,6 +37,7 @@ const Page = () => {
     newTransactions[replaceIndex] = stockData
     setTransactions(newTransactions)
     console.log(stockData.id,'updateID')
+    console.log(stockData,'stockData')
     fetch(`http://localhost:3000/api/transaction/${stockData.id}`, {
         method: 'PUT',
         headers: {
@@ -456,7 +457,6 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
   }
 
   const handleDeleteClick = (event) => {
-    console.log('inthedelete')
     handleDelete(id)
   }
 
@@ -525,7 +525,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
               </label>
             </div>
             <div style={{display:'flex'}}>
-              <input className="input-button" id="submit-button" type="submit" value="Submit" />
+              <input className="input-button" id="submit-button" type="submit" value={isEdit ? "Save" : "Submit"} />
               {isEdit && <input className="input-button" id="delete-button" onClick={handleDeleteClick} type="button" value="Delete" />}
             </div>
           </form>
