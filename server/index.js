@@ -52,6 +52,19 @@ app.prepare()
                 response.send(result);
             });
           });
+          server.put("/api/transaction/:id", (request, response) => {
+            console.log(request.params.id,'thisID')
+            collection.findOneAndUpdate(
+              { id: request.params.id },
+              request.body,
+              (err, transaction) => {
+                if (err) {
+                  response.status(500).send(err);
+                }
+                response.status(200).json(transaction);
+              }
+            );
+          });
 
           server.post("/api/transaction", (request, response) => {
               collection.insert(request.body, (error, result) => {

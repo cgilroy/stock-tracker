@@ -11,7 +11,7 @@ const ChartAndTransactions = (props) => {
           <h2 style={{marginLeft:'10px',marginTop:'0'}}>${formatMoney(currentPrice)}</h2>
         </div>
         <Chart data={props.data} />
-        <StocksTable data={props.data} showAddTransForm={() => props.showAddTransForm(props.stock,currentPrice.toFixed(2))} stock={props.stock} deleteStock={props.deleteStock} transactions={props.transactions} />
+        <StocksTable data={props.data} showAddTransForm={props.showAddTransForm} stock={props.stock} deleteStock={props.deleteStock} transactions={props.transactions} />
       </div>
       <style jsx>{`
         .stock-div {
@@ -60,7 +60,7 @@ const StocksTable = (props) => {
         <td>{txn.buyQty}</td>
         <td>${formatMoney(txn.buyFee)}</td>
         <td>${formatMoney(txn.totalValue)}</td>
-        <td onClick={() => props.deleteStock(txn.id)}/>
+        <td onClick={() => props.showAddTransForm(props.stock,txn.buyPrice,txn.buyFee,txn.buyDate,txn.buyQty,true,txn.id)}/>
       </tr>
     )
 
@@ -135,7 +135,7 @@ const StocksTable = (props) => {
       {summaryTable}
       <div style={{display:'flex',alignItems:'center'}}>
         <h3 style={{fontWeight:'lighter'}}>TRADES</h3>
-        <div className='add-button' onClick={props.showAddTransForm}><span>+ Add New Trade</span></div>
+        <div className='add-button' onClick={() => props.showAddTransForm(props.stock,parseFloat(currentPrice).toFixed(2))}><span>+ Add New Trade</span></div>
       </div>
       {transactionsTable}
       <style jsx>{`
@@ -207,11 +207,11 @@ const Chart = (props) => {
         .chart-buttons{
           display: flex;
           align-items: center;
-          cursor: pointer;
         }
         .chart-buttons__button {
           padding: 5px;
           margin: 5px;
+          cursor: pointer;
         }
         .chart-buttons__button-active{
           background: #eee

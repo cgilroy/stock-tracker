@@ -180,6 +180,7 @@ const Chart = (props) => {
           padding: 5px;
           border-radius: 3px;
           margin: 5px;
+          cursor: pointer;
         }
         .chart-buttons__button-active{
           background: #eee

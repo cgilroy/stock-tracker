@@ -25,7 +25,26 @@ const Page = () => {
     fetch(`http://localhost:3000/api/transaction/${id}`, {
         method: 'DELETE',
         body: newTransactions
-      })
+      }).then(setShowTransModal(false))
+
+  }
+
+  const editStock = (stockData) => {
+    let newTransactions = transactions.slice()
+    let replaceIndex = newTransactions.findIndex((element) => (element.id === stockData.id))
+    console.log(replaceIndex,'replaceIndex')
+    console.log(newTransactions,'newTransactions')
+    newTransactions[replaceIndex] = stockData
+    setTransactions(newTransactions)
+    console.log(stockData.id,'updateID')
+    fetch(`http://localhost:3000/api/transaction/${stockData.id}`, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(stockData)
+      }).then(setShowTransModal(false))
 
   }
 
@@ -41,7 +60,7 @@ const Page = () => {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(stockData)
+        body: stockData
       }).then(setShowTransModal(false))
 
   }
@@ -254,9 +273,9 @@ const Page = () => {
     </div>
   )
 
-  const handleShowModalClick = (stock,price) => {
+  const handleShowModalClick = (stock,price,fee,date,qty,isEdit,id) => {
     console.log('stockagain',stock)
-    setTransModal(<AddTransactionModal handleSubmit={addStock} handleClose={() => setShowTransModal(false)} stock={stock} price={price}/>)
+    setTransModal(<AddTransactionModal handleSubmit={addStock} handleEdit={editStock} handleDelete={deleteStock} handleClose={() => setShowTransModal(false)} stock={stock} price={price} fee={fee} date={date} qty={qty} isEdit={isEdit} id={id}/>)
     setShowTransModal(true)
   }
 
@@ -273,7 +292,7 @@ const Page = () => {
         <div>{loginModal}</div>
       </CSSTransition>
 
-      <App transactions={transactions} showAddTransForm={handleShowModalClick} contentLoaded={contentLoaded} deleteStock={deleteStock} />
+      <App transactions={transactions} showAddTransForm={handleShowModalClick} contentLoaded={contentLoaded} />
       <style jsx global>{`
         * {
           font-family: sans-serif;
@@ -379,18 +398,24 @@ const formatMoney = (n, c, d, t) => {
   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 }
 
-const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
+const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelete, stock, price, fee, date, qty, isEdit, id}) => {
+  var moment = require('moment')
+
   stock = stock || 'MSFT'
   price = price || ''
-  var moment = require('moment')
+  fee = fee || ''
+  date = date || moment().format("YYYY-MM-DD")
+  qty = qty || ''
+  isEdit = isEdit || false
   const [stockName, setStockName] = useState(stock)
-  const [buyDate, setBuyDate] = useState(moment().format("YYYY-MM-DD"))
-  const [buyQty, setBuyQty] = useState()
-  const [buyFee, setBuyFee] = useState()
+  const [buyDate, setBuyDate] = useState(date)
+  const [buyQty, setBuyQty] = useState(qty)
+  const [buyFee, setBuyFee] = useState(fee)
   const [buyPrice, setBuyPrice] = useState(price)
 
   const handleSubmitClick = (event) => {
-    // console.log(stockName,buyDate,buyPrice,buyFee,'testsubmit')
+    console.log(stockName,buyDate,buyPrice,buyFee,'testsubmit')
+    console.log(event,"submitvalue")
     event.preventDefault();
     let newTrans = {
       "id": uuid(),
@@ -401,7 +426,6 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
       "buyFee": buyFee,
       "totalValue": parseFloat(((buyQty*buyPrice)+buyFee).toFixed(2))
     }
-
     const optimized = JSON.stringify(newTrans)
     // console.log(optimized,'// OPTIMIZE: ')
     // const test = {
@@ -413,6 +437,27 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
     //   "totalValue": 1562.4
     // }
     handleSubmit(newTrans)
+  }
+
+  const handleEditClick = (event) => {
+    console.log(event,"editValue")
+    event.preventDefault();
+    let newTrans = {
+      "id": id,
+      "tickerSymbol": stockName,
+      "buyDate": moment(buyDate).format("YYYY-MM-DD"),
+      "buyPrice": buyPrice,
+      "buyQty": buyQty,
+      "buyFee": buyFee,
+      "totalValue": parseFloat(((buyQty*buyPrice)+buyFee).toFixed(2))
+    }
+    const optimized = JSON.stringify(newTrans)
+    handleEdit(newTrans)
+  }
+
+  const handleDeleteClick = (event) => {
+    console.log('inthedelete')
+    handleDelete(id)
   }
 
   var totalPrice = () => {
@@ -428,16 +473,17 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
       return (0.00).toFixed(2)
     }
   }
+  let formTitle = (isEdit) ? 'Edit Transaction' : 'Add New Transaction'
 
   return (
     <div className="modal-wrapper">
       <div className="modal-body">
         <div className="modal-body__header">
-          <span className="modal-wrapper__title">Add New Transaction</span>
+          <span className="modal-wrapper__title">{formTitle}</span>
           <span className="exit-button" onClick={() => handleClose()}>&times;</span>
         </div>
         <div className="modal-body__form">
-          <form onSubmit={handleSubmitClick} accept-charset="UTF-8">
+          <form onSubmit={isEdit ? (handleEditClick) : (handleSubmitClick)} accept-charset="UTF-8">
             <div className="horizontal-entries">
               <label className="modal-input">
                 <span style={{marginRight:'5px'}}>Stock</span>
@@ -478,7 +524,10 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
                 <span className="modal-input__finalPrice">${totalPrice()}</span>
               </label>
             </div>
-            <input id="submit-button" type="submit" value="Submit" />
+            <div style={{display:'flex'}}>
+              <input className="input-button" id="submit-button" type="submit" value="Submit" />
+              {isEdit && <input className="input-button" id="delete-button" onClick={handleDeleteClick} type="button" value="Delete" />}
+            </div>
           </form>
         </div>
       </div>
@@ -545,6 +594,21 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
         .modal-body select {
           width: 200px;
         }
+        .modal-body .input-button {
+          width: 150px;
+          border: none;
+          border-radius: 5px;
+          align-items:center;
+          display: flex;
+          justify-content: center;
+          cursor: pointer;
+          font-size: 16px;
+          color: white;
+          text-align: center;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+          margin-top: 40px;
+        }
         .modal-body input, .modal-body select {
           color: #7c899c;
           border: 1px solid #ccc;
@@ -563,25 +627,20 @@ const AddTransactionModal = ({handleClose, handleSubmit, stock, price}) => {
           display: inline-block;
           min-width: 150px;
         }
-        #submit-button {
-          width: 150px;
-          background-color: #62cc83;
-          border: none;
-          border-radius: 5px;
-          align-items:center;
-          display: flex;
-          justify-content: center;
-          cursor: pointer;
-          font-size: 16px;
-          color: white;
-          text-align: center;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-          margin-top: 40px;
 
+        #submit-button {
+          background-color: #62cc83;
         }
         #submit-button:hover {
           background-color: #5cbf7b;
+          box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        }
+        #delete-button {
+          background-color: #f05b4f;
+          margin-left: 20px;
+        }
+        #delete-button:hover {
+          background-color: #d24e43;
           box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
         }
 
