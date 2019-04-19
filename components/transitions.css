@@ -6,13 +6,13 @@
   transition: opacity 800ms;
 }
 .login-modal-transition-exit {
-  /* opacity: 1; */
+  opacity: 1;
   transform: translateY(0px);
 }
 .login-modal-transition-exit-active {
-  /* opacity: 0; */
-  transform: translateY(-1000px);
-  transition: opacity 800ms, transform 800ms;
+  opacity: 0;
+  /* transform: translateY(-100px); */
+  transition: opacity 800ms;
 }
 .stock-chart-transition-enter {
   opacity: 0;

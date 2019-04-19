@@ -66,7 +66,7 @@ const Page = () => {
   }
 
   const contentLoaded = () => {
-    setLoading(false)
+    // setLoading(false)
     setShowLoginModal(false)
   }
 
@@ -95,7 +95,7 @@ const Page = () => {
         [
           {
             "id": uuid(),
-            "tickerSymbol": "HMMJ.TO",
+            "tickerSymbol": "AAPL",
             "buyDate": "2017-11-14",
             "buyPrice": 12.7801,
             "buyQty": 101,
@@ -104,7 +104,7 @@ const Page = () => {
           },
           {
             "id": uuid(),
-            "tickerSymbol": "HMMJ.TO",
+            "tickerSymbol": "NFLX",
             "buyDate": "2019-01-05",
             "buyPrice": 19.88,
             "buyQty": 1,
@@ -113,57 +113,12 @@ const Page = () => {
           },
           {
             "id": uuid(),
-            "tickerSymbol": "XAW.TO",
+            "tickerSymbol": "MSFT",
             "buyDate": "2017-11-14",
             "buyPrice": 12.7801,
             "buyQty": 101,
             "buyFee": 0.35,
             "totalValue": 1291.14
-          },
-          {
-            "id": uuid(),
-            "tickerSymbol": "XAW.TO",
-            "buyDate": "2019-01-05",
-            "buyPrice": 19.88,
-            "buyQty": 1,
-            "buyFee": 0,
-            "totalValue": 19.88
-          },
-          {
-            "id": uuid(),
-            "tickerSymbol": "XAW.TO",
-            "buyDate": "2018-11-25",
-            "buyPrice": 14.88,
-            "buyQty": 105,
-            "buyFee": 0,
-            "totalValue": 1562.4
-          },
-          {
-            "id": uuid(),
-            "tickerSymbol": "VCN.TO",
-            "buyDate": "2017-11-14",
-            "buyPrice": 12.7801,
-            "buyQty": 101,
-            "buyFee": 0.35,
-            "totalValue": 1291.14
-          },
-          {
-            "id": uuid(),
-            "tickerSymbol": "VCN.TO",
-            "buyDate": "2018-11-25",
-            "buyPrice": 14.88,
-            "buyQty": 105,
-            "buyFee": 0,
-            "totalValue": 1562.4
-          },
-          {
-            "id": uuid(),
-            "tickerSymbol": "HD",
-            "buyDate": "2019-03-01",
-            "buyPrice": 123,
-            "buyQty": 25,
-            "buyFee": 2,
-            "totalValue": 3073
           }
         ]
     )
@@ -251,7 +206,7 @@ const Page = () => {
       <div className="login-modal__body">
         {modalBody}
       </div>
-      <span style={{position:'fixed',padding:'10px',bottom:'0',color:'white'}}>Check out the project on <a style={{color:'#7fc6a4'}} href="https://github.com/cgilroy/stock-tracker">Github</a></span>
+      <span style={{position:'fixed',padding:'10px',bottom:'0',color:'white',zIndex:'99999999999999'}}>Check out the project on <a style={{color:'#7fc6a4'}} href="https://github.com/cgilroy/stock-tracker">Github</a></span>
       <style jsx>{`
         .login-modal__wrapper {
           display: flex;
@@ -312,6 +267,7 @@ const Page = () => {
           display: flex;
           flex-wrap: wrap;
           background: #eee;
+          flex-grow: 1;
         }
         table.transactions-table {
 

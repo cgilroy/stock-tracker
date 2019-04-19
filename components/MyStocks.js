@@ -81,22 +81,15 @@ const MyStocks = (props) => {
     },
     [props.transactions]
   )
-  // console.log('rerender mystocks')
+  let emptyStyle = (props.transactions.length === 0) ? ({alignItems:'center',justifyContent:'center'}) : {}
   return (
-    <div>
+    <div style={{display:'flex',flexFlow:'column',minHeight:'100vh'}}>
       <h2 className="section-header">PORTFOLIO SUMMARY</h2>
       {summarySection}
       <h2 className="section-header">MY HOLDINGS</h2>
-      <TransitionGroup className="stock-sections">
+      <TransitionGroup className="stock-sections" style={emptyStyle}>
         {stockSections}
       </TransitionGroup>
-      <style jsx>{`
-        .stock-sections {
-          display: flex;
-          flex-wrap: wrap;
-          background: #eee;
-        }
-      `}</style>
     </div>
   )
 
