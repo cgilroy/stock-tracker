@@ -392,6 +392,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
     console.log(stockName,buyDate,buyPrice,buyFee,'testsubmit')
     console.log(event,"submitvalue")
     event.preventDefault();
+    const submitFee = buyFee || 0
     let newTrans = {
       "id": uuid(),
       "tickerSymbol": stockName,
@@ -399,24 +400,16 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
       "buyPrice": buyPrice,
       "buyQty": buyQty,
       "buyFee": buyFee,
-      "totalValue": parseFloat(((buyQty*buyPrice)+buyFee).toFixed(2))
+      "totalValue": parseFloat(((buyQty*buyPrice)+submitFee).toFixed(2))
     }
     const optimized = JSON.stringify(newTrans)
-    // console.log(optimized,'// OPTIMIZE: ')
-    // const test = {
-    //   "tickerSymbol": "VCN.TO",
-    //   "buyDate": "2018-11-25",
-    //   "buyPrice": 14.88,
-    //   "buyQty": 105,
-    //   "buyFee": 0,
-    //   "totalValue": 1562.4
-    // }
     handleSubmit(newTrans)
   }
 
   const handleEditClick = (event) => {
     console.log(event,"editValue")
     event.preventDefault();
+    const submitFee = buyFee || 0
     let newTrans = {
       "id": id,
       "tickerSymbol": stockName,
@@ -424,7 +417,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
       "buyPrice": buyPrice,
       "buyQty": buyQty,
       "buyFee": buyFee,
-      "totalValue": parseFloat(((buyQty*buyPrice)+buyFee).toFixed(2))
+      "totalValue": parseFloat(((buyQty*buyPrice)+submitFee).toFixed(2))
     }
     const optimized = JSON.stringify(newTrans)
     handleEdit(newTrans)
@@ -437,16 +430,11 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
 
   var totalPrice = () => {
     // console.log([buyPrice, buyQty],"buyPrice")
-    if (buyQty && buyPrice !== undefined) {
-
-      const val = buyFee !== undefined ?
-      formatMoney((parseFloat(buyQty)*parseFloat(buyPrice))+parseFloat(buyFee)) :
-      formatMoney((parseFloat(buyQty)*parseFloat(buyPrice)));
-      console.log('returningval',val)
-      return val
-    } else {
-      return (0.00).toFixed(2)
-    }
+    const calcQty = buyQty || 0
+    const calcPrice = buyPrice || 0
+    const calcFee = buyFee || 0
+    const val = formatMoney((calcQty*calcPrice)+calcFee)
+    return val
   }
   let formTitle = (isEdit) ? 'Edit Transaction' : 'Add New Transaction'
 
@@ -491,7 +479,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
               <span style={{verticalAlign:'middle',display:'table-cell',color:'#7c899c',padding:'0 5px'}}>&#43;</span>
               <label className="modal-input">
                 Fees
-                <input type="number" min="0" step=".01" placeholder="0.00" value={buyFee} onChange={(e) => setBuyFee(parseFloat(e.target.value))} required/>
+                <input type="number" min="0" step=".01" placeholder="0.00" value={buyFee} onChange={(e) => setBuyFee(parseFloat(e.target.value))} />
               </label>
               <span style={{verticalAlign:'middle',display:'table-cell',color:'#7c899c',padding:'0 5px'}}>&#61;</span>
               <label className="modal-input">
