@@ -92,23 +92,37 @@ const StocksTable = (props) => {
     totalDividends: totDiv,
     totalReturn: currentPrice*totals.totQty - totals.totalValue + totDiv
   }
+  const totalReturnStyle = (parseFloat(summaryData.totalReturn) < 0) ? (
+    {
+      color: '#d23f31'
+    }
+  ) : (
+    {
+      color: '#0f9d58'
+    }
+  )
 
   const summaryTable = (
     <table>
       <thead>
         <tr>
-          <th>Capital Gain</th>
-          <th>Dividends</th>
-          <th>Total Return</th>
+          <th>${formatMoney(summaryData.capitalGain)}</th>
+          <th>${formatMoney(summaryData.totalDividends)}</th>
+          <th style={totalReturnStyle}>${formatMoney(summaryData.totalReturn)}</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>${formatMoney(summaryData.capitalGain)}</td>
-          <td>${formatMoney(summaryData.totalDividends)}</td>
-          <td>${formatMoney(summaryData.totalReturn)}</td>
+          <td>Capital Gain</td>
+          <td>Dividends</td>
+          <td>Total Return</td>
         </tr>
       </tbody>
+      <style jsx>{`
+        td {
+          padding: 0 5px;
+        }
+      `}</style>
     </table>
   )
 
@@ -165,13 +179,13 @@ const StocksTable = (props) => {
 }
 
 const Chart = (props) => {
-  const [activeChartRange, setActiveChartRange] = useState("YEAR")
+  const [activeChartRange, setActiveChartRange] = useState("MAX")
   const [dataRange, setDataRange] = useState(200)
   var moment = require('moment')
   const dateRanges = {
     WEEK: 7,
     THIRTYDAYS: 30,
-    YEAR: 365
+    MAX: 365
   }
 
   const getDateArrayLength = (days) => {
@@ -200,7 +214,7 @@ const Chart = (props) => {
       <div className="chart-buttons">
         <div className={`chart-buttons__button ${activeChartRange === 'WEEK' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['WEEK']);setActiveChartRange('WEEK')}}>WEEK</div>
         <div className={`chart-buttons__button ${activeChartRange === 'THIRTYDAYS' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['THIRTYDAYS']);setActiveChartRange('THIRTYDAYS')}}>30 DAYS</div>
-        <div className={`chart-buttons__button ${activeChartRange === 'YEAR' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['YEAR']);setActiveChartRange('YEAR')}}>YEAR</div>
+        <div className={`chart-buttons__button ${activeChartRange === 'MAX' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['MAX']);setActiveChartRange('MAX')}}>MAX</div>
       </div>
       <Chartist activeRange={activeChartRange} data={props.data.slice(-dataRange)} chartType='stock' />
       <style jsx>{`

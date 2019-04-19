@@ -136,7 +136,7 @@ const Chart = (props) => {
   const dateRanges = {
     WEEK: 7,
     THIRTYDAYS: 30,
-    YEAR: 365
+    MAX: 365
   }
   console.log('summarycharthere',props)
 
@@ -167,7 +167,7 @@ const Chart = (props) => {
       <div className="chart-buttons">
         <div className={`chart-buttons__button ${activeChartRange === 'WEEK' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['WEEK']);setActiveChartRange('WEEK')}}>WEEK</div>
         <div className={`chart-buttons__button ${activeChartRange === 'THIRTYDAYS' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['THIRTYDAYS']);setActiveChartRange('THIRTYDAYS')}}>30 DAYS</div>
-        <div className={`chart-buttons__button ${activeChartRange === 'YEAR' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['YEAR']);setActiveChartRange('YEAR')}}>YEAR</div>
+        <div className={`chart-buttons__button ${activeChartRange === 'MAX' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['MAX']);setActiveChartRange('MAX')}}>MAX</div>
       </div>
       <Chartist activeRange={activeChartRange} data={props.data.slice(-dataRange)} chartType='summary' />
       <style jsx>{`
