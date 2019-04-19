@@ -450,7 +450,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
             <div className="horizontal-entries">
               <label className="modal-input">
                 <span style={{marginRight:'5px'}}>Stock</span>
-                <select value={stockName} onChange={(e) => setStockName(e.target.value)} required>
+                <select value={stockName} onChange={(e) => setStockName(e.target.value)} disabled={isEdit ? true : false} required>
                   <option value="MSFT">MSFT</option>
                   <option value="AAPL">AAPL</option>
                   <option value="NFLX">NFLX</option>
