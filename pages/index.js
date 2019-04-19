@@ -314,7 +314,7 @@ const Page = () => {
           background: #eee;
         }
         table.transactions-table {
-          background-color: #EEEEEE;
+
           width: 100%;
           text-align: left;
           border-collapse: collapse;
@@ -327,7 +327,7 @@ const Page = () => {
           border-bottom: 1px solid #AAAAAA;
         }
         table.transactions-table tr:nth-child(even) {
-          background: #F5F5F5;
+
         }
         table.transactions-table thead {
           background: #7FC6A4;
@@ -337,6 +337,25 @@ const Page = () => {
           font-weight: bold;
           color: #444444;
           text-align: left;
+        }
+        table.transactions-table tr {
+          cursor: default;
+        }
+        table.transactions-table tr .editButton svg {
+          opacity: 0;
+        }
+        table.transactions-table tr:hover .editButton svg {
+          opacity: 1;
+          fill: #babdbe;
+          stroke-width: 15;
+          stroke: #babdbe;
+        }
+        table.transactions-table tr .editButton:hover {
+          cursor: pointer;
+        }
+        table.transactions-table tr .editButton:hover svg {
+          fill: #449bf7;
+          stroke: #449bf7;
         }
         .ct-chart {
             position: relative;
