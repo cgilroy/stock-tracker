@@ -53,10 +53,9 @@ app.prepare()
             });
           });
           server.put("/api/transaction/:id", (request, response) => {
-            console.log(request.params.id,'thisID')
             collection.findOneAndUpdate(
               { id: request.params.id },
-              request.body,
+              { $set: request.body },
               (err, transaction) => {
                 if (err) {
                   response.status(500).send(err);
