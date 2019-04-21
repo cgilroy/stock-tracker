@@ -339,12 +339,6 @@ const Page = () => {
   )
 }
 
-Page.getInitialProps = async ({ req }) => {
-  const res = await fetch('http://localhost:3000/api/transactions')
-  const json = await res.json()
-  return { transactions: json }
-}
-
 const formatMoney = (n, c, d, t) => {
   var c = isNaN(c = Math.abs(c)) ? 2 : c,
     d = d == undefined ? "." : d,
