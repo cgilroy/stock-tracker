@@ -3,7 +3,7 @@
     "dev": "node server/index.js",
     "build": "next build",
     "export": "next export",
-    "start": "next start",
+    "start": "node server/index.js",
     "deploy": "next build && next export -o docs"
   },
   "dependencies": {
