@@ -5,7 +5,6 @@ table.transactions-table {
   border-collapse: collapse;
 }
 table.transactions-table td, table.transactions-table th {
-  border: 1px solid #AAAAAA;
   padding: 3px 2px;
 }
 table.transactions-table tbody td {
@@ -22,4 +21,7 @@ table.transactions-table thead th {
   font-weight: bold;
   color: #444444;
   text-align: left;
+}
+table.transactions-table tr:hover svg {
+  fill: blue;
 }

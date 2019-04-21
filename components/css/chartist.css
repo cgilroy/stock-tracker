@@ -1,0 +1,6 @@
+/* extra chartist css */
+.ct-tooltip-line {
+  stroke-width: 0.4px;
+  fill: #000;
+  display: none;
+}

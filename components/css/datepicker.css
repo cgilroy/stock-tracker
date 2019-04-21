@@ -9,3 +9,7 @@
   border-radius: 6px;
   box-sizing: border-box;
 }
+.react-datepicker-wrapper {
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
