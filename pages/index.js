@@ -20,7 +20,7 @@ const Page = () => {
     var newTransactions = transactions.slice()
     newTransactions = newTransactions.filter(( obj ) => (obj.id !== id))
     setTransactions(newTransactions)
-    fetch(`/api/transaction/${id}`, {
+    fetch(`https://simple-stock-tracker.herokuapp.com/api/transaction/${id}`, {
         method: 'DELETE',
         body: newTransactions
       }).then(setShowTransModal(false))
@@ -32,7 +32,7 @@ const Page = () => {
     let replaceIndex = newTransactions.findIndex((element) => (element.id === stockData.id))
     newTransactions[replaceIndex] = stockData
     setTransactions(newTransactions)
-    fetch(`/api/transaction/${stockData.id}`, {
+    fetch(`https://simple-stock-tracker.herokuapp.com/api/transaction/${stockData.id}`, {
         method: 'PUT',
         headers: {
           'Accept': 'application/json',
@@ -47,7 +47,7 @@ const Page = () => {
     let newTransactions = transactions.slice()
     newTransactions.push(stockData)
     setTransactions(newTransactions)
-    fetch(`/api/transaction/`, {
+    fetch(`https://simple-stock-tracker.herokuapp.com/api/transaction/`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
