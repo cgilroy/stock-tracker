@@ -28,12 +28,14 @@ const MyStocks = (props) => {
         )
       }
       Promise.all(priceDataPromises).then(data => {
-        var stockChartsAndTransactions = (data.length !== 0) ? (
+        console.log('inHere',data)
+        console.log('length',data.length)
+        const stockChartsAndTransactions = (data.length !== 0) ? (
           data.map((stockData,index) => {
             props.contentLoaded()
             return (
-              <CSSTransition key={'transition'+index} in={stockSections} timeout={400} classNames="stock-chart-transition" unmountOnExit>
-                <ChartAndTransactions key={index} showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />
+              <CSSTransition in={stockSections} timeout={400} classNames="stock-chart-transition" unmountOnExit>
+                <ChartAndTransactions key={'transition'+index} showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />
               </CSSTransition>
             )
           })
@@ -63,20 +65,22 @@ const MyStocks = (props) => {
             `}</style>
           </div>
         );
-        var summaryChart = (data.length !== 0) ? (
+        const summaryChart = (data.length !== 0) ? (
           <SummaryChart data={data} />
         ) : (
           <div style={{height:'200px',width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>
             <h2 style={{color:'#ccc',fontWeight:'lighter',border:'1px solid #ccc',padding:'10px'}}>No Data Available</h2>
           </div>
         )
-          setSummarySection(summaryChart)
-          setStockSections(stockChartsAndTransactions)
+        console.log('setting',stockChartsAndTransactions)
+        setSummarySection(summaryChart)
+        setStockSections(stockChartsAndTransactions)
 
       })
     },
     [props.transactions]
   )
+  console.log('rendering',stockSections)
   let emptyStyle = (props.transactions.length === 0) ? ({alignItems:'center',justifyContent:'center'}) : {}
   return (
     <div style={{display:'flex',flexFlow:'column',minHeight:'100vh'}}>

@@ -53,7 +53,7 @@ const Page = () => {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: stockData
+        body: JSON.stringify(stockData)
       }).then(setShowTransModal(false))
 
   }
