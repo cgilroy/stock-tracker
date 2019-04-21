@@ -30,6 +30,14 @@ const ChartAndTransactions = (props) => {
           box-sizing: border-box;
           background: none;
         }
+        @media only screen and (max-width: 600px) {
+          .stock-wrapper {
+            width: 100%;
+          }
+          .stock-div {
+            height: auto;
+          }
+        }
       `}</style>
     </div>
   )
@@ -73,7 +81,6 @@ const StocksTable = (props) => {
   var totDiv = 0
   for (let entry of props.data) {
     if (entry[1]["7. dividend amount"] !== "0.0000") {
-      // console.log('notzero')
       let totQty = 0
       let divQty = 0 //number of shares included in div calc
       for (let txn of props.transactions) {
@@ -179,8 +186,8 @@ const StocksTable = (props) => {
 }
 
 const Chart = (props) => {
-  const [activeChartRange, setActiveChartRange] = useState("MAX")
-  const [dataRange, setDataRange] = useState(200)
+  const [activeChartRange, setActiveChartRange] = useState("THIRTYDAYS")
+  const [dataRange, setDataRange] = useState(30)
   var moment = require('moment')
   const dateRanges = {
     WEEK: 7,
@@ -189,16 +196,11 @@ const Chart = (props) => {
   }
 
   const getDateArrayLength = (days) => {
-    // console.log('days',days)
     const targetDay = moment().subtract(days, 'days').format("YYYY-MM-DD")
-    // console.log(targetDay,'targetDay')
     var dayIndex = 0
     const reverseData = props.data.slice().reverse()
-    // console.log(allData,'alldata')
-
     for (let day of reverseData) {
       if (day[0] < targetDay) {
-        // console.log(dayIndex,'dayIndex')
         setDataRange(dayIndex)
         return
       } else if (dayIndex >= reverseData.length-1) {
@@ -208,7 +210,6 @@ const Chart = (props) => {
       }
     }
   }
-  // console.log(activeChartRange,'activeChartRange')
   return(
     <div className="chart">
       <div className="chart-buttons">

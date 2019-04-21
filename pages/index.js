@@ -10,7 +10,6 @@ import { CSSTransition } from 'react-transition-group'
 const uuid = require('uuid/v1')
 
 const Page = () => {
-  // console.log(serverTransactions,'serverTransactions')
   const [showTransModal, setShowTransModal] = useState(false)
   const [showLoginModal, setShowLoginModal] = useState(true)
   const [transactions, setTransactions] = useState([])
@@ -20,7 +19,6 @@ const Page = () => {
   const deleteStock = (id) => {
     var newTransactions = transactions.slice()
     newTransactions = newTransactions.filter(( obj ) => (obj.id !== id))
-    console.log('deletetrans',newTransactions)
     setTransactions(newTransactions)
     fetch(`http://localhost:3000/api/transaction/${id}`, {
         method: 'DELETE',
@@ -32,11 +30,8 @@ const Page = () => {
   const editStock = (stockData) => {
     let newTransactions = transactions.slice()
     let replaceIndex = newTransactions.findIndex((element) => (element.id === stockData.id))
-    console.log(replaceIndex,'replaceIndex')
-    console.log(newTransactions,'newTransactions')
     newTransactions[replaceIndex] = stockData
     setTransactions(newTransactions)
-    console.log(stockData.id,'updateID')
     fetch(`http://localhost:3000/api/transaction/${stockData.id}`, {
         method: 'PUT',
         headers: {
@@ -50,9 +45,7 @@ const Page = () => {
 
   const addStock = (stockData) => {
     let newTransactions = transactions.slice()
-    console.log('addtrans1',newTransactions)
     newTransactions.push(stockData)
-    console.log('addtrans2',newTransactions)
     setTransactions(newTransactions)
     fetch(`http://localhost:3000/api/transaction/`, {
         method: 'POST',
@@ -229,16 +222,14 @@ const Page = () => {
   )
 
   const handleShowModalClick = (stock,price,fee,date,qty,isEdit,id) => {
-    console.log('stockagain',stock)
     setTransModal(<AddTransactionModal handleSubmit={addStock} handleEdit={editStock} handleDelete={deleteStock} handleClose={() => setShowTransModal(false)} stock={stock} price={price} fee={fee} date={date} qty={qty} isEdit={isEdit} id={id}/>)
     setShowTransModal(true)
   }
 
-  console.log(transactions,'yeahrender')
   return (
     <div className={`transModal-${showTransModal} loginModal-${showLoginModal}`}>
       <Head>
-        <title>Project</title>
+        <title>Simple Stock Tracker</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
       </Head>
@@ -282,9 +273,6 @@ const Page = () => {
           font-size: 13px;
           border-bottom: 1px solid #AAAAAA;
         }
-        table.transactions-table tr:nth-child(even) {
-
-        }
         table.transactions-table thead {
           background: #7FC6A4;
         }
@@ -298,10 +286,6 @@ const Page = () => {
           cursor: default;
         }
         table.transactions-table tr .editButton svg {
-          opacity: 0;
-        }
-        table.transactions-table tr:hover .editButton svg {
-          opacity: 1;
           fill: #babdbe;
           stroke-width: 15;
           stroke: #babdbe;
@@ -357,7 +341,6 @@ const Page = () => {
 
 Page.getInitialProps = async ({ req }) => {
   const res = await fetch('http://localhost:3000/api/transactions')
-  console.log(res,'res')
   const json = await res.json()
   return { transactions: json }
 }
@@ -389,8 +372,6 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
   const [buyPrice, setBuyPrice] = useState(price)
 
   const handleSubmitClick = (event) => {
-    console.log(stockName,buyDate,buyPrice,buyFee,'testsubmit')
-    console.log(event,"submitvalue")
     event.preventDefault();
     const submitFee = buyFee || 0
     let newTrans = {
@@ -407,7 +388,6 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
   }
 
   const handleEditClick = (event) => {
-    console.log(event,"editValue")
     event.preventDefault();
     const submitFee = buyFee || 0
     let newTrans = {
@@ -424,12 +404,10 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
   }
 
   const handleDeleteClick = (event) => {
-    console.log('inthedelete')
     handleDelete(id)
   }
 
   var totalPrice = () => {
-    // console.log([buyPrice, buyQty],"buyPrice")
     const calcQty = buyQty || 0
     const calcPrice = buyPrice || 0
     const calcFee = buyFee || 0
@@ -447,7 +425,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
         </div>
         <div className="modal-body__form">
           <form onSubmit={isEdit ? (handleEditClick) : (handleSubmitClick)} accept-charset="UTF-8">
-            <div className="horizontal-entries">
+            <div className="horizontal-entries" style={{justifyContent:'space-evenly'}}>
               <label className="modal-input">
                 <span style={{marginRight:'5px'}}>Stock</span>
                 <select value={stockName} onChange={(e) => setStockName(e.target.value)} disabled={isEdit ? true : false} required>
@@ -456,7 +434,7 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
                   <option value="NFLX">NFLX</option>
                 </select>
               </label>
-              <label>
+              <label className="modal-input">
                 <span style={{marginRight:'5px'}}>Date</span>
                 <DatePicker
                     selected={buyDate}
@@ -471,18 +449,18 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
                 Quantity
                 <input type="number" min="0" placeholder="0" value={buyQty} onChange={(e) => setBuyQty(parseFloat(e.target.value))} required/>
               </label>
-              <span style={{verticalAlign:'middle',display:'table-cell',color:'#7c899c',padding:'0 5px'}}>&times;</span>
+              <span style={{verticalAlign:'middle',color:'#7c899c',padding:'0 5px'}}>&times;</span>
               <label className="modal-input">
                 Price
                 <input type="number" min="0" step=".01" placeholder="0.00" value={buyPrice} onChange={(e) => setBuyPrice(parseFloat(e.target.value))} required/>
               </label>
-              <span style={{verticalAlign:'middle',display:'table-cell',color:'#7c899c',padding:'0 5px'}}>&#43;</span>
+              <span style={{verticalAlign:'middle',color:'#7c899c',padding:'0 5px'}}>&#43;</span>
               <label className="modal-input">
                 Fees
                 <input type="number" min="0" step=".01" placeholder="0.00" value={buyFee} onChange={(e) => setBuyFee(parseFloat(e.target.value))} />
               </label>
-              <span style={{verticalAlign:'middle',display:'table-cell',color:'#7c899c',padding:'0 5px'}}>&#61;</span>
-              <label className="modal-input">
+              <span style={{verticalAlign:'middle',color:'#7c899c',padding:'0 5px'}}>&#61;</span>
+              <label className="modal-input modal-input__totalPrice">
                 Total
                 <span className="modal-input__finalPrice">${totalPrice()}</span>
               </label>
@@ -496,7 +474,8 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
       </div>
       <style jsx>{`
         .modal-body {
-          height: 260px;
+          width: 90%;
+          max-width: 810px;
           background: white;
           position: fixed;
           top: 50%;
@@ -547,12 +526,19 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
           display: table-cell;
           text-align: center;
         }
+        .modal-input input {
+          width: 100%;
+          max-width: 200px;
+        }
         .entry-label {
          width: 100%;
         }
         .horizontal-entries {
           width: 100%;
-          display: table;
+          display: flex;
+        }
+        .horizontal-entries > span {
+          display: table-cell;
         }
         .modal-body select {
           width: 200px;
@@ -605,6 +591,36 @@ const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelet
         #delete-button:hover {
           background-color: #d24e43;
           box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        }
+        @media only screen and (max-width: 600px) {
+          .modal-body {
+            width: 100%;
+            height: 100%;
+          }
+          .horizontal-entries {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+          }
+          .horizontal-entries > span {
+            display: none;
+          }
+          .modal-input {
+            width: 100%;
+            display: grid;
+            text-align: left;
+          }
+          .modal-input input, .modal-input select {
+            margin-top: 6px;
+            margin-bottom: 10px;
+            width: 100%;
+          }
+          .modal-input__totalPrice {
+            text-align: center;
+            background: #eee;
+            padding: 5px;
+          }
+
         }
 
       `}</style>
