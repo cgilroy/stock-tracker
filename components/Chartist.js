@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ChartistGraph from 'react-chartist';
-import './chartist.scss'
-import './chartist.css'
+import './css/chartist.scss'
+import './css/chartist.css'
 import { formatMoney } from './helpers.js'
 const Chart = (props) => {
 
@@ -19,7 +19,6 @@ const Chart = (props) => {
         {x:xIter,y:parseFloat(dayData[1]["4. close"])}
       )
       let xLabel = dayData[0]
-      // console.log(xLabel,'xlabel')
       xData.push(xLabel)
       yData.push(parseFloat(dayData[1]["4. close"]))
       xIter++;
@@ -31,7 +30,6 @@ const Chart = (props) => {
       ]
     };
   } else if (props.chartType === 'summary') {
-    console.log('making summary',props.data)
     var tempCoordinates = []
     var xData = []
     var yData = []
@@ -53,7 +51,6 @@ const Chart = (props) => {
   }
 
   const getLabelDivisor = () => {
-    // console.log('length',props.data.length)
     switch(props.activeRange) {
       case 'WEEK':
         //WEEK
@@ -73,7 +70,6 @@ const Chart = (props) => {
   }
 
   const getToolHoverWidth = () => {
-    // console.log('length',props.data.length)
     switch(props.activeRange) {
       case 'WEEK':
         //WEEK
@@ -112,7 +108,6 @@ const Chart = (props) => {
 
   var type = 'Line'
   var tooltipLineAdded = false
-  console.log('outloop')
   var listener = {
     created: () => {
       seq = 0
@@ -135,24 +130,11 @@ const Chart = (props) => {
             to: 1
           }
         });
-        // console.log('datacheck',data)
         const tooltipHoverWidth = 100/(data.path.pathElements.length-1) + '%'
-
-        // for (let point of data.path.pathElements) {
-        //   data.group.append(
-        //     new Chartist.Svg('rect', {
-        //       x: point.x,
-        //       y: 0,
-        //       width: 100/(data.path.pathElements.length-1) + '%',
-        //       height: '100%'
-        //     }, 'ct-custom-element')
-        //   )
-        // }
       }
 
       if (data.type === 'grid') {
         if (data.y1 !== data.y2) {
-          boxHeight = data.group.height();
           if (seq === 1) {
             data.group.append(
               new Chartist.Svg('line', {
@@ -160,27 +142,25 @@ const Chart = (props) => {
                 x2: data.x2,
                 y1: data.y1,
                 y2: data.y2,
-                stroke: '#000'
-              }, 'ct-tooltip-line')
+                stroke: '#ccc'
+              }, 'ct-tooltip-line-y')
             )
           }
-          // console.log('boxHeight',boxHeight)
+        }
+        if (data.x1 !== data.x2) {
+          if (seq === 11 || seq === 27) {
+            data.group.append(
+              new Chartist.Svg('line', {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y1,
+                y2: data.y2,
+                stroke: '#ccc'
+              }, 'ct-tooltip-line-x')
+            )
+          }
         }
       }
-      // if (data.type === 'gridBackground') {
-      //
-      //
-      //         data.group.append(
-      //           new Chartist.Svg('rect', {
-      //             x: data.x,
-      //             y: 0,
-      //             width: "100%",
-      //             height: '100%'
-      //           }, 'ct-custom-element')
-      //         )
-      //     // console.log('boxHeight',boxHeight)
-      //
-      // }
     }
   }
 

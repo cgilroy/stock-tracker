@@ -2,7 +2,6 @@ import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
 import { formatMoney } from './helpers.js'
 const SummaryChart = (props) => {
-  // console.log('portdata',getPortfolioData(props.data))
   return (
     <div className="summary-section">
       <StocksTable data={getPortfolioData(props.data)} />
@@ -19,23 +18,16 @@ const SummaryChart = (props) => {
 }
 
 const getPortfolioData = (allData) => {
-  // allData = props.data
   var allHoldingsData = []
 
   for (let holding of allData) {
     var totVals = []
-    // console.log(holding,'holding')
     for (let entry of holding["data"]) {
-      // let totQty = 0
       var totValForEntry = 0
       for (let txn of holding["transactions"]) {
-        // totQty+=txn.buyQty
         if (txn.buyDate <= entry[0]) {
           // shares owned before or on date
-
-          // console.log(entry[0],'entrydata')
           totValForEntry+=(txn.buyQty*entry[1]["4. close"])
-          // console.log(totValForEntry,'totValForEntry')
         }
       }
       totVals.push({date: entry[0], holdingValue: totValForEntry})
@@ -44,9 +36,7 @@ const getPortfolioData = (allData) => {
   }
   var totalSpent = 0
   for (let holding of allData) {
-    // console.log(holding,'holding')
       for (let txn of holding["transactions"]) {
-        // totQty+=txn.buyQty
         totalSpent+=parseFloat(txn.totalValue)
     }
   }
@@ -60,22 +50,18 @@ const getPortfolioData = (allData) => {
     }
     cumulativeHoldingsData.push({date: date,totalHoldings:dayTotal})
   }
-  console.log(allHoldingsData,'allHoldingsData')
-  console.log(cumulativeHoldingsData,'cumulative')
   return {cumulative: cumulativeHoldingsData, totalSpent: totalSpent}
 }
 
 
 
 const StocksTable = (props) => {
-  console.log('summary we in',props)
   const currentPortfolioValue = props.data.cumulative[props.data.cumulative.length-1].totalHoldings
 
   const summaryData = {
     currentValue: formatMoney(currentPortfolioValue),
     totalReturn: formatMoney(currentPortfolioValue - props.data.totalSpent)
   }
-  console.log(summaryData.totalReturn,'totalReturn')
   const totalReturnStyle = (parseFloat(summaryData.totalReturn) < 0) ? (
     {
       color: '#d23f31'
@@ -136,21 +122,16 @@ const Chart = (props) => {
   const dateRanges = {
     WEEK: 7,
     THIRTYDAYS: 30,
-    YEAR: 365
+    MAX: 365
   }
-  console.log('summarycharthere',props)
 
   const getDateArrayLength = (days) => {
-    // console.log('days',days)
     const targetDay = moment().subtract(days, 'days').format("YYYY-MM-DD")
-    console.log(targetDay,'targetDay')
     var dayIndex = 0
     const reverseData = props.data.slice().reverse()
-    // console.log(allData,'alldata')
 
     for (let day of reverseData) {
       if (day.date < targetDay) {
-        console.log(dayIndex,'dayIndex')
         setDataRange(dayIndex)
         return
       } else if (dayIndex >= reverseData.length-1) {
@@ -160,14 +141,12 @@ const Chart = (props) => {
       }
     }
   }
-  console.log(-dataRange,'dataRange')
-  console.log(props.data.slice(-dataRange),'activeChartRange')
   return(
     <div className="summary-chart">
       <div className="chart-buttons">
         <div className={`chart-buttons__button ${activeChartRange === 'WEEK' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['WEEK']);setActiveChartRange('WEEK')}}>WEEK</div>
         <div className={`chart-buttons__button ${activeChartRange === 'THIRTYDAYS' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['THIRTYDAYS']);setActiveChartRange('THIRTYDAYS')}}>30 DAYS</div>
-        <div className={`chart-buttons__button ${activeChartRange === 'YEAR' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['YEAR']);setActiveChartRange('YEAR')}}>YEAR</div>
+        <div className={`chart-buttons__button ${activeChartRange === 'MAX' ? 'chart-buttons__button-active' : ''}`} onClick={() => {getDateArrayLength(dateRanges['MAX']);setActiveChartRange('MAX')}}>MAX</div>
       </div>
       <Chartist activeRange={activeChartRange} data={props.data.slice(-dataRange)} chartType='summary' />
       <style jsx>{`

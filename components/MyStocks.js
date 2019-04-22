@@ -3,7 +3,7 @@ import Chartist from './Chartist.js'
 import ChartAndTransactions from './ChartAndTransactions.js'
 import SummaryChart from './SummaryChart.js'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import transitionCSS from '../components/transitions.css'
+import transitionCSS from '../components/css/transitions.css'
 import {groupBy} from 'lodash'
 const MyStocks = (props) => {
   const [priceHistoyArray, setPriceHistoryArray] = useState()
@@ -11,7 +11,6 @@ const MyStocks = (props) => {
   const [summarySection, setSummarySection] = useState()
 
   const purchasesArray = groupBy(props.transactions,"tickerSymbol")
-  console.log('checkthis',purchasesArray)
   const API_KEY = process.env.REACT_APP_ALPHAVANTAGE_API_KEY;
   useEffect(
     () => {
@@ -21,7 +20,6 @@ const MyStocks = (props) => {
         // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
         priceDataPromises.push(
           fetch(apiString).then(results => results.json()).then(json => {
-            // console.log(json,'entries')
             var entries = Object.entries(json["Time Series (Daily)"]);
             entries.reverse()
             return {stock: stock, transactions: purchasesArray[stock], data: entries}
@@ -30,13 +28,14 @@ const MyStocks = (props) => {
         )
       }
       Promise.all(priceDataPromises).then(data => {
-        var stockChartsAndTransactions = (data.length !== 0) ? (
+        console.log('inHere',data)
+        console.log('length',data.length)
+        const stockChartsAndTransactions = (data.length !== 0) ? (
           data.map((stockData,index) => {
-            console.log('lookin',stockData)
             props.contentLoaded()
             return (
               <CSSTransition in={stockSections} timeout={400} classNames="stock-chart-transition" unmountOnExit>
-                <ChartAndTransactions key={index} showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />
+                <ChartAndTransactions key={'transition'+index} showAddTransForm={props.showAddTransForm} deleteStock={props.deleteStock} stock={stockData.stock} transactions={stockData.transactions} data={stockData.data} />
               </CSSTransition>
             )
           })
@@ -66,37 +65,31 @@ const MyStocks = (props) => {
             `}</style>
           </div>
         );
-        var summaryChart = (data.length !== 0) ? (
+        const summaryChart = (data.length !== 0) ? (
           <SummaryChart data={data} />
         ) : (
           <div style={{height:'200px',width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>
             <h2 style={{color:'#ccc',fontWeight:'lighter',border:'1px solid #ccc',padding:'10px'}}>No Data Available</h2>
           </div>
         )
-          console.log(data,'datahere')
-          setSummarySection(summaryChart)
-          setStockSections(stockChartsAndTransactions)
+        console.log('setting',stockChartsAndTransactions)
+        setSummarySection(summaryChart)
+        setStockSections(stockChartsAndTransactions)
 
       })
     },
     [props.transactions]
   )
-  // console.log('rerender mystocks')
+  console.log('rendering',stockSections)
+  let emptyStyle = (props.transactions.length === 0) ? ({alignItems:'center',justifyContent:'center'}) : {}
   return (
-    <div>
+    <div style={{display:'flex',flexFlow:'column',minHeight:'100vh'}}>
       <h2 className="section-header">PORTFOLIO SUMMARY</h2>
       {summarySection}
       <h2 className="section-header">MY HOLDINGS</h2>
-      <TransitionGroup className="stock-sections">
+      <TransitionGroup className="stock-sections" style={emptyStyle}>
         {stockSections}
       </TransitionGroup>
-      <style jsx>{`
-        .stock-sections {
-          display: flex;
-          flex-wrap: wrap;
-          background: #eee;
-        }
-      `}</style>
     </div>
   )
 
@@ -124,7 +117,6 @@ const StocksTables = (props) => {
           <td>{j.totalValue}</td>
         </tr>
       )
-      // console.log(j.totalValue,'totalval')
       transactionDataRows.push(transRow)
       totals.totQty+=j.buyQty
       totals.totFees+=j.buyFee
@@ -174,7 +166,6 @@ const StocksTables = (props) => {
       </tbody>
     </table>
   )
-  // console.log(transactionsTable,'mystocksrender')
   return (
     <div>
       <h1>Stock Summary</h1>

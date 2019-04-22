@@ -5,7 +5,6 @@ const ObjectId = require("mongodb").ObjectID;
 const next = require('next')
 require('dotenv').config()
 const dev = process.env.NODE_ENV !== 'production'
-console.log('got here',dev)
 const app = next({dev})
 const port = process.env.PORT || 3000;
 
@@ -18,14 +17,8 @@ app.prepare()
   const server = Express();
   server.use(BodyParser.json());
   server.use(BodyParser.urlencoded({ extended: true }));
-  // server.use('/api/transactions', require('./routes/index'))
-//   server.get('/api/transactions', function (req, res) {
-//   res.send('kinda did it')
-// })
-
 
   var database, collection;
-
 
   server.listen(port, () => {
       MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
@@ -34,7 +27,6 @@ app.prepare()
           }
           database = client.db(DATABASE_NAME);
           collection = database.collection("transactions");
-          // console.log(collection,'collection')
           server.get("/api/transactions", (request, response) => {
             collection.find({}).toArray((error, result) => {
                 if(error) {
@@ -55,8 +47,8 @@ app.prepare()
           });
           server.put("/api/transaction/:id", (request, response) => {
             collection.findOneAndUpdate(
-              {id: request.params.id},
-              {$set: request.body},
+              { id: request.params.id },
+              { $set: request.body },
               (err, transaction) => {
                 if (err) {
                   response.status(500).send(err);
