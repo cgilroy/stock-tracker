@@ -27,6 +27,7 @@ app.prepare()
           }
           database = client.db(DATABASE_NAME);
           collection = database.collection("transactions");
+          pricesCollection = database.collection("stock-prices");
           server.get("/api/transactions", (request, response) => {
             collection.find({}).toArray((error, result) => {
                 if(error) {
@@ -65,6 +66,24 @@ app.prepare()
                   }
                   response.send(result.result);
               });
+          });
+
+          server.post("/api/prices", (request, response) => {
+              pricesCollection.insert(request.body, (error, result) => {
+                  if(error) {
+                      // return response.status(500).send(error);
+                  }
+                  response.send(result.result);
+              });
+          });
+
+          server.get("/api/prices", (request, response) => {
+            pricesCollection.find({}).toArray((error, result) => {
+                if(error) {
+                    return response.status(500).send(error);
+                }
+                response.send(result);
+            });
           });
           server.get('*', (req,res) => {
               return handle(req,res) // for all the react stuff
