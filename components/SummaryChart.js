@@ -27,7 +27,7 @@ const getPortfolioData = (allData) => {
       for (let txn of holding["transactions"]) {
         if (txn.buyDate <= entry[0]) {
           // shares owned before or on date
-          totValForEntry+=(txn.buyQty*entry[1]["4. close"])
+          totValForEntry+=(txn.buyQty*entry[1]["4 close"])
         }
       }
       totVals.push({date: entry[0], holdingValue: totValForEntry})

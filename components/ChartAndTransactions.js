@@ -2,7 +2,7 @@ import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
 import { formatMoney } from './helpers.js'
 const ChartAndTransactions = (props) => {
-  const currentPrice = parseFloat(props.data[props.data.length-1][1]['4. close'])
+  const currentPrice = parseFloat(props.data[props.data.length-1][1]['4 close'])
   return (
     <div className="stock-wrapper">
       <div className="stock-div">
@@ -57,7 +57,7 @@ const StocksTable = (props) => {
     totDividends: 0
   }
 
-  const currentPrice = props.data[props.data.length-1][1]['4. close']
+  const currentPrice = props.data[props.data.length-1][1]['4 close']
   // const currentPrice = 23.4
 
   for (const [index, txn] of props.transactions.entries()) {
@@ -80,7 +80,7 @@ const StocksTable = (props) => {
 
   var totDiv = 0
   for (let entry of props.data) {
-    if (entry[1]["7. dividend amount"] !== "0.0000") {
+    if (entry[1]["7 dividend amount"] !== "0.0000") {
       let totQty = 0
       let divQty = 0 //number of shares included in div calc
       for (let txn of props.transactions) {
@@ -88,7 +88,7 @@ const StocksTable = (props) => {
         if (txn.buyDate <= entry[0]) {
           divQty+=txn.buyQty
           // shares owned before or on date of dividend payment
-          totDiv+=(txn.buyQty*entry[1]["7. dividend amount"])
+          totDiv+=(txn.buyQty*entry[1]["7 dividend amount"])
         }
       }
     }

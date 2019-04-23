@@ -77,6 +77,21 @@ app.prepare()
               });
           });
 
+          server.put("/api/prices/:stock", (request, response) => {
+            console.log('body',request.body)
+            pricesCollection.findOneAndUpdate(
+              { stock: request.params.stock },
+              { $set: request.body },
+              { upsert: true },
+              (err, stock) => {
+                if (err) {
+                  response.status(500).send(err);
+                }
+                response.status(200).json(stock);
+              }
+            );
+          });
+
           server.get("/api/prices", (request, response) => {
             pricesCollection.find({}).toArray((error, result) => {
                 if(error) {

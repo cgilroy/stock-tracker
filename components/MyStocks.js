@@ -12,47 +12,43 @@ const MyStocks = (props) => {
 
   const purchasesArray = groupBy(props.transactions,"tickerSymbol")
   const API_KEY = process.env.REACT_APP_ALPHAVANTAGE_API_KEY;
+
   useEffect(
     () => {
       var priceDataPromises = []
       for (let stock in purchasesArray) {
         let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
         // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
-        var raw =
         priceDataPromises.push(
           fetch(apiString).then(results => {
-            console.log(results,'results')
             return results.json()
           }).then(json => {
-            var entries = Object.entries(json["Time Series (Daily)"]);
+            var newJSON = JSON.stringify(json).replace(/\. /g,' ')
+            newJSON = JSON.parse(newJSON)
+            var entries = Object.entries(newJSON["Time Series (Daily)"]);
             entries.reverse()
-            console.log('above',json)
-            return {stock: stock, transactions: purchasesArray[stock], data: entries, json: json}
+
+            return {stock: stock, transactions: purchasesArray[stock], data: entries}
           })
         )
       }
+
       Promise.all(priceDataPromises).then(data => {
+        // updates the price database (this data can be used when api limits are reached)
         if (data.length !== 0) {
           data.map((someData) => {
-            const jsonPost = {
-              data: {
-                "A .Q": "a",
-                "B .N": "b"
-              }
-            }
-            const test = someData.json["Time Series (Daily)"]["2019-03-11"]
-            console.log('jsonPost',JSON.stringify(jsonPost))
-            console.log('someData',JSON.stringify({data: someData.json["Time Series (Daily)"]["2019-03-11"]}))
-            fetch(`/api/prices/`, {
-                method: 'POST',
+            const bodyString = JSON.stringify(someData.json)
+            fetch(`/api/prices/${someData.stock}`, {
+                method: 'PUT',
                 headers: {
                   'Accept': 'application/json',
                   'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(jsonPost)
+                body: JSON.stringify({stock:someData.stock,data:someData.data})
               });
           })
         }
+
         const stockChartsAndTransactions = (data.length !== 0) ? (
           data.map((stockData,index) => {
             props.contentLoaded()

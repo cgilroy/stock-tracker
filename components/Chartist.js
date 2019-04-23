@@ -16,11 +16,11 @@ const Chart = (props) => {
     var xIter = 1
     for (let dayData of props.data) {
       tempCoordinates.push(
-        {x:xIter,y:parseFloat(dayData[1]["4. close"])}
+        {x:xIter,y:parseFloat(dayData[1]["4 close"])}
       )
       let xLabel = dayData[0]
       xData.push(xLabel)
-      yData.push(parseFloat(dayData[1]["4. close"]))
+      yData.push(parseFloat(dayData[1]["4 close"]))
       xIter++;
     }
     var data = {
