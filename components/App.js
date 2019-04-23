@@ -1,6 +1,5 @@
 import MyStocks from './MyStocks'
 export default (props) => {
-  const symbol = "HMMJ.TO"
   return(
     <div>
       <MyStocks

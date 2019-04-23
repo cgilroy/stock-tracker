@@ -7,6 +7,7 @@ import dateCss from 'react-datepicker/dist/react-datepicker.css'
 import extraDateCss from '../components/css/datepicker.css'
 import transitionCSS from '../components/css/transitions.css'
 import { CSSTransition } from 'react-transition-group'
+import { formatMoney } from '../components/helpers.js'
 const uuid = require('uuid/v1')
 
 const Page = (storedPriceData) => {
@@ -59,7 +60,6 @@ const Page = (storedPriceData) => {
   }
 
   const contentLoaded = () => {
-    // setLoading(false)
     setShowLoginModal(false)
   }
 
@@ -77,7 +77,6 @@ const Page = (storedPriceData) => {
           body: JSON.stringify(i)
         }))
     }
-    // setTransactions(newTransactions);
     Promise.all(promiseArray).then(() => {
       setTransactions(newTransactions)
     })
@@ -89,29 +88,47 @@ const Page = (storedPriceData) => {
           {
             "id": uuid(),
             "tickerSymbol": "AAPL",
+            "buyDate": "2018-10-05",
+            "buyPrice": 224.29,
+            "buyQty": 200,
+            "buyFee": 17.67,
+            "totalValue": 44875.67
+          },
+          {
+            "id": uuid(),
+            "tickerSymbol": "AAPL",
             "buyDate": "2017-11-14",
-            "buyPrice": 12.7801,
-            "buyQty": 101,
+            "buyPrice": 174.55,
+            "buyQty": 30,
             "buyFee": 0.35,
-            "totalValue": 1291.14
+            "totalValue": 5236.85
+          },
+          {
+            "id": uuid(),
+            "tickerSymbol": "AAPL",
+            "buyDate": "2015-06-21",
+            "buyPrice": 126.16,
+            "buyQty": 15,
+            "buyFee": 15.47,
+            "totalValue": 1907.87
           },
           {
             "id": uuid(),
             "tickerSymbol": "NFLX",
             "buyDate": "2019-01-05",
-            "buyPrice": 19.88,
-            "buyQty": 1,
-            "buyFee": 0,
-            "totalValue": 19.88
+            "buyPrice": 298.57,
+            "buyQty": 87,
+            "buyFee": 12.24,
+            "totalValue": 25987.83
           },
           {
             "id": uuid(),
             "tickerSymbol": "MSFT",
-            "buyDate": "2017-11-14",
-            "buyPrice": 12.7801,
-            "buyQty": 101,
-            "buyFee": 0.35,
-            "totalValue": 1291.14
+            "buyDate": "2018-06-22",
+            "buyPrice": 100.41,
+            "buyQty": 55,
+            "buyFee": 7.80,
+            "totalValue": 5530.35
           }
         ]
     )
@@ -344,17 +361,6 @@ Page.getInitialProps = async ({ req }) => {
   const res = await fetch(baseUrl + '/api/prices')
   const json = await res.json()
   return { storedPriceData: json }
-}
-
-const formatMoney = (n, c, d, t) => {
-  var c = isNaN(c = Math.abs(c)) ? 2 : c,
-    d = d == undefined ? "." : d,
-    t = t == undefined ? "," : t,
-    s = n < 0 ? "-" : "",
-    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
-    j = (j = i.length) > 3 ? j % 3 : 0;
-
-  return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
 }
 
 const AddTransactionModal = ({handleClose, handleSubmit, handleEdit, handleDelete, stock, price, fee, date, qty, isEdit, id}) => {

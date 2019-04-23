@@ -96,7 +96,6 @@ const MyStocks = (props) => {
             <h2 style={{color:'#ccc',fontWeight:'lighter',border:'1px solid #ccc',padding:'10px'}}>No Data Available</h2>
           </div>
         )
-        console.log('setting',stockChartsAndTransactions)
         setSummarySection(summaryChart)
         setStockSections(stockChartsAndTransactions)
 
@@ -104,7 +103,7 @@ const MyStocks = (props) => {
     },
     [props.transactions]
   )
-  console.log('rendering',stockSections)
+
   let emptyStyle = (props.transactions.length === 0) ? ({alignItems:'center',justifyContent:'center'}) : {}
   return (
     <div style={{display:'flex',flexFlow:'column',minHeight:'100vh'}}>

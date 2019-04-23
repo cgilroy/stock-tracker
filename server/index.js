@@ -38,7 +38,6 @@ app.prepare()
           });
 
           server.delete("/api/transaction/:id", (request, response) => {
-            console.log('delete')
             collection.remove({ "id": request.params.id }, (error, result) => {
                 if(error) {
                     return response.status(500).send(error);
@@ -78,7 +77,7 @@ app.prepare()
           });
 
           server.put("/api/prices/:stock", (request, response) => {
-            console.log('body',request.body)
+
             pricesCollection.findOneAndUpdate(
               { stock: request.params.stock },
               { $set: request.body },

@@ -1,6 +1,7 @@
 import { useState,useEffect } from 'react'
 import Chartist from './Chartist.js'
 import { formatMoney } from './helpers.js'
+
 const ChartAndTransactions = (props) => {
   const currentPrice = parseFloat(props.data[props.data.length-1][1]['4 close'])
   return (
@@ -58,8 +59,7 @@ const StocksTable = (props) => {
   }
 
   const currentPrice = props.data[props.data.length-1][1]['4 close']
-  // const currentPrice = 23.4
-
+  
   for (const [index, txn] of props.transactions.entries()) {
     let transRow = (
       <tr key={index}>
