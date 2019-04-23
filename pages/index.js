@@ -9,7 +9,7 @@ import transitionCSS from '../components/css/transitions.css'
 import { CSSTransition } from 'react-transition-group'
 const uuid = require('uuid/v1')
 
-const Page = () => {
+const Page = (storedPriceData) => {
   const [showTransModal, setShowTransModal] = useState(false)
   const [showLoginModal, setShowLoginModal] = useState(true)
   const [transactions, setTransactions] = useState([])
@@ -238,7 +238,7 @@ const Page = () => {
         <div>{loginModal}</div>
       </CSSTransition>
 
-      <App transactions={transactions} showAddTransForm={handleShowModalClick} contentLoaded={contentLoaded} />
+      <App transactions={transactions} showAddTransForm={handleShowModalClick} contentLoaded={contentLoaded} storedPriceData={storedPriceData}/>
       <style jsx global>{`
         * {
           font-family: sans-serif;
@@ -337,6 +337,13 @@ const Page = () => {
       `}</style>
     </div>
   )
+}
+
+Page.getInitialProps = async ({ req }) => {
+  const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+  const res = await fetch(baseUrl + '/api/prices')
+  const json = await res.json()
+  return { storedPriceData: json }
 }
 
 const formatMoney = (n, c, d, t) => {

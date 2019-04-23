@@ -8,6 +8,7 @@ export default (props) => {
         deleteStock={props.deleteStock}
         showAddTransForm={props.showAddTransForm}
         contentLoaded={props.contentLoaded}
+        storedPriceData={props.storedPriceData}
       />
     </div>
   )

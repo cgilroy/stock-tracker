@@ -17,8 +17,8 @@ const MyStocks = (props) => {
     () => {
       var priceDataPromises = []
       for (let stock in purchasesArray) {
-        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
-        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
+        // let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=MSFT&apikey=demo'
+        let apiString = 'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol='+stock+'&apikey='+API_KEY
         priceDataPromises.push(
           fetch(apiString).then(results => {
             return results.json()
@@ -29,6 +29,11 @@ const MyStocks = (props) => {
             entries.reverse()
 
             return {stock: stock, transactions: purchasesArray[stock], data: entries}
+          })
+          .catch(() => {
+            // if api fetch fails (often due to 5 req/min limit) use the stored data on mongodb
+            const storedData = props.storedPriceData.storedPriceData.find((element) => element.stock === stock)
+            return {stock: stock, transactions: purchasesArray[stock], data: storedData.data}
           })
         )
       }
