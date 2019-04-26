@@ -3,14 +3,27 @@ import Chartist from './Chartist.js'
 import { formatMoney } from './helpers.js'
 const ChartAndTransactions = (props) => {
   const currentPrice = parseFloat(props.data[props.data.length-1][1]['4 close'])
+  const prevDayPrice = parseFloat(props.data[props.data.length-2][1]['4 close'])
+  const priceChangeVal = currentPrice - prevDayPrice
+  const priceChangePercent = priceChangeVal/prevDayPrice*100
+  const prevDayReturnStyle = (priceChangeVal < 0) ? (
+    {
+      color: '#d23f31'
+    }
+  ) : (
+    {
+      color: '#0f9d58'
+    }
+  )
   return (
     <div className="stock-wrapper">
       <div className="stock-div">
-        <div style={{display:'flex',alignItems:'center'}}>
-          <h2 style={{fontWeight:'lighter',marginTop:'0'}}>{props.stock}</h2>
-          <h2 style={{marginLeft:'10px',marginTop:'0'}}>${formatMoney(currentPrice)}</h2>
+        <div style={{display:'flex',alignItems:'baseline',marginBottom:'10px'}}>
+          <h2 style={{fontWeight:'lighter'}}>{props.stock}</h2>
+          <h2 style={{marginLeft:'10px'}}>${formatMoney(currentPrice)}</h2>
+          <div className='stock-value-change' style={prevDayReturnStyle}><span>${formatMoney(priceChangeVal)}</span><span>%{priceChangePercent.toFixed(2)}</span></div>
         </div>
-        <Chart data={props.data} />
+        <Chart data={props.data}/>
         <StocksTable data={props.data} showAddTransForm={props.showAddTransForm} stock={props.stock} deleteStock={props.deleteStock} transactions={props.transactions} />
       </div>
       <style jsx>{`
@@ -23,6 +36,15 @@ const ChartAndTransactions = (props) => {
           overflow-y: auto;
           border: 1px solid #dfe1e5;
           background: white;
+        }
+        .stock-div h2 {
+          margin: 0;
+        }
+        .stock-value-change {
+          margin-top: 0;
+        }
+        .stock-value-change span {
+          margin-left: 10px;
         }
         .stock-wrapper {
           width: 50%;
