@@ -250,6 +250,11 @@ const Page = (storedPriceData) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
       </Head>
+      <div className="top_banner">
+        <h2 style={{margin:'0',color:"white"}}>Simple Stock Tracker</h2>
+        <span style={{color:'white',marginLeft:'10px'}}>A demo project by <a className="top_banner__link" href="https://cgilroy.github.io">CJ Gilroy</a></span>
+        <span style={{color:'white',marginLeft:'auto'}}>Check out the project on <a className="top_banner__link" href="https://github.com/cgilroy/stock-tracker">Github</a></span>
+      </div>
       {showTransModal && transModal}
       <CSSTransition in={showLoginModal} timeout={800} classNames="login-modal-transition" unmountOnExit>
         <div>{loginModal}</div>
@@ -262,6 +267,23 @@ const Page = (storedPriceData) => {
         }
         body {
           margin: 0;
+        }
+        .top_banner {
+          min-height: 50px;
+          background: #262626;
+          display: flex;
+          align-items: baseline;
+          padding: 10px;
+          box-sizing: border-box;
+        }
+        .top_banner__link {
+          color: #7fc6a4;
+          text-decoration: none;
+        }
+        @media only screen and (max-width: 600px) {
+          .top_banner h2 {
+            font-size: 1em;
+          }
         }
         .section-header {
           background: #3c4a51;
