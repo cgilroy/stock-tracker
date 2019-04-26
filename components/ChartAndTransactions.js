@@ -22,7 +22,7 @@ const ChartAndTransactions = (props) => {
         <div style={{display:'flex',alignItems:'baseline',marginBottom:'10px'}}>
           <h2 style={{fontWeight:'lighter'}}>{props.stock}</h2>
           <h2 style={{marginLeft:'10px'}}>${formatMoney(currentPrice)}</h2>
-          <div className='stock-value-change' style={prevDayReturnStyle}><span>${formatMoney(priceChangeVal)}</span><span>%{priceChangePercent.toFixed(2)}</span></div>
+          <div className='stock-value-change' style={prevDayReturnStyle}><span>${formatMoney(priceChangeVal)}</span><span>{priceChangePercent.toFixed(2)}%</span></div>
         </div>
         <Chart data={props.data}/>
         <StocksTable data={props.data} showAddTransForm={props.showAddTransForm} stock={props.stock} deleteStock={props.deleteStock} transactions={props.transactions} />
@@ -81,7 +81,7 @@ const StocksTable = (props) => {
   }
 
   const currentPrice = props.data[props.data.length-1][1]['4 close']
-  
+
   for (const [index, txn] of props.transactions.entries()) {
     let transRow = (
       <tr key={index}>
