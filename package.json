@@ -19,7 +19,7 @@
     "moment": "^2.24.0",
     "mongodb": "^3.2.2",
     "mongoose": "^5.4.20",
-    "next": "^8.0.3",
+    "next": "^13.1.1",
     "node-sass": "^4.11.0",
     "react": "^16.8.4",
     "react-chartist": "^0.13.3",
